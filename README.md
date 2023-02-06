@@ -12,3 +12,21 @@ This README.md is to be replaced by your project proposal:
 - What complexity points will this project contain
 - (optional) What complexity points will be attempted as bonus for the challenge factor
 - What you aim to complete for the alpha version, beta version, and final version
+
+# Project Title: Placeholder super cool mega project
+
+## Team Name: stomach pain
+
+## Focus
+
+## Description
+
+## Complexity Points
+
+## Completion Plan
+
+### Alpha Version
+
+### Beta Version
+
+### Final Version
