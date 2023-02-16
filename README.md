@@ -29,7 +29,7 @@ On the backend, there will be use of pdf parsing and form recognizing technology
 * auth0 (1)
   * For user authentication and RBAC
 * sharedb (2)
-  * For storing and managing JSON documents used for the image generation and user details.
+  * For storing and managing JSON documents used for the image generation and user details. Blob storage for saving pdf files. 
 
 ### Potential Challenge Points
 * cellery or bee-queue (2)
@@ -55,6 +55,7 @@ For this version, we are aiming for a minimum viable product. This includes:
 * handling different user types and permissions (back-end)
 * increased complexity in image generation
   * possibly multiple images, animations, interactivity
+* blob storage for pdf files
 
 ### Final Version
 * improved styling
