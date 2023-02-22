@@ -37,6 +37,8 @@ On the backend, there will be use of pdf parsing and form recognizing technology
 
 - cellery or bee-queue (2)
   - Task queue for confirmation emails and potentially logging
+- D3.js/threejs (2)
+  - different styles of art
 
 ## Completion Plan
 
