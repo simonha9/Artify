@@ -20,7 +20,7 @@ On the backend, there will be use of pdf parsing and form recognizing technology
 
 ## Complexity Points
 
-- p5.js (2) / stable diffusion (3)
+- p5.js (2)
   - Used to generate abstract art from the user inputted pdfs/raw text.
 - form recognizer (1)
   - For parsing of the pdf. Can be used to obtain quantitative values for image generation purposes.
@@ -35,14 +35,14 @@ On the backend, there will be use of pdf parsing and form recognizing technology
 - meilisearch (2)
   - mass search for text from all documents - return documents/images that match keywords (like elasticsearch)
 
-### Potential Challenge Points
+### Challenge Points
 
-- cellery or bee-queue (2)
-  - Task queue for confirmation emails and potentially logging
+- stable diffusion (3)
+  - for more complex images and a different style
 
 ## Completion Plan
 
-These goals are subject to change.
+These goals are subject to change. Note that those marked with (C) are challenge factors.
 
 ### Alpha Version
 
@@ -51,15 +51,17 @@ For this version, we are aiming for a minimum viable product. This includes:
 - basic account creation (BE)
 - mockups of final ui/ux design
 - uploading pdfs
-- basic image generation from parsed pdf (1 style) - p5 or stable diffusion PoC
+- basic image generation from parsed pdf (1 style)
 - basic ui elements
 - basic storage for pdfs/json/users - barebones
+- stable diffusion PoC (C)
 
 ### Beta Version
 
 - handling different user types and permissions (back-end)
 - increased complexity in image generation
-  - get stable diffusion fully working or p5 with more interesting stuff
+  - p5 with animations/interactivity
+  - stable diffusion mapping for resumes (C)
 - blob storage for pdf files, thumbnails
 - searching text content with meilisearch
 - full storage
@@ -71,3 +73,4 @@ For this version, we are aiming for a minimum viable product. This includes:
 - landing page that shows view of generated images
 - confirmation emails
 - action/request logging
+- full image complextiy with p5 and stable diffusion (C)
