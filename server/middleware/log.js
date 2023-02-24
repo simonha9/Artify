@@ -1,4 +1,10 @@
 export const logRequest = function (req, res, next) {
-  console.log("HTTP request", req.method, req.url, req.body);
+  if (!req.body.password) {
+    console.log("HTTP request", req.method, req.url, req.body);
+  } else {
+    let tmp = JSON.parse(JSON.stringify(req.body));
+    tmp.password = "********";
+    console.log("HTTP request", req.method, req.url, tmp);
+  }
   next();
 };
