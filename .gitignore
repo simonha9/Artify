@@ -8,4 +8,4 @@ uploads
 *.sqlite
 
 # config
-server/config.env
+server/*.env

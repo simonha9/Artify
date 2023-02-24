@@ -1,10 +1,11 @@
-import { Mongoclient } from "mongodb";
+import { MongoClient } from "mongodb";
 
 const connectionString = process.env.ATLAS_URI || "";
+const client = new MongoClient(connectionString);
 
 let conn;
 try {
-  conn = await MongoClient.connect(connectionString);
+  conn = await client.connect();
 } catch (e) {
   console.error(e);
 }

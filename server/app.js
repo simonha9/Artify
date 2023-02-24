@@ -1,8 +1,9 @@
+import "./loadEnvironment.js";
 import express from "express";
 import cors from "cors";
-import "./loadEnvironment.js";
 import bodyParser from "body-parser";
 import session from "express-session";
+import { userRouter } from "./routers/users.js";
 
 const PORT = process.env.PORT || 8080;
 
@@ -19,6 +20,8 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.use("/users", userRouter);
 
 app.use((err, _req, res, next) => {
   res.status(500).send("Something broke!");
