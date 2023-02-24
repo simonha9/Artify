@@ -28,8 +28,6 @@ On the backend, there will be use of pdf parsing and form recognizing technology
   - to show the pdf on browser alongside generated art (before and after)
 - auth0 (1)
   - For user authentication and RBAC
-- MongoDB (2)
-  - For storing and managing JSON documents used for the image generation and user details.
 - blob storage (1)
   - Blob storage for saving pdf files or other large files, as well as thumbnauils / image storage
 - meilisearch (2)
