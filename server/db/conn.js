@@ -1,15 +1,19 @@
-import { MongoClient } from "mongodb";
+const MongoClient = require("mongodb").MongoClient;
+const Users = require("../models/Users");
 
-const connectionString = process.env.ATLAS_URI || "";
-const client = new MongoClient(connectionString);
+class MongoUtil {
+  constructor() {
+    const connectionString = process.env.ATLAS_URI || "";
+    this.client = new MongoClient(connectionString);
+  }
 
-let conn;
-try {
-  conn = await client.connect();
-} catch (e) {
-  console.error(e);
+  async init() {
+    console.log("Connecting to database...");
+    await this.client.connect();
+    console.log("Connected to database.");
+    this.db = this.client.db("stomach-pain");
+    this.Users = new Users(this.db);
+  }
 }
 
-let db = conn.db("stomach-pain");
-
-export default db;
+module.exports = new MongoUtil();
