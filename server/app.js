@@ -82,13 +82,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((err, _req, res, next) => {
-  res.status(500).send("Something broke!");
-  next();
-});
-
 app.get("/", (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+  res.redirect("http://localhost:4200");
 });
 
 start();
