@@ -1,6 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
 const Users = require("../models/Users");
-
 class MongoUtil {
   constructor() {
     const connectionString = process.env.ATLAS_URI || "";
