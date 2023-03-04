@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:4200",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.static("static"));
 
 async function start() {

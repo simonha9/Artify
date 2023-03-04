@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor() { }
+
+  logout() {
+    window.location.href = 'http://localhost:8080/logout';
+  }
+
 }

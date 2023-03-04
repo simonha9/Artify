@@ -1,5 +1,9 @@
 <div>
     <span class="title"> Generate </span>
-    <app-upload-pdf> </app-upload-pdf>
+    <app-upload-pdf
+        (onFileUpload)="onFileUpload($event)"
+    > </app-upload-pdf>
+
     <app-p5generation> </app-p5generation>
+
 </div>

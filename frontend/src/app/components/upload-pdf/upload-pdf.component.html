@@ -1,1 +1,17 @@
-<p>upload-pdf works!</p>
+<form
+    id="upload-pdf-form"
+    (submit)="uploadPDF($event)"
+>
+
+    <div>Upload a PDF</div>
+
+    <input
+        type="file"
+        id="pdf-file"
+        name="pdf-file"
+        accept=".pdf"
+    />
+
+    <button type="submit" class="btn">Send</button>
+    
+</form>

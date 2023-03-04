@@ -17,7 +17,7 @@ export class P5generationComponent {
     const sketch = (s: p5) => {
 
       //params todo: make these inputs
-      const dotSize = 0.04
+      const dotSize = 0.08
       const radius = Math.sqrt(0.5) + dotSize //add dotsize to prevent popin
       const irrationalDenominator = 1.61803398875
       let t;
@@ -50,7 +50,6 @@ export class P5generationComponent {
         s.fill(1);
 
         const count = 1000 * signalCosine(time);
-        console.log(time)
         for (let i = 0; i < count; i++) {
             const fraction = i/count //fraction of the circle
             const distance = i/count * radius //disance of dot from center
@@ -62,7 +61,7 @@ export class P5generationComponent {
 
             const sig = normalizedCosine(fraction)
             const r =   sig * dotSize * fraction 
-            s.circle(x, y, r)
+            s.rect(x, y, r, r)
         }
       }
     }
