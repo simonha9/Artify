@@ -7,7 +7,7 @@ import {
   executeGenerationRequest,
   onGenerationComplete,
 } from "./helpers";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -20,7 +20,6 @@ metadata.set("Authorization", "Bearer " + process.env.API_KEY);
 
 // Create a generation client to use with all future requests
 const client = new GenerationServiceClient("https://grpc.stability.ai", {});
-
 
 const request = buildGenerationRequest("stable-diffusion-512-v2-1", {
   type: "text-to-image",
