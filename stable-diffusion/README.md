@@ -1,6 +1,6 @@
-### Stable Diffusion
+## Stable Diffusion
 
-## Requirements
+### Requirements
 
 This application was built using node@12.2.0 and npm@6.12.1
 
