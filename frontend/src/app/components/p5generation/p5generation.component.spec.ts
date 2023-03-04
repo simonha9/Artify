@@ -8,9 +8,8 @@ describe('P5generationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ P5generationComponent ]
-    })
-    .compileComponents();
+      declarations: [P5generationComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(P5generationComponent);
     component = fixture.componentInstance;
