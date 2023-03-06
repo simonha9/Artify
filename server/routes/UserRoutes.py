@@ -24,7 +24,6 @@ def loginCallback():
 @app.route('/callback')
 @cross_origin(supports_credentials=True)
 def callback():
-    print("Callback")
     return redirect(env.get('FE_URL') or '/')
 
 @app.route('/logout')
@@ -38,7 +37,9 @@ def logout():
 @app.route("/users/profile")
 @cross_origin(supports_credentials=True)
 def getUserProfile():
-    return jsonify(session.get('user'))
+    if 'user_info' not in session:
+        return jsonify({'message': 'User not logged in'}), 401
+    return jsonify(session.get('user_info')), 200
 
 @app.route('/users', methods=['POST', 'GET'])
 @cross_origin(supports_credentials=True)
