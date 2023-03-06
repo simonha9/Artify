@@ -13,7 +13,7 @@ export class P5generationComponent {
       const dotSize = 0.08;
       const radius = Math.sqrt(0.5) + dotSize; //add dotsize to prevent popin
       const irrationalDenominator = 1.61803398875;
-      let t;
+      const shapeCount = 1000;
       const frames = 1000;
 
       const normalizedCosine = (t: number) => {
@@ -28,8 +28,7 @@ export class P5generationComponent {
         let canvas = s.createCanvas(700, 700);
         canvas.parent('p5display');
         s.noStroke();
-        s.colorMode(s.RGB, 1);
-        console.log('asdasdas'); //this is to make the color values between 0 and 1
+        s.colorMode(s.RGB, 1); //this is to make the color values between 0 and 1
       };
 
       s.draw = () => {
@@ -41,7 +40,7 @@ export class P5generationComponent {
         s.background(0);
         s.fill(1);
 
-        const count = 1000 * signalCosine(time);
+        const count = shapeCount * signalCosine(time);
         for (let i = 0; i < count; i++) {
           const fraction = i / count; //fraction of the circle
           const distance = (i / count) * radius; //disance of dot from center

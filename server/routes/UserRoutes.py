@@ -64,7 +64,7 @@ def operateOnUser(id):
     try:
         if request.method == 'GET':
             user = getUser(id)
-            return jsonify({'user': user})
+            return jsonify({'user': user, 'uid': id})
         if request.method == 'DELETE':
             user = getUser(id)
             user.delete()
