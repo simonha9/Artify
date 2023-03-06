@@ -44,15 +44,12 @@ def getUserProfile():
         userId = User.objects.only('id').get(email=user_info['email']).id
         user_info['id'] = str(userId)
     except User.DoesNotExist:
-        return jsonify({'message': 'Something went wrong with getting user profile'}), 500
+        return jsonify({'message': 'Something went wrong with getting user profile'}), 404
     return jsonify(user_info), 200
 
-@app.route('/users', methods=['POST', 'GET'])
+@app.route('/users', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def getUsers():
-    if request.method == 'POST':
-        addUser(request.json['username'], request.json['password'], request.json['email'])
-        return jsonify({'message': 'User created successfully'})
     if request.method == 'GET':
         users = getUsers()
         return jsonify({'users': users})
@@ -72,13 +69,11 @@ def operateOnUser(id):
         return jsonify({'message': 'User does not exist'}, 404)
 
 def getUser(id):
-
-    user = User.objects.only('id', 'username', 'email').get(id=id)
-
+    user = User.objects.only('id', 'email').get(id=id)
     return user
 
-def addUser(username, password, email):
-    user = User(username=username, password=password, email=email)
+def addUser(password, email):
+    user = User(password=password, email=email)
     user.save()
 
 def getUsers():
