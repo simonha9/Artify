@@ -39,7 +39,13 @@ def logout():
 def getUserProfile():
     if 'user_info' not in session:
         return jsonify({'message': 'User not logged in'}), 401
-    return jsonify(session.get('user_info')), 200
+    user_info = session['user_info']
+    try:
+        userId = User.objects.only('id').get(email=user_info['email']).id
+        user_info['id'] = str(userId)
+    except User.DoesNotExist:
+        return jsonify({'message': 'Something went wrong with getting user profile'}), 500
+    return jsonify(user_info), 200
 
 @app.route('/users', methods=['POST', 'GET'])
 @cross_origin(supports_credentials=True)
