@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor() {}
+  @Input() userId: number = 0;
+
+  constructor(private router: Router) {}
 
   logout() {
-    window.location.href = 'http://localhost:8080/logout';
+    window.location.href = `${environment.backendUrl}/logout`;
+  }
+
+  seeMyProfile() {
+    this.router.navigate(['/profile', this.userId]);
   }
 }

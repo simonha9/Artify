@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GenerateComponent } from './pages/generate/generate.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { IndexComponent } from './pages/index/index.component';
+import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: GenerateComponent,
   },
   {
-    path: 'profile',
-    component: ProfileComponent,
+    path: 'profile/:id',
+    component: ProfileViewComponent,
   },
 ];
 
@@ -24,4 +24,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), FormsModule],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule implements OnInit {
+  constructor() {
+    
+  }
+
+  ngOnInit(): void {
+    //get current user id
+  }
+}

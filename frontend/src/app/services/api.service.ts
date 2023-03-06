@@ -20,13 +20,15 @@ export class ApiService {
   }
 
   getAuth() {
-    //send get request to users/profile
-    return this.http.get(`${environment.backendUrl}/users/profile`).pipe(
-      catchError((error: any) => {
-        window.location.href = 'http://localhost:8080/login';
-        return error;
-      })
-    );
+    return this.http.get(`${environment.backendUrl}/users/profile`)
+  }
+
+  getUsers() {
+    return this.http.get(`${environment.backendUrl}/users`)
+  }
+
+  getUserDetails(userId: string) {
+    return this.http.get(`${environment.backendUrl}/users/${userId}`)
   }
 
   getUserPDFsSummary() {}
