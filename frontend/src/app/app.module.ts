@@ -12,6 +12,7 @@ import { UploadPDFComponent } from './components/upload-pdf/upload-pdf.component
 import { ApiInterceptor } from './api.interceptor';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     P5generationComponent,
     UploadPDFComponent,
     ProfileComponent,
+    GenerationViewComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
