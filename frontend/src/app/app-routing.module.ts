@@ -25,9 +25,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule implements OnInit {
-  constructor() {
-    
-  }
+  constructor() {}
 
   ngOnInit(): void {
     //get current user id

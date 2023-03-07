@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  currentUser: any = {id:0};
+  currentUser: any = { id: 0 };
 
   constructor(private api: ApiService) {}
 
@@ -27,8 +27,7 @@ export class AppComponent implements OnInit {
       },
       error: (err: any) => {
         window.location.href = `${environment.backendUrl}/login`;
-      }
+      },
     });
   }
-
 }
