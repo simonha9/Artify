@@ -7,9 +7,7 @@ import { Profile } from 'src/app/classes/profile';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-
-  @Input() currentProfile: Profile = { id: '', username: '', email: ''};
+  @Input() currentProfile: Profile = { id: '', username: '', email: '' };
 
   constructor() {}
-  
 }

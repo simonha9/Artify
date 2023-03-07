@@ -22,7 +22,7 @@ export class ApiInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const newReq = request.clone({
       withCredentials: true,
-      headers: request.headers.set('Access-Control-Allow-Origin', '*')
+      headers: request.headers.set('Access-Control-Allow-Origin', '*'),
     });
     return next.handle(newReq);
   }

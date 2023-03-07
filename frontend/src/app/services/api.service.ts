@@ -20,15 +20,15 @@ export class ApiService {
   }
 
   getAuth() {
-    return this.http.get(`${environment.backendUrl}/users/profile`)
+    return this.http.get(`${environment.backendUrl}/users/profile`);
   }
 
   getUsers() {
-    return this.http.get(`${environment.backendUrl}/users`)
+    return this.http.get(`${environment.backendUrl}/users`);
   }
 
   getUserDetails(userId: string) {
-    return this.http.get(`${environment.backendUrl}/users/${userId}`)
+    return this.http.get(`${environment.backendUrl}/users/${userId}`);
   }
 
   getUserPDFsSummary() {}
