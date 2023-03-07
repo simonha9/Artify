@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { GenerateComponent } from './pages/generate/generate.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
+import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'profile/:id',
     component: ProfileViewComponent,
+  },
+  {
+    path: 'generation/:id',
+    component: GenerationViewComponent,
   },
 ];
 

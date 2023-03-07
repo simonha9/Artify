@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { P5spiral } from 'src/app/classes/p5spiral';
 import * as p5 from 'p5';
 
 @Component({
@@ -7,13 +8,24 @@ import * as p5 from 'p5';
   styleUrls: ['./p5generation.component.scss'],
 })
 export class P5generationComponent {
+  @Input() params: P5spiral = {
+    dotSize: 0,
+    radius: 0,
+    irrationalDenominator: 0,
+    shapeCount: 0,
+  };
+
+  constructor() {}
+
   ngOnInit(): void {
+    console.log(this.params);
+
     const sketch = (s: p5) => {
       //params todo: make these inputs
-      const dotSize = 0.08;
-      const radius = Math.sqrt(0.5) + dotSize; //add dotsize to prevent popin
-      const irrationalDenominator = 1.61803398875;
-      const shapeCount = 1000;
+      const dotSize = this.params.dotSize;
+      const radius = Math.sqrt(0.5) + this.params.dotSize; //add dotsize to prevent popin
+      const irrationalDenominator = this.params.irrationalDenominator;
+      const shapeCount = this.params.shapeCount;
       const frames = 1000;
 
       const normalizedCosine = (t: number) => {
