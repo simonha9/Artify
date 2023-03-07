@@ -38,6 +38,7 @@ oauth.register(
 
 db = MongoEngine(app)
 
-from server.routes import UserRoutes
+from server.routes import UserRoutes, ResumeRoutes
+
 
 
