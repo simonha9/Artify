@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-generate',
@@ -7,11 +8,22 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./generate.component.scss'],
 })
 export class GenerateComponent {
-  constructor(private api: ApiService) {}
+  constructor(private router: Router, private api: ApiService) {}
 
   onFileUpload(file: File) {
-    console.log('onFileUploaded inside of generate.component.ts');
-    console.log(file);
-    this.api.uploadPDF(file);
+    /*
+    this.api.uploadPDF(file).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    })
+    */
+
+    const genId = this.api.uploadPDF(file);
+
+    this.router.navigate(['/generation', genId]);
   }
 }
