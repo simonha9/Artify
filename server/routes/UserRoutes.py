@@ -3,7 +3,8 @@ from server.models.Users import User
 from flask import request, jsonify, redirect, session, url_for
 from flask_cors import cross_origin
 from urllib.parse import urlencode
-
+import mongoengine as me
+from bson import ObjectId
 
 @app.route('/login')
 @cross_origin(supports_credentials=True)
@@ -57,6 +58,9 @@ def getUsers():
 @app.route('/users/<id>', methods=['GET', 'DELETE'])
 @cross_origin(supports_credentials=True)
 def operateOnUser(id):
+    if (not ObjectId.is_valid(id)):
+        return jsonify({'message': 'Id is not a valid ObjectId, must be a 12-byte input or 24-character hex string'}), 400
+
     try:
         if request.method == 'GET':
             user = getUser(id)
@@ -67,10 +71,13 @@ def operateOnUser(id):
             return jsonify({'message': 'User deleted successfully'})
     except User.DoesNotExist:
         return jsonify({'message': 'User does not exist'}, 404)
+    except Exception as e:
+        return jsonify({'message': 'Something went wrong'}), 500
 
 def getUser(id):
     user = User.objects.only('id', 'email').get(id=id)
     return user
+
 
 def addUser(password, email):
     user = User(password=password, email=email)
