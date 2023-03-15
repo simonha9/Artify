@@ -14,11 +14,14 @@ export class StableDiffusionComponent {
     this.generateForm = this.fb.group({
       prompt: ['', Validators.required],
 <<<<<<< HEAD
+<<<<<<< HEAD
       cfg_scale: [],
       steps: [],
       samples: [],
 =======
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
+=======
+>>>>>>> ac52968 (completed basic FE for SD)
     });
   }
 
@@ -27,9 +30,12 @@ export class StableDiffusionComponent {
 
   generate() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log(this.generateForm.errors);
 =======
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
+=======
+>>>>>>> ac52968 (completed basic FE for SD)
     this.api.generateSD(this.generateForm.value).subscribe({
       next: (res: any) => {
         //TODO: take base64 img res and display it
