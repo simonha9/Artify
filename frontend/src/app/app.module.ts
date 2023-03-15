@@ -13,7 +13,7 @@ import { ApiInterceptor } from './api.interceptor';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
-import { GenerationPreviewComponent } from './components/generation-preview/generation-preview.component';
+import { StableDiffusionComponent } from './components/stable-diffusion/stable-diffusion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,11 @@ import { GenerationPreviewComponent } from './components/generation-preview/gene
     UploadPDFComponent,
     ProfileComponent,
     GenerationViewComponent,
+<<<<<<< HEAD
     GenerationPreviewComponent,
+=======
+    StableDiffusionComponent,
+>>>>>>> 9eb3bb0 (completed basic FE for SD)
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
