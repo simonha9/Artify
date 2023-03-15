@@ -46,6 +46,11 @@ export class ApiService {
     };
   }
 
+  generateSD(prompt: FormData) {
+    //TODO: implement this when backend is ready
+    return this.http.post(`${environment.backendUrl}/sd`, { prompt });
+  }
+
   getAuth() {
     return this.http.get(`${environment.backendUrl}/users/profile`);
   }
