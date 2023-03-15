@@ -40,7 +40,11 @@ export class ApiService {
 
   generateSD(prompt: FormData) {
     //TODO: implement this when backend is ready
+<<<<<<< HEAD
     return this.http.post(`${environment.sdUrl}/generate`, { prompt });
+=======
+    return this.http.post(`${environment.backendUrl}/sd`, { prompt });
+>>>>>>> 9eb3bb0 (completed basic FE for SD)
   }
 
   getAuth() {

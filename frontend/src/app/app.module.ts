@@ -14,7 +14,10 @@ import { ProfileViewComponent } from './pages/profile-view/profile-view.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 import { StableDiffusionComponent } from './components/stable-diffusion/stable-diffusion.component';
+<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+=======
+>>>>>>> 9eb3bb0 (completed basic FE for SD)
 
 @NgModule({
   declarations: [
@@ -29,7 +32,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     GenerationViewComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     GenerationPreviewComponent,
+=======
+    StableDiffusionComponent,
+>>>>>>> 9eb3bb0 (completed basic FE for SD)
 =======
     StableDiffusionComponent,
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
