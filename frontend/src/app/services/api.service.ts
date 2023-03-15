@@ -38,10 +38,9 @@ export class ApiService {
     };
   }
 
-  getGeneration(generationId: string) {
-    return this.http.get(
-      `${environment.backendUrl}/resumes/${generationId}/analyze`
-    );
+  generateSD(prompt: FormData) {
+    //TODO: implement this when backend is ready
+    return this.http.post(`${environment.backendUrl}/sd`, { prompt });
   }
 
   getAuth() {
