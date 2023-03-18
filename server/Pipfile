@@ -13,6 +13,7 @@ auth0-python = "*"
 flask-cors = "*"
 pymongo = "*"
 azure-ai-formrecognizer = "*"
+meilisearch = "*"
 
 [dev-packages]
 

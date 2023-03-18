@@ -7,6 +7,7 @@ from dotenv import find_dotenv, load_dotenv
 from flask import Flask, request, jsonify, redirect, session, url_for
 from flask_mongoengine import MongoEngine
 from flask_cors import CORS, cross_origin
+import meilisearch
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -36,12 +37,14 @@ oauth.register(
 )
 
 db = MongoEngine(app)
+meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700', env.get('MEILISEARCH_MASTER_KEY') or 'masterKey')
 
 from server.routes import UserRoutes, ResumeRoutes
 
 from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError
 from server.errors.UserNotFoundError import UserNotFoundError
+from server.errors.ResumeNotFoundError import ResumeNotFoundError
 
 @app.errorhandler(InvalidObjectIdError)
 def handleInvalidObjectId(error):
@@ -51,6 +54,7 @@ def handleInvalidObjectId(error):
 
 @app.errorhandler(ServerError)
 def handleInvalidObjectId(error):
+    print(error)
     response = jsonify({'message': 'Something went wrong'})
     response.status_code = 500
     return response
@@ -61,3 +65,8 @@ def handleInvalidObjectId(error):
     response.status_code = 404
     return response
 
+@app.errorhandler(ResumeNotFoundError)
+def handleInvalidObjectId(error):
+    response = jsonify({'message': 'Resume not found'})
+    response.status_code = 404
+    return response

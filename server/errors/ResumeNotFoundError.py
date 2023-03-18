@@ -1,0 +1,2 @@
+class ResumeNotFoundError(Exception):
+    pass

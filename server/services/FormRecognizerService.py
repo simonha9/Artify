@@ -22,3 +22,15 @@ class FormRecognizerService:
         poller = self.form_recognizer_client.begin_recognize_content(stream)
         result = poller.result()
         return result
+    
+    def analyzeResults(self, result):
+        res = {}
+        wc = 0
+        allText = ''
+        for page in result:
+            for line in page.lines:
+                allText += line.text + '\n'
+        res['text'] = allText
+        wc = len(allText.split())
+        res['wordCount'] = wc
+        return res

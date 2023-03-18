@@ -1,5 +1,6 @@
-from server import app, oauth, env
+from server import app, oauth, env, meilisearchService
 from server.models.Users import User
+from server.models.Resumes import Resume
 from flask import request, jsonify, redirect, session, url_for
 from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError
@@ -8,6 +9,12 @@ from flask_cors import cross_origin
 from urllib.parse import urlencode
 import mongoengine as me
 from bson import ObjectId
+from server.services import FormRecognizerService
+import io, json
+
+
+
+fr = FormRecognizerService.FormRecognizerService()
 
 
 @app.route('/login')
@@ -87,7 +94,7 @@ def getUser(id):
 @cross_origin(supports_credentials=True)
 def deleteUser(id):
     if (not ObjectId.is_valid(id)):
-        return jsonify({'message': 'Id is not a valid ObjectId, must be a 12-byte input or 24-character hex string'}), 400
+        raise InvalidObjectIdError
 
     try:
         user = findUserById(id)
@@ -96,6 +103,30 @@ def deleteUser(id):
     except User.DoesNotExist:
         raise UserNotFoundError
     except Exception:
+        raise ServerError
+
+@app.post('/users/<id>/resumes/upload')
+@cross_origin(supports_credentials=True)
+def uploadResume(id):
+    if (not ObjectId.is_valid(id)):
+        raise InvalidObjectIdError
+
+    try:
+        user = findUserById(id)
+        uploadedFile = request.files['file']
+        resume = Resume(file_data=uploadedFile.read())
+        resume.save()
+
+        resume_data = io.BytesIO(resume.file_data)
+        result = fr.extract(resume_data)
+        res = fr.analyzeResults(result)
+        res['id'] = str(resume.id)
+        meilisearchService.index('resumes').add_documents(res)
+        return jsonify({'id': str(resume.id)})
+    except User.DoesNotExist:
+        raise UserNotFoundError
+    except Exception as e:
+        print(e)
         raise ServerError
 
 
