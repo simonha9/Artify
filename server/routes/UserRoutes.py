@@ -1,26 +1,39 @@
 from server import app, oauth, env
 from server.models.Users import User
 from flask import request, jsonify, redirect, session, url_for
+from server.errors.InvalidObjectIdError import InvalidObjectIdError
+from server.errors.ServerError import ServerError
+from server.errors.UserNotFoundError import UserNotFoundError
 from flask_cors import cross_origin
 from urllib.parse import urlencode
 import mongoengine as me
 from bson import ObjectId
 
+
 @app.route('/login')
 @cross_origin(supports_credentials=True)
 def login():
     return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for('loginCallback', _external=True), 
+        redirect_uri=url_for('login_callback', _external=True), 
         audience='https://dev-krwoywe0p7brgud1.us.auth0.com/api/v2/')
 
-@app.route('/loginCallback')
+@app.route('/login-callback')
 @cross_origin(supports_credentials=True)
-def loginCallback():
-    token = oauth.auth0.authorize_access_token()
-    user_info = oauth.auth0.get('userinfo').json()
+def login_callback():
+    oauth.auth0.authorize_access_token()
+    userinfo = oauth.auth0.get('userinfo').json()
     session['jwt_token'] = oauth.auth0.token['access_token']
-    session['user_info'] = user_info
+    user = {}
+    try:
+        user = findUserByEmail(userinfo['email'])
+    except User.DoesNotExist:
+        user = addUser(userinfo['email'])
+    
+    userinfo['id'] = str(user.id)
+    session['user_info'] = userinfo
+    print(userinfo)
     return redirect(env.get('FE_URL') or '/')
+
 
 @app.route('/callback')
 @cross_origin(supports_credentials=True)
@@ -55,33 +68,49 @@ def getUsers():
         users = getUsers()
         return jsonify({'users': users})
     
-@app.route('/users/<id>', methods=['GET', 'DELETE'])
+@app.get('/users/<id>')
 @cross_origin(supports_credentials=True)
-def operateOnUser(id):
+def getUser(id):
+    if (not ObjectId.is_valid(id)):
+        raise InvalidObjectIdError
+    
+    try:
+        if request.method == 'GET':
+            user = findUserById(id)
+            return jsonify({'user': user, 'uid': id})
+    except User.DoesNotExist:
+        raise UserNotFoundError
+    except Exception as e:
+        raise ServerError
+    
+@app.delete('/users/<id>')
+@cross_origin(supports_credentials=True)
+def deleteUser(id):
     if (not ObjectId.is_valid(id)):
         return jsonify({'message': 'Id is not a valid ObjectId, must be a 12-byte input or 24-character hex string'}), 400
 
     try:
-        if request.method == 'GET':
-            user = getUser(id)
-            return jsonify({'user': user, 'uid': id})
-        if request.method == 'DELETE':
-            user = getUser(id)
-            user.delete()
-            return jsonify({'message': 'User deleted successfully'})
+        user = findUserById(id)
+        user.delete()
+        return jsonify({'message': 'User deleted successfully'})
     except User.DoesNotExist:
-        return jsonify({'message': 'User does not exist'}, 404)
-    except Exception as e:
-        return jsonify({'message': 'Something went wrong'}), 500
+        raise UserNotFoundError
+    except Exception:
+        raise ServerError
 
-def getUser(id):
+
+def findUserById(id):
     user = User.objects.only('id', 'email').get(id=id)
     return user
 
+def findUserByEmail(email):
+    user = User.objects.only('id', 'email').get(email=email)
+    return user
 
-def addUser(password, email):
-    user = User(password=password, email=email)
+def addUser(email):
+    user = User(email=email)
     user.save()
+    return user
 
 def getUsers():
     user = User.objects()

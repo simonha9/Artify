@@ -4,7 +4,7 @@ from urllib.parse import quote_plus, urlencode
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask
+from flask import Flask, request, jsonify, redirect, session, url_for
 from flask_mongoengine import MongoEngine
 from flask_cors import CORS, cross_origin
 
@@ -18,8 +18,7 @@ CORS(app, support_credentials=True)
 app.config.from_mapping(
     SECRET_KEY= env.get('SECRET_KEY') or 'dev',
     MONGODB_SETTINGS = {
-        'db': 'stomach-pain',
-        'host': 'mongodb+srv://dbUser:Passw0rd@sp-cluster.lrqvs8k.mongodb.net/stomach-pain'
+        'host': env.get('MONGODB_URI') or 'mongodb://localhost:27017',
     }
 )
 oauth = OAuth(app)
@@ -40,5 +39,25 @@ db = MongoEngine(app)
 
 from server.routes import UserRoutes, ResumeRoutes
 
+from server.errors.InvalidObjectIdError import InvalidObjectIdError
+from server.errors.ServerError import ServerError
+from server.errors.UserNotFoundError import UserNotFoundError
 
+@app.errorhandler(InvalidObjectIdError)
+def handleInvalidObjectId(error):
+    response = jsonify({'message': 'Id is not a valid ObjectId, must be a 12-byte input or 24-character hex string'})
+    response.status_code = 400
+    return response
+
+@app.errorhandler(ServerError)
+def handleInvalidObjectId(error):
+    response = jsonify({'message': 'Something went wrong'})
+    response.status_code = 500
+    return response
+
+@app.errorhandler(UserNotFoundError)
+def handleInvalidObjectId(error):
+    response = jsonify({'message': 'User not found'})
+    response.status_code = 404
+    return response
 
