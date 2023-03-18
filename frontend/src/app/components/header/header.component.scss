@@ -1,0 +1,32 @@
+#header {
+  background-color: #3f4e4f;
+  padding: 10px 40px 10px 40px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  .title {
+    font-family: "Montserrat";
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    .button {
+      height: 50px;
+      width: 50px;
+      background-color: aqua;
+    }
+  }
+}

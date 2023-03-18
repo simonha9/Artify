@@ -9,3 +9,15 @@ uploads
 
 # config
 server/*.env
+
+server/venv
+server/*.pyc
+server/__pycache__
+server/instance
+server/pytest_cache
+server/coverage
+server/htmlcov
+
+server/dist
+server/build
+server/*.egg-info
