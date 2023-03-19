@@ -1,20 +1,20 @@
 from server import app, oauth, env, meilisearchService
 from server.models.Users import User
-from server.models.Resumes import Resume
 from flask import request, jsonify, redirect, session, url_for
 from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError
 from server.errors.UserNotFoundError import UserNotFoundError
+from server.errors.MalformedRequest import MalformedRequest
 from flask_cors import cross_origin
 from urllib.parse import urlencode
 import mongoengine as me
 from bson import ObjectId
-from server.services import FormRecognizerService
+from server.services.FormRecognizerService import FormRecognizerService
+from server.services.BlobStorageService import BlobStorageService
 import io, json
 
-
-
-fr = FormRecognizerService.FormRecognizerService()
+fr = FormRecognizerService.getInstance()
+bs = BlobStorageService.getInstance()
 
 
 @app.route('/login')
@@ -110,24 +110,29 @@ def deleteUser(id):
 def uploadResume(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
+    
+    if 'file' not in request.files:
+        raise MalformedRequest
 
     try:
         user = findUserById(id)
         uploadedFile = request.files['file']
-        resume = Resume(file_data=uploadedFile.read())
-        resume.save()
-
-        resume_data = io.BytesIO(resume.file_data)
-        result = fr.extract(resume_data)
+        buffer = io.BytesIO()
+        buffer.write(uploadedFile.read())
+        id = bs.upload(buffer.getvalue(), str(user.id))
+        result = fr.extract(buffer.getvalue(), uploadedFile.content_type)
         res = fr.analyzeResults(result)
-        res['id'] = str(resume.id)
+        res['id'] = str(id)
+        res['userId'] = str(user.id)
         meilisearchService.index('resumes').add_documents(res)
-        return jsonify({'id': str(resume.id)})
+        return jsonify({'id': str(id), 'userId': str(user.id)})
     except User.DoesNotExist:
         raise UserNotFoundError
     except Exception as e:
         print(e)
         raise ServerError
+    finally:
+        buffer.close()
 
 
 def findUserById(id):
