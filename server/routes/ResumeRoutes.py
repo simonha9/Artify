@@ -11,8 +11,8 @@ from server.errors.MalformedRequest import MalformedRequest
 from azure.core.exceptions import ResourceNotFoundError
 import uuid
 
-fr = FormRecognizerService()
-bs = BlobStorageService()
+fr = FormRecognizerService.getInstance()
+bs = BlobStorageService.getInstance()
  
 
 @app.get('/resumes/<id>')
@@ -43,6 +43,7 @@ def deleteResume(id):
     except ResourceNotFoundError:
         raise ResumeNotFoundError
     except Exception as e:
+        print(e)
         raise ServerError
 
 @app.get('/resumes/<id>/analyze')

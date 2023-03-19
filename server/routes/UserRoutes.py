@@ -13,8 +13,8 @@ from server.services.FormRecognizerService import FormRecognizerService
 from server.services.BlobStorageService import BlobStorageService
 import io, json
 
-fr = FormRecognizerService()
-bs = BlobStorageService()
+fr = FormRecognizerService.getInstance()
+bs = BlobStorageService.getInstance()
 
 
 @app.route('/login')
