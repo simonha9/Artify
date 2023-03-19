@@ -1,0 +1,2 @@
+class MalformedRequest(Exception):
+    pass

@@ -45,6 +45,7 @@ from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError
 from server.errors.UserNotFoundError import UserNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
+from server.errors.MalformedRequest import MalformedRequest
 
 @app.errorhandler(InvalidObjectIdError)
 def handleInvalidObjectId(error):
@@ -53,20 +54,27 @@ def handleInvalidObjectId(error):
     return response
 
 @app.errorhandler(ServerError)
-def handleInvalidObjectId(error):
+def handleServerError(error):
     print(error)
     response = jsonify({'message': 'Something went wrong'})
     response.status_code = 500
     return response
 
 @app.errorhandler(UserNotFoundError)
-def handleInvalidObjectId(error):
+def handleUserNotFoundError(error):
     response = jsonify({'message': 'User not found'})
     response.status_code = 404
     return response
 
 @app.errorhandler(ResumeNotFoundError)
-def handleInvalidObjectId(error):
+def handleResumeNotFoundError(error):
     response = jsonify({'message': 'Resume not found'})
     response.status_code = 404
     return response
+
+@app.errorhandler(MalformedRequest)
+def handleMalformedRequest(error):
+    response = jsonify({'message': 'Request is malformed or missing fields, if you included an id check the id is correct'})
+    response.status_code = 400
+    return response
+

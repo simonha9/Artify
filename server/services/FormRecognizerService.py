@@ -2,7 +2,6 @@ import os
 from azure.core.exceptions import ResourceNotFoundError
 from azure.ai.formrecognizer import FormRecognizerClient, FormTrainingClient
 from azure.core.credentials import AzureKeyCredential
-import uuid
 from server import env
 
 
@@ -18,8 +17,8 @@ class FormRecognizerService:
             endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
         
         
-    def extract(self, stream):
-        poller = self.form_recognizer_client.begin_recognize_content(stream)
+    def extract(self, stream, contentType):
+        poller = self.form_recognizer_client.begin_recognize_content(stream, content_type=contentType)
         result = poller.result()
         return result
     
