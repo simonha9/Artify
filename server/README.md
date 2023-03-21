@@ -11,4 +11,9 @@ To get Mongo running
 
 To get Meilisearch running
 
-1. should be able to just run ./meilisearch.sh script, ignore master key warning, used for auth
+
+1. Run this curl command
+
+curl -L https://install.meilisearch.com/ | sh
+
+2. should be able to just run ./meilisearch.sh script, ignore master key warning, used for auth

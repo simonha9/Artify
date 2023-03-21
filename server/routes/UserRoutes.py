@@ -123,7 +123,7 @@ def uploadResume(id):
         result = fr.extract(buffer.getvalue(), uploadedFile.content_type)
         res = fr.analyzeResults(result)
         res['id'] = str(id)
-        res['userId'] = str(user.id)
+        res['user'] = str(user.id)
         meilisearchService.index('resumes').add_documents(res)
         return jsonify({'id': str(id), 'userId': str(user.id)})
     except User.DoesNotExist:

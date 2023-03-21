@@ -37,7 +37,7 @@ oauth.register(
 )
 
 db = MongoEngine(app)
-meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700', env.get('MEILISEARCH_MASTER_KEY') or 'masterKey')
+meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700')
 
 from server.routes import UserRoutes, ResumeRoutes
 
