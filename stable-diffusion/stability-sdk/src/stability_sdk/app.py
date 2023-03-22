@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from stability_sdk.client import generateImage
+from client import generateImage
 app = Flask(__name__)
 
 @app.route("/generate" , methods=['POST'])
