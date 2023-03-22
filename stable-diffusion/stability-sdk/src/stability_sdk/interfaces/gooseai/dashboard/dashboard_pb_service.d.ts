@@ -2,7 +2,11 @@
 // file: dashboard.proto
 
 import * as dashboard_pb from "./dashboard_pb";
+<<<<<<< HEAD
 import { grpc } from "@improbable-eng/grpc-web";
+=======
+import {grpc} from "@improbable-eng/grpc-web";
+>>>>>>> 917d866 (test)
 
 type DashboardServiceGetMe = {
   readonly methodName: string;
@@ -168,33 +172,50 @@ export class DashboardService {
   static readonly GetAutoChargeIntent: DashboardServiceGetAutoChargeIntent;
 }
 
+<<<<<<< HEAD
 export type ServiceError = {
   message: string;
   code: number;
   metadata: grpc.Metadata;
 };
 export type Status = { details: string; code: number; metadata: grpc.Metadata };
+=======
+export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
+export type Status = { details: string, code: number; metadata: grpc.Metadata }
+>>>>>>> 917d866 (test)
 
 interface UnaryResponse {
   cancel(): void;
 }
 interface ResponseStream<T> {
   cancel(): void;
+<<<<<<< HEAD
   on(type: "data", handler: (message: T) => void): ResponseStream<T>;
   on(type: "end", handler: (status?: Status) => void): ResponseStream<T>;
   on(type: "status", handler: (status: Status) => void): ResponseStream<T>;
+=======
+  on(type: 'data', handler: (message: T) => void): ResponseStream<T>;
+  on(type: 'end', handler: (status?: Status) => void): ResponseStream<T>;
+  on(type: 'status', handler: (status: Status) => void): ResponseStream<T>;
+>>>>>>> 917d866 (test)
 }
 interface RequestStream<T> {
   write(message: T): RequestStream<T>;
   end(): void;
   cancel(): void;
+<<<<<<< HEAD
   on(type: "end", handler: (status?: Status) => void): RequestStream<T>;
   on(type: "status", handler: (status: Status) => void): RequestStream<T>;
+=======
+  on(type: 'end', handler: (status?: Status) => void): RequestStream<T>;
+  on(type: 'status', handler: (status: Status) => void): RequestStream<T>;
+>>>>>>> 917d866 (test)
 }
 interface BidirectionalStream<ReqT, ResT> {
   write(message: ReqT): BidirectionalStream<ReqT, ResT>;
   end(): void;
   cancel(): void;
+<<<<<<< HEAD
   on(
     type: "data",
     handler: (message: ResT) => void
@@ -207,6 +228,11 @@ interface BidirectionalStream<ReqT, ResT> {
     type: "status",
     handler: (status: Status) => void
   ): BidirectionalStream<ReqT, ResT>;
+=======
+  on(type: 'data', handler: (message: ResT) => void): BidirectionalStream<ReqT, ResT>;
+  on(type: 'end', handler: (status?: Status) => void): BidirectionalStream<ReqT, ResT>;
+  on(type: 'status', handler: (status: Status) => void): BidirectionalStream<ReqT, ResT>;
+>>>>>>> 917d866 (test)
 }
 
 export class DashboardServiceClient {
@@ -216,6 +242,7 @@ export class DashboardServiceClient {
   getMe(
     requestMessage: dashboard_pb.EmptyRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
@@ -227,10 +254,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+  ): UnaryResponse;
+  getMe(
+    requestMessage: dashboard_pb.EmptyRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   getOrganization(
     requestMessage: dashboard_pb.GetOrganizationRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.Organization | null
@@ -242,10 +277,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.Organization | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Organization|null) => void
+  ): UnaryResponse;
+  getOrganization(
+    requestMessage: dashboard_pb.GetOrganizationRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Organization|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   getMetrics(
     requestMessage: dashboard_pb.GetMetricsRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.Metrics | null
@@ -257,10 +300,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.Metrics | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Metrics|null) => void
+  ): UnaryResponse;
+  getMetrics(
+    requestMessage: dashboard_pb.GetMetricsRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Metrics|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   createAPIKey(
     requestMessage: dashboard_pb.APIKeyRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.APIKey | null
@@ -268,6 +319,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   createAPIKey(
     requestMessage: dashboard_pb.APIKeyRequest,
+    callback: (
+      error: ServiceError | null,
+      responseMessage: dashboard_pb.APIKey | null
+    ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.APIKey|null) => void
+  ): UnaryResponse;
+  createAPIKey(
+    requestMessage: dashboard_pb.APIKeyRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.APIKey|null) => void
+>>>>>>> 917d866 (test)
+  ): UnaryResponse;
+  deleteAPIKey(
+    requestMessage: dashboard_pb.APIKeyFindRequest,
+    metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.APIKey | null
@@ -275,22 +342,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   deleteAPIKey(
     requestMessage: dashboard_pb.APIKeyFindRequest,
-    metadata: grpc.Metadata,
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.APIKey | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.APIKey|null) => void
   ): UnaryResponse;
   deleteAPIKey(
     requestMessage: dashboard_pb.APIKeyFindRequest,
-    callback: (
-      error: ServiceError | null,
-      responseMessage: dashboard_pb.APIKey | null
-    ) => void
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.APIKey|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   updateDefaultOrganization(
     requestMessage: dashboard_pb.UpdateDefaultOrganizationRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
@@ -302,10 +369,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+  ): UnaryResponse;
+  updateDefaultOrganization(
+    requestMessage: dashboard_pb.UpdateDefaultOrganizationRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   getClientSettings(
     requestMessage: dashboard_pb.EmptyRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.ClientSettings | null
@@ -313,6 +388,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   getClientSettings(
     requestMessage: dashboard_pb.EmptyRequest,
+    callback: (
+      error: ServiceError | null,
+      responseMessage: dashboard_pb.ClientSettings | null
+    ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.ClientSettings|null) => void
+  ): UnaryResponse;
+  getClientSettings(
+    requestMessage: dashboard_pb.EmptyRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.ClientSettings|null) => void
+>>>>>>> 917d866 (test)
+  ): UnaryResponse;
+  setClientSettings(
+    requestMessage: dashboard_pb.ClientSettings,
+    metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.ClientSettings | null
@@ -320,22 +411,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   setClientSettings(
     requestMessage: dashboard_pb.ClientSettings,
-    metadata: grpc.Metadata,
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.ClientSettings | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.ClientSettings|null) => void
   ): UnaryResponse;
   setClientSettings(
     requestMessage: dashboard_pb.ClientSettings,
-    callback: (
-      error: ServiceError | null,
-      responseMessage: dashboard_pb.ClientSettings | null
-    ) => void
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.ClientSettings|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   updateUserInfo(
     requestMessage: dashboard_pb.UpdateUserInfoRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
@@ -347,10 +438,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+  ): UnaryResponse;
+  updateUserInfo(
+    requestMessage: dashboard_pb.UpdateUserInfoRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   createPasswordChangeTicket(
     requestMessage: dashboard_pb.EmptyRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.UserPasswordChangeTicket | null
@@ -362,10 +461,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.UserPasswordChangeTicket | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.UserPasswordChangeTicket|null) => void
+  ): UnaryResponse;
+  createPasswordChangeTicket(
+    requestMessage: dashboard_pb.EmptyRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.UserPasswordChangeTicket|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   deleteAccount(
     requestMessage: dashboard_pb.EmptyRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
@@ -377,10 +484,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.User | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+  ): UnaryResponse;
+  deleteAccount(
+    requestMessage: dashboard_pb.EmptyRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.User|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   createCharge(
     requestMessage: dashboard_pb.CreateChargeRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.Charge | null
@@ -392,10 +507,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.Charge | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Charge|null) => void
+  ): UnaryResponse;
+  createCharge(
+    requestMessage: dashboard_pb.CreateChargeRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Charge|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   getCharges(
     requestMessage: dashboard_pb.GetChargesRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.Charges | null
@@ -407,10 +530,18 @@ export class DashboardServiceClient {
       error: ServiceError | null,
       responseMessage: dashboard_pb.Charges | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Charges|null) => void
+  ): UnaryResponse;
+  getCharges(
+    requestMessage: dashboard_pb.GetChargesRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.Charges|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   createAutoChargeIntent(
     requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.AutoChargeIntent | null
@@ -418,6 +549,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   createAutoChargeIntent(
     requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
+    callback: (
+      error: ServiceError | null,
+      responseMessage: dashboard_pb.AutoChargeIntent | null
+    ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
+  ): UnaryResponse;
+  createAutoChargeIntent(
+    requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
+>>>>>>> 917d866 (test)
+  ): UnaryResponse;
+  updateAutoChargeIntent(
+    requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
+    metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.AutoChargeIntent | null
@@ -425,22 +572,22 @@ export class DashboardServiceClient {
   ): UnaryResponse;
   updateAutoChargeIntent(
     requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
-    metadata: grpc.Metadata,
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.AutoChargeIntent | null
     ) => void
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
   ): UnaryResponse;
   updateAutoChargeIntent(
     requestMessage: dashboard_pb.CreateAutoChargeIntentRequest,
-    callback: (
-      error: ServiceError | null,
-      responseMessage: dashboard_pb.AutoChargeIntent | null
-    ) => void
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
+>>>>>>> 917d866 (test)
   ): UnaryResponse;
   getAutoChargeIntent(
     requestMessage: dashboard_pb.GetAutoChargeRequest,
     metadata: grpc.Metadata,
+<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: dashboard_pb.AutoChargeIntent | null
@@ -454,3 +601,13 @@ export class DashboardServiceClient {
     ) => void
   ): UnaryResponse;
 }
+=======
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
+  ): UnaryResponse;
+  getAutoChargeIntent(
+    requestMessage: dashboard_pb.GetAutoChargeRequest,
+    callback: (error: ServiceError|null, responseMessage: dashboard_pb.AutoChargeIntent|null) => void
+  ): UnaryResponse;
+}
+
+>>>>>>> 917d866 (test)

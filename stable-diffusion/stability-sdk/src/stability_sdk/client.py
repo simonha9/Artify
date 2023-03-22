@@ -97,7 +97,11 @@ def process_artifacts_from_answers(
             is_allowed_type = filter_types is None or artifact_type_to_str(artifact.type) in filter_types
             if write:
                 if is_allowed_type:
+<<<<<<< HEAD
                     output.append({"image":base64.b64encode(bytes(contents)).decode("utf-8")})
+=======
+                    output.append(base64.b64encode(bytes(contents)).decode("utf-8"))
+>>>>>>> 917d866 (test)
                 else:
                     if verbose:
                         logger.info(
@@ -368,7 +372,11 @@ class StabilityInference:
             start = time.time()
 
 
+<<<<<<< HEAD
 def generateImage(req_body):
+=======
+def generateImage(formData):
+>>>>>>> 917d866 (test)
     # Set up logging for output to console.
     fh = logging.StreamHandler()
     fh_formatter = logging.Formatter(
@@ -401,7 +409,11 @@ def generateImage(req_body):
         )
         sys.exit(1)
 
+<<<<<<< HEAD
     prompt = req_body.get("prompt")
+=======
+    prompt = formData.get("prompt")
+>>>>>>> 917d866 (test)
     sdEngine = "stable-diffusion-v1-5"
 
     request =  {
@@ -414,6 +426,7 @@ def generateImage(req_body):
         "samples": 1,
     }
 
+<<<<<<< HEAD
     if req_body.get("height"):
         request["height"] = int(req_body.get("height"))
     if req_body.get("width"):
@@ -424,6 +437,18 @@ def generateImage(req_body):
         request["steps"] = int(req_body.get("steps"))
     if req_body.get("samples"):
         request["samples"] = int(req_body.get("samples"))
+=======
+    if formData.get("height"):
+        request["height"] = int(formData.get("height"))
+    if formData.get("width"):
+        request["width"] = int(formData.get("width"))
+    if formData.get("start_schedule"):
+        request["cfg_scale"] = float(formData.get("cfg_scale"))
+    if formData.get("steps"):
+        request["steps"] = int(formData.get("steps"))
+    if formData.get("samples"):
+        request["samples"] = int(formData.get("samples"))
+>>>>>>> 917d866 (test)
 
     stability_api = StabilityInference(
     STABILITY_HOST, STABILITY_KEY, engine=sdEngine, verbose=True

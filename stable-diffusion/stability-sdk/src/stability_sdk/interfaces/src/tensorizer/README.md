@@ -1,5 +1,8 @@
 # tensorizer
+<<<<<<< HEAD
 
+=======
+>>>>>>> 917d866 (test)
 Module, Model, and Tensor Serialization/Deserialization
 
 ## Quick Examples

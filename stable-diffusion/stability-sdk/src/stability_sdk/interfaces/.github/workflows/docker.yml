@@ -17,6 +17,7 @@ jobs:
           push: false
           context: .
           cache-from: type=gha
+<<<<<<< HEAD
           cache-to: type=gha,mode=max
           outputs: |
             type=local,dest=${{ runner.temp }}/docker-build
@@ -24,3 +25,12 @@ jobs:
         with:
           name: gooseai
           path: ${{ runner.temp }}/docker-build/gooseai
+=======
+          cache-to: type=gha,mode=max 
+          outputs: |
+            type=local,dest=${{ runner.temp }}/docker-build      
+      - uses: actions/upload-artifact@v3
+        with:
+         name: gooseai
+         path: ${{ runner.temp }}/docker-build/gooseai
+>>>>>>> 917d866 (test)

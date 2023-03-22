@@ -8,7 +8,11 @@ var DashboardService = (function () {
   function DashboardService() {}
   DashboardService.serviceName = "gooseai.DashboardService";
   return DashboardService;
+<<<<<<< HEAD
 })();
+=======
+}());
+>>>>>>> 917d866 (test)
 
 DashboardService.GetMe = {
   methodName: "GetMe",
@@ -16,7 +20,11 @@ DashboardService.GetMe = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.EmptyRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.User,
+=======
+  responseType: dashboard_pb.User
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.GetOrganization = {
@@ -25,7 +33,11 @@ DashboardService.GetOrganization = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.GetOrganizationRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.Organization,
+=======
+  responseType: dashboard_pb.Organization
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.GetMetrics = {
@@ -34,7 +46,11 @@ DashboardService.GetMetrics = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.GetMetricsRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.Metrics,
+=======
+  responseType: dashboard_pb.Metrics
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.CreateAPIKey = {
@@ -43,7 +59,11 @@ DashboardService.CreateAPIKey = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.APIKeyRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.APIKey,
+=======
+  responseType: dashboard_pb.APIKey
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.DeleteAPIKey = {
@@ -52,7 +72,11 @@ DashboardService.DeleteAPIKey = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.APIKeyFindRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.APIKey,
+=======
+  responseType: dashboard_pb.APIKey
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.UpdateDefaultOrganization = {
@@ -61,7 +85,11 @@ DashboardService.UpdateDefaultOrganization = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.UpdateDefaultOrganizationRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.User,
+=======
+  responseType: dashboard_pb.User
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.GetClientSettings = {
@@ -70,7 +98,11 @@ DashboardService.GetClientSettings = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.EmptyRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.ClientSettings,
+=======
+  responseType: dashboard_pb.ClientSettings
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.SetClientSettings = {
@@ -79,7 +111,11 @@ DashboardService.SetClientSettings = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.ClientSettings,
+<<<<<<< HEAD
   responseType: dashboard_pb.ClientSettings,
+=======
+  responseType: dashboard_pb.ClientSettings
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.UpdateUserInfo = {
@@ -88,7 +124,11 @@ DashboardService.UpdateUserInfo = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.UpdateUserInfoRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.User,
+=======
+  responseType: dashboard_pb.User
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.CreatePasswordChangeTicket = {
@@ -97,7 +137,11 @@ DashboardService.CreatePasswordChangeTicket = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.EmptyRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.UserPasswordChangeTicket,
+=======
+  responseType: dashboard_pb.UserPasswordChangeTicket
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.DeleteAccount = {
@@ -106,7 +150,11 @@ DashboardService.DeleteAccount = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.EmptyRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.User,
+=======
+  responseType: dashboard_pb.User
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.CreateCharge = {
@@ -115,7 +163,11 @@ DashboardService.CreateCharge = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.CreateChargeRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.Charge,
+=======
+  responseType: dashboard_pb.Charge
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.GetCharges = {
@@ -124,7 +176,11 @@ DashboardService.GetCharges = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.GetChargesRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.Charges,
+=======
+  responseType: dashboard_pb.Charges
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.CreateAutoChargeIntent = {
@@ -133,7 +189,11 @@ DashboardService.CreateAutoChargeIntent = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.CreateAutoChargeIntentRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.AutoChargeIntent,
+=======
+  responseType: dashboard_pb.AutoChargeIntent
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.UpdateAutoChargeIntent = {
@@ -142,7 +202,11 @@ DashboardService.UpdateAutoChargeIntent = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.CreateAutoChargeIntentRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.AutoChargeIntent,
+=======
+  responseType: dashboard_pb.AutoChargeIntent
+>>>>>>> 917d866 (test)
 };
 
 DashboardService.GetAutoChargeIntent = {
@@ -151,7 +215,11 @@ DashboardService.GetAutoChargeIntent = {
   requestStream: false,
   responseStream: false,
   requestType: dashboard_pb.GetAutoChargeRequest,
+<<<<<<< HEAD
   responseType: dashboard_pb.AutoChargeIntent,
+=======
+  responseType: dashboard_pb.AutoChargeIntent
+>>>>>>> 917d866 (test)
 };
 
 exports.DashboardService = DashboardService;
@@ -161,11 +229,15 @@ function DashboardServiceClient(serviceHost, options) {
   this.options = options || {};
 }
 
+<<<<<<< HEAD
 DashboardServiceClient.prototype.getMe = function getMe(
   requestMessage,
   metadata,
   callback
 ) {
+=======
+DashboardServiceClient.prototype.getMe = function getMe(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -186,12 +258,17 @@ DashboardServiceClient.prototype.getMe = function getMe(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -201,6 +278,13 @@ DashboardServiceClient.prototype.getOrganization = function getOrganization(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.getOrganization = function getOrganization(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -221,12 +305,17 @@ DashboardServiceClient.prototype.getOrganization = function getOrganization(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -236,6 +325,13 @@ DashboardServiceClient.prototype.getMetrics = function getMetrics(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.getMetrics = function getMetrics(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -256,12 +352,17 @@ DashboardServiceClient.prototype.getMetrics = function getMetrics(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -271,6 +372,13 @@ DashboardServiceClient.prototype.createAPIKey = function createAPIKey(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.createAPIKey = function createAPIKey(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -291,12 +399,17 @@ DashboardServiceClient.prototype.createAPIKey = function createAPIKey(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -306,6 +419,13 @@ DashboardServiceClient.prototype.deleteAPIKey = function deleteAPIKey(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.deleteAPIKey = function deleteAPIKey(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -326,12 +446,17 @@ DashboardServiceClient.prototype.deleteAPIKey = function deleteAPIKey(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -373,6 +498,44 @@ DashboardServiceClient.prototype.getClientSettings = function getClientSettings(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.updateDefaultOrganization = function updateDefaultOrganization(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(DashboardService.UpdateDefaultOrganization, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+DashboardServiceClient.prototype.getClientSettings = function getClientSettings(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -393,12 +556,17 @@ DashboardServiceClient.prototype.getClientSettings = function getClientSettings(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -408,6 +576,13 @@ DashboardServiceClient.prototype.setClientSettings = function setClientSettings(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.setClientSettings = function setClientSettings(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -428,12 +603,17 @@ DashboardServiceClient.prototype.setClientSettings = function setClientSettings(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -443,6 +623,13 @@ DashboardServiceClient.prototype.updateUserInfo = function updateUserInfo(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.updateUserInfo = function updateUserInfo(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -463,12 +650,17 @@ DashboardServiceClient.prototype.updateUserInfo = function updateUserInfo(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -510,6 +702,44 @@ DashboardServiceClient.prototype.deleteAccount = function deleteAccount(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.createPasswordChangeTicket = function createPasswordChangeTicket(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(DashboardService.CreatePasswordChangeTicket, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+DashboardServiceClient.prototype.deleteAccount = function deleteAccount(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -530,12 +760,17 @@ DashboardServiceClient.prototype.deleteAccount = function deleteAccount(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -545,6 +780,13 @@ DashboardServiceClient.prototype.createCharge = function createCharge(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.createCharge = function createCharge(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -565,12 +807,17 @@ DashboardServiceClient.prototype.createCharge = function createCharge(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -580,6 +827,13 @@ DashboardServiceClient.prototype.getCharges = function getCharges(
   metadata,
   callback
 ) {
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.getCharges = function getCharges(requestMessage, metadata, callback) {
+>>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -600,12 +854,17 @@ DashboardServiceClient.prototype.getCharges = function getCharges(
           callback(null, response.message);
         }
       }
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
+<<<<<<< HEAD
     },
   };
 };
@@ -707,3 +966,104 @@ DashboardServiceClient.prototype.getAutoChargeIntent =
   };
 
 exports.DashboardServiceClient = DashboardServiceClient;
+=======
+    }
+  };
+};
+
+DashboardServiceClient.prototype.createAutoChargeIntent = function createAutoChargeIntent(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(DashboardService.CreateAutoChargeIntent, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+DashboardServiceClient.prototype.updateAutoChargeIntent = function updateAutoChargeIntent(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(DashboardService.UpdateAutoChargeIntent, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+DashboardServiceClient.prototype.getAutoChargeIntent = function getAutoChargeIntent(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(DashboardService.GetAutoChargeIntent, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+exports.DashboardServiceClient = DashboardServiceClient;
+
+>>>>>>> 917d866 (test)
