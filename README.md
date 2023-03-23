@@ -32,6 +32,8 @@ On the backend, there will be use of pdf parsing and form recognizing technology
   - Blob storage for saving pdf files or other large files, as well as thumbnauils / image storage
 - meilisearch (2)
   - mass search for text from all documents - return documents/images that match keywords (like elasticsearch)
+- celery (2)
+  - to make extraction nonblocking and instead return a status
 
 ### Challenge Points
 

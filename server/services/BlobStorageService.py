@@ -24,8 +24,7 @@ class BlobStorageService:
             BlobStorageService()
         return BlobStorageService.__instance
     
-    def upload(self, fileStream, metadata):
-        blobId = str(uuid.uuid4())
+    def upload(self, blobId, fileStream, metadata):
         blob_client = self.container_client.get_blob_client(blobId)
         blob_client.upload_blob(fileStream, overwrite=True, metadata=metadata)
         return blobId
@@ -50,3 +49,4 @@ class BlobStorageService:
             r['user'] = metadata['user']
             resumes.append(r)
         return resumes
+
