@@ -11,7 +11,6 @@ To get Mongo running
 
 To get Meilisearch running
 
-
 1. Run this curl command
 
 curl -L https://install.meilisearch.com/ | sh
