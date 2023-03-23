@@ -15,7 +15,7 @@ if ENV_FILE:
 
 # create and configure the app
 app = Flask(__name__, instance_relative_config=True)
-CORS(app, support_credentials=True)
+CORS(app, support_credentials=True, resources={r"/*": {"origins": "*"}})
 app.config.from_mapping(
     SECRET_KEY= env.get('SECRET_KEY') or 'dev',
     MONGODB_SETTINGS = {

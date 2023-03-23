@@ -113,17 +113,27 @@ def uploadResume(id):
     
     if 'file' not in request.files:
         raise MalformedRequest
+    
+    if not request.form:
+        raise MalformedRequest
+    
+    title = request.form['title']
+    if not title:
+        raise MalformedRequest
 
     try:
         user = findUserById(id)
         uploadedFile = request.files['file']
         buffer = io.BytesIO()
         buffer.write(uploadedFile.read())
-        id = bs.upload(buffer.getvalue(), str(user.id))
+        metadata = {'title': title, 'user': str(user.id)}
+        id = bs.upload(buffer.getvalue(), metadata)
         result = fr.extract(buffer.getvalue(), uploadedFile.content_type)
         res = fr.analyzeResults(result)
         res['id'] = str(id)
-        res['user'] = str(user.id)
+        for key in metadata:
+            res[key] = metadata[key]
+
         meilisearchService.index('resumes').add_documents(res)
         return jsonify({'id': str(id), 'userId': str(user.id)})
     except User.DoesNotExist:

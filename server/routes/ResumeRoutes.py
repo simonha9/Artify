@@ -59,10 +59,16 @@ def analyzeResume(id):
         print(e)
         raise ServerError
     
-
 @app.get('/resumes')
 @cross_origin(supports_credentials=True)
 def getResumes():
+    resumes = bs.getAllBlobs()
+    return jsonify({'resumes': resumes})
+
+
+@app.get('/resumes/search')
+@cross_origin(supports_credentials=True)
+def searchResumes():
     try:
         query = request.args.get('keywords')
         if query:

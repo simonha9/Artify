@@ -24,10 +24,10 @@ class BlobStorageService:
             BlobStorageService()
         return BlobStorageService.__instance
     
-    def upload(self, fileStream, userId):
+    def upload(self, fileStream, metadata):
         blobId = str(uuid.uuid4())
         blob_client = self.container_client.get_blob_client(blobId)
-        blob_client.upload_blob(fileStream, overwrite=True, metadata={'userId': userId})
+        blob_client.upload_blob(fileStream, overwrite=True, metadata=metadata)
         return blobId
     
     def download(self, blobId):
@@ -37,3 +37,16 @@ class BlobStorageService:
     def delete(self, blobId):
         blob_client = self.container_client.get_blob_client(blobId)
         blob_client.delete_blob()
+    
+    def getAllBlobs(self):
+        blobs = self.container_client.list_blobs()
+        resumes = []
+        for blob in blobs:
+            b = self.container_client.get_blob_client(blob.name)
+            metadata = b.get_blob_properties().metadata
+            r = {}
+            r['id'] = blob.name
+            r['title'] = metadata['title'] if 'title' in metadata else ''
+            r['user'] = metadata['user']
+            resumes.append(r)
+        return resumes
