@@ -1,6 +1,11 @@
 <form id="upload-pdf-form" (submit)="uploadPDF($event)">
   <div>Upload a PDF</div>
-
+  <input
+    type="text"
+    id="pdf-title"
+    name="pdf-title"
+    placeholder="Enter a title"
+  />
   <input type="file" id="pdf-file" name="pdf-file" accept=".pdf" />
 
   <button type="submit" class="btn">Send</button>

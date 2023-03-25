@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: "Montserrat";
+  font-size: 20px;
   background-color: #2c3639;
   margin: 0px;
 
@@ -9,5 +10,15 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
+  }
+
+  .page-title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .bold {
+    font-weight: bold;
   }
 }

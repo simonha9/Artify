@@ -2,10 +2,18 @@ router-outlet {
   display: none;
 }
 
-#pageContainer {
+#page-center {
+  display: flex;
+  justify-content: center;
+}
+
+#page-container {
   border-radius: 20px;
   margin: 40px;
   padding: 20px;
   min-height: 700px;
+  max-width: 800px;
+  width: 100%;
   background-color: #dcd7c9;
+  transition: all 0.5s ease;
 }
