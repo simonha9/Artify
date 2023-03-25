@@ -10,9 +10,9 @@ import * as p5 from 'p5';
 export class P5generationComponent {
   @Input() params: P5spiral = {
     dotSize: 0,
-    radius: 0,
     irrationalDenominator: 0,
     shapeCount: 0,
+    frames: 0,
   };
 
   constructor() {}
@@ -21,12 +21,18 @@ export class P5generationComponent {
     console.log(this.params);
 
     const sketch = (s: p5) => {
-      //params todo: make these inputs
       const dotSize = this.params.dotSize;
       const radius = Math.sqrt(0.5) + this.params.dotSize; //add dotsize to prevent popin
       const irrationalDenominator = this.params.irrationalDenominator;
       const shapeCount = this.params.shapeCount;
-      const frames = 1000;
+      const frames = 600;
+
+      s.setup = () => {
+        let canvas = s.createCanvas(700, 700);
+        canvas.parent('p5display');
+        s.noStroke();
+        s.colorMode(s.HSL, 1); //this is to make the color values between 0 and 1
+      };
 
       const normalizedCosine = (t: number) => {
         return s.cos(t * s.TWO_PI) * 0.5 + 0.5;
@@ -36,21 +42,11 @@ export class P5generationComponent {
         return 1 - normalizedCosine(t);
       };
 
-      s.setup = () => {
-        let canvas = s.createCanvas(700, 700);
-        canvas.parent('p5display');
-        s.noStroke();
-        s.colorMode(s.RGB, 1); //this is to make the color values between 0 and 1
-      };
-
       s.draw = () => {
-        //frameCounts is a p5.js variable that counts the number of frames that have passed
-
-        let time = s.fract(s.frameCount / frames); //keep this a fraction between 0 and 1
-
         s.scale(s.width, s.height); //normalizes the coordinates for x and y coordinates
+        //frameCounts is a p5.js variable that counts the number of frames that have passed
+        let time = s.fract(s.frameCount / frames); //keep this a fraction between 0 and 1
         s.background(0);
-        s.fill(1);
 
         const count = shapeCount * signalCosine(time);
         for (let i = 0; i < count; i++) {
@@ -62,9 +58,23 @@ export class P5generationComponent {
           const x = 0.5 + s.cos(angle * s.TWO_PI) * distance;
           const y = 0.5 + s.sin(angle * s.TWO_PI) * distance;
 
-          const sig = normalizedCosine(fraction);
+          const sig = normalizedCosine(fraction - time);
           const r = sig * dotSize * fraction;
-          s.rect(x, y, r, r);
+          //const r =  dotSize * fraction;
+
+          //Generate color
+          var hue = fraction;
+          const light = 0.8;
+          //reverse color around mouse
+          if (s.dist(s.mouseX / 700, s.mouseY / 700, x, y) < 0.3) {
+            hue = 1 - fraction;
+          }
+          const sat = 1;
+
+          const clr = s.color(hue, sat, light);
+          s.fill(clr);
+
+          s.circle(x, y, r);
         }
       };
     };

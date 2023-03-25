@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { P5spiral } from '../classes/p5spiral';
 
 @Injectable({
   providedIn: 'root',
@@ -25,25 +24,26 @@ export class ApiService {
     //todo example generation after upload file
     return '123123312asdasd';
 
-    /*{ dotSize: 0.08,
-      radius: Math.sqrt(0.5) + 0.08,
-      irrationalDenominator: 1.61803398875,
-      shapeCount: 1000} */
-
     //send post request to backend of the file
     // const formData = new FormData();
     // formData.append('pdf', file);
     // return this.http.post(`${environment.backendUrl}/uploadPDF`, formData);
   }
 
-  getGeneration(generationId: string) {
+  getGenerationn(generationId: string) {
     //todo implement this when backend is ready
     return {
-      dotSize: 0.08,
-      radius: Math.sqrt(0.5) + 0.08,
-      irrationalDenominator: 1.61803398875,
-      shapeCount: 1000,
+      dotSize: 0.8,
+      irrationalDenominator: 6.28318530718,
+      shapeCount: 1800,
+      frames: 1000,
     };
+  }
+
+  getGeneration(generationId: string) {
+    return this.http.get(
+      `${environment.backendUrl}/resumes/${generationId}/analyze`
+    );
   }
 
   getAuth() {
@@ -61,4 +61,8 @@ export class ApiService {
   getUserPDFsSummary() {}
 
   getUserPDFParams() {}
+
+  getResumes(userId: string) {
+    return this.http.get(`${environment.backendUrl}/resumes`);
+  }
 }
