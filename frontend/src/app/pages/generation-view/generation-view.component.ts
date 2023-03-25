@@ -12,9 +12,9 @@ export class GenerationViewComponent {
   generationId: string = '';
   spiral: P5spiral = {
     dotSize: 0,
-    radius: 0,
     irrationalDenominator: 0,
     shapeCount: 0,
+    frames: 0,
   };
 
   constructor(private route: ActivatedRoute, private api: ApiService) {}
@@ -24,7 +24,15 @@ export class GenerationViewComponent {
     this.generationId = this.route.snapshot.paramMap.get('id') || '';
 
     //Get specific generation from backend
-    //todo use subscribe instead when backend is implemented
-    this.spiral = this.api.getGeneration(this.generationId);
+    this.api.getGeneration(this.generationId).subscribe({
+      next: (res: any) => {
+        console.log('THIS IS THE GENERATION: ', res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+
+    this.spiral = this.api.getGenerationn(this.generationId);
   }
 }
