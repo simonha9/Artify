@@ -1,0 +1,27 @@
+.generation {
+  margin: 20px 5px 0px 5px;
+  background-color: red;
+  width: 180px;
+  height: 130px;
+  padding: 10px 10px 10px 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  word-wrap: break-word;
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background-color: #3f4e4f;
+
+  color: white;
+
+  transition: all 0.5s ease;
+}
+
+.generation:hover {
+  background-color: #2c3639;
+  cursor: pointer;
+}

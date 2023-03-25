@@ -27,10 +27,12 @@ export class UploadPDFComponent implements OnInit {
   uploadPDF(event: any) {
     console.log('uploadPDF inside of upload-pdf.component.ts');
     event.preventDefault();
+    const title = (document.getElementById('pdf-title') as HTMLInputElement)
+      .value;
     const file = (
       document.getElementById('pdf-file') as HTMLInputElement
     ).files?.item(0);
     this.uploadPDFForm.reset();
-    this.onFileUpload.emit(file);
+    this.onFileUpload.emit({ file: file, title: title });
   }
 }

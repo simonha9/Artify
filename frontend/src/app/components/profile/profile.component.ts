@@ -8,6 +8,7 @@ import { Profile } from 'src/app/classes/profile';
 })
 export class ProfileComponent {
   @Input() currentProfile: Profile = { id: '', username: '', email: '' };
-
+  @Input() resumes: any = [];
   constructor() {}
+  ngOnInit(): void {}
 }

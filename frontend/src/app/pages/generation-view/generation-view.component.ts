@@ -10,6 +10,8 @@ import { P5spiral } from 'src/app/classes/p5spiral';
 })
 export class GenerationViewComponent {
   generationId: string = '';
+  generationTitle: string = '';
+  generationAuthor: string = '';
   spiral: P5spiral = {
     dotSize: 0,
     irrationalDenominator: 0,
@@ -26,7 +28,10 @@ export class GenerationViewComponent {
     //Get specific generation from backend
     this.api.getGeneration(this.generationId).subscribe({
       next: (res: any) => {
+        //Todo - parse the response and set the spiral object which is passed into the p5spiral component
         console.log('THIS IS THE GENERATION: ', res);
+        this.generationTitle = res.title;
+        this.generationAuthor = res.user;
       },
       error: (err: any) => {
         console.log(err);

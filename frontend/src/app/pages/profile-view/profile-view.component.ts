@@ -10,6 +10,7 @@ import { Profile } from 'src/app/classes/profile';
 })
 export class ProfileViewComponent implements OnInit {
   currentUserDetails: Profile = { id: '', username: '', email: '' };
+  resumes = [];
   //Router param
   userId: string = '';
 
@@ -28,6 +29,17 @@ export class ProfileViewComponent implements OnInit {
           email: res.user.email,
         };
         console.log(this.currentUserDetails);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+
+    //Get user resume generations from backend
+    this.api.getResumes(this.userId).subscribe({
+      next: (res: any) => {
+        this.resumes = res.resumes;
+        console.log(this.resumes);
       },
       error: (err: any) => {
         console.log(err);

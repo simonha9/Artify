@@ -13,6 +13,7 @@ import { ApiInterceptor } from './api.interceptor';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
+import { GenerationPreviewComponent } from './components/generation-preview/generation-preview.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GenerationViewComponent } from './pages/generation-view/generation-view
     UploadPDFComponent,
     ProfileComponent,
     GenerationViewComponent,
+    GenerationPreviewComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [

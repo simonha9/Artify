@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class GenerateComponent {
   constructor(private router: Router, private api: ApiService) {}
 
-  onFileUpload(file: File) {
+  onFileUpload(event: any) {
+    console.log('EVENT: ', event);
     /*
     this.api.uploadPDF(file).subscribe({
       next: (res: any) => {
@@ -22,8 +23,8 @@ export class GenerateComponent {
     })
     */
 
-    const genId = this.api.uploadPDF(file);
+    //const genId = this.api.uploadPDF(file);
 
-    this.router.navigate(['/generation', genId]);
+    //this.router.navigate(['/generation', genId]);
   }
 }

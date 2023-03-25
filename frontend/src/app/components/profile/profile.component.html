@@ -1,4 +1,18 @@
 <div id="profile-details">
-  <div id="profile-name">{{ currentProfile.username }}</div>
-  <div id="profile-email">{{ currentProfile.email }}</div>
+  <div id="profile-name">
+    <span class="bold">Username: </span> {{ currentProfile.username }}
+  </div>
+  <div id="profile-email">
+    <span class="bold">Email: </span> {{ currentProfile.email }}
+  </div>
+
+  <div id="profile-generations">
+    <div id="profile-generations-title" class="bold">Generations:</div>
+
+    <div id="profile-generations-list">
+      <div *ngFor="let resume of resumes">
+        <app-generation-preview [resume]="resume"> </app-generation-preview>
+      </div>
+    </div>
+  </div>
 </div>
