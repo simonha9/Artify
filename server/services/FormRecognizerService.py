@@ -1,7 +1,7 @@
 import os
 from azure.ai.formrecognizer import DocumentAnalysisClient, DocumentModelAdministrationClient
 from azure.core.credentials import AzureKeyCredential
-from server import env
+from os import environ as env
 
 
 class FormRecognizerService:

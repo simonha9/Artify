@@ -1,6 +1,5 @@
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-from server import env
-import uuid
+from os import environ as env
 
 class BlobStorageService:
 

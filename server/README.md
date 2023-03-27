@@ -16,3 +16,31 @@ To get Meilisearch running
 curl -L https://install.meilisearch.com/ | sh
 
 2. should be able to just run ./meilisearch.sh script, ignore master key warning, used for auth
+
+To get Celery running
+
+1. First install rabbitmq, if you're on windows I recommend installing through Chocolatey
+   - install Chocolatey
+   - run 'choco install rabbitmq'
+   - on Windows, you might need to manually set PATH env variable, find your rabbitmq installation, for me
+     it was 'C:/Users/<user>/Program Files/RabbitMQ Server/<version>/sbin, save this in system environment variables under PATH
+   - you can check if rabbitmq is available globally by running 'rabbitmqctl' in powershell
+   - you can also check whether there is a server running by running 'rabbitmq-server status' in powershell
+2. Install Celery
+   - 'pipenv install celery'
+3. Install eventlet
+   - 'pipenv install eventlet'
+4. Run Celery worker
+   - open ANOTHER console
+   - go to root directory of project, this is /project-stomach-pain
+   - check that rabbitmq is running by above
+   - run 'celery -A server.services.Worker worker -l info -P eventlet'
+   - in startup console, look for this line: \[tasks\] . server.services.Worker.addResume and this line: Connected to amqp://guest:\*\*@127.0.0.1:5672//
+   - if you get an error make sure you are in the ROOT directory, not in /server (go one level up)
+
+So we should have:
+
+- 1 console for FE to run Angular
+- 1 console to run BE with Flask
+- 1 console for Meilisearch through wsl
+- 1 console for Celery Worker
