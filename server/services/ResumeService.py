@@ -55,7 +55,6 @@ class ResumeService:
             resume.save()
             metadata = {'title': title, 'user': str(user.id)}
             self.uploadResume(str(resume.id), file, metadata)
-            print('adding resume task')
             addResume.delay(str(resume.id), metadata, file.content_type)
             return resume.id
         except Exception as e:
