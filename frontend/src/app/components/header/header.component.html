@@ -4,14 +4,25 @@
   </span>
 
   <div class="buttons">
-    <div id="generateButton" class="button">
-      <a routerLink="/generate">generate</a>
-    </div>
-    <div id="profileButton" class="button" (click)="seeMyProfile()">
-      <a>profile</a>
-    </div>
-    <div id="logoutButton" class="button" (click)="logout()">
-      <a>signout todo</a>
-    </div>
+    <a routerLink="/generate"
+      ><div
+        id="generateButton"
+        class="button"
+        title="Generate art with PDF"
+      ></div
+    ></a>
+
+    <div
+      id="profileButton"
+      class="button"
+      title="See my profile"
+      (click)="seeMyProfile()"
+    ></div>
+    <div
+      id="logoutButton"
+      class="button"
+      title="Logout"
+      (click)="logout()"
+    ></div>
   </div>
 </div>
