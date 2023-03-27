@@ -77,4 +77,3 @@ def handleMalformedRequest(error):
     response = jsonify({'message': 'Request is malformed or missing fields, if you included an id check the id is correct'})
     response.status_code = 400
     return response
-
