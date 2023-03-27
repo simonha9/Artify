@@ -46,5 +46,5 @@ def generateP5Config(config, results):
     c['dotSize'] = '0.' + results['Phone'][-4:] if results['Phone'] else '0.3'
     c['irrationalDenominator'] = p5Denom[results['Email'].split('@')[1].split('.')[0]] if results['Email'] in p5Denom else p5Denom['default']
     c['shapeCount'] = int(results['wordCount']) * 2
-    c['shapeSize'] = len(results['Name']) * 66
+    c['frames'] = len(results['Name']) * 66
     return c
