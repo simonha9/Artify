@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,23 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./generate.component.scss'],
 })
 export class GenerateComponent {
-  constructor(private router: Router, private api: ApiService) {}
+  constructor(private router: Router, private api: ApiService, private auth: AuthService) {}
 
-  onFileUpload(event: any) {
-    console.log('EVENT: ', event);
-    /*
-    this.api.uploadPDF(file).subscribe({
+  onP5Spiral(event: any) {
+    const pdfFile = event.file;
+    const title = event.title;
+    const userId = this.auth.getUserId();
+    
+    this.api.uploadPDF(pdfFile, title, userId).subscribe({
       next: (res: any) => {
         console.log(res);
+        //this.router.navigate(['/generation', genId]);
       },
       error: (err: any) => {
         console.log(err);
       }
-    })
-    */
+    });
+  }
 
-    //const genId = this.api.uploadPDF(file);
-
-    //this.router.navigate(['/generation', genId]);
+  onSD(event: any) {
+    //kai TODO
   }
 }

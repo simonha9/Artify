@@ -12,7 +12,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./upload-pdf.component.scss'],
 })
 export class UploadPDFComponent implements OnInit {
-  @Output() onFileUpload = new EventEmitter();
+  @Output() onP5Spiral = new EventEmitter();
+  @Output() onSD = new EventEmitter();
 
   uploadPDFForm: FormGroup;
 
@@ -25,14 +26,22 @@ export class UploadPDFComponent implements OnInit {
   ngOnInit(): void {}
 
   uploadPDF(event: any) {
-    console.log('uploadPDF inside of upload-pdf.component.ts');
     event.preventDefault();
-    const title = (document.getElementById('pdf-title') as HTMLInputElement)
-      .value;
+    // Get upload params
+    const title = (document.getElementById('pdfTitle') as HTMLInputElement)
+    .value;
     const file = (
-      document.getElementById('pdf-file') as HTMLInputElement
+      document.getElementById('pdfFile') as HTMLInputElement
     ).files?.item(0);
     this.uploadPDFForm.reset();
-    this.onFileUpload.emit({ file: file, title: title });
+
+    // Generate based on type chosen
+    if (event.submitter.name === 'p5spiral') {
+      this.onP5Spiral.emit({ file: file, title: title });
+    } else if (event.submitter.name === 'sd') {
+      //kai TODO
+    } else {
+      console.log('Error: unrecognized submitter name')
+    }
   }
 }
