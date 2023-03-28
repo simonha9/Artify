@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from './services/auth.service';
 import { OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -9,9 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  currentUser: any = { id: 0 };
-
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private auth: AuthService) {}
 
   ngOnInit(): void {
     //check auth
@@ -21,9 +20,8 @@ export class AppComponent implements OnInit {
   checkAuth() {
     this.api.getAuth().subscribe({
       next: (res: any) => {
-        this.currentUser = res;
-        //todo remove
-        console.log('Logged in as ', this.currentUser);
+        this.auth.setUserId(res.id);
+        console.log('Logged in as ', res); //todo remove
       },
       error: (err: any) => {
         window.location.href = `${environment.backendUrl}/login`;
