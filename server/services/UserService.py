@@ -20,6 +20,9 @@ class UserService:
             user = User.objects.only('id', 'email').get(id=id)
         except User.DoesNotExist:
             raise UserNotFoundError
+        except Exception as e:
+            print(e)
+            raise ServerError
         return user
 
     def findUserByEmail(self, email):
@@ -51,9 +54,8 @@ class UserService:
             raise UserNotFoundError
 
     def uploadResume(self, id, uploadedFile, title):
-        user = self.findUserById(id)
-
         try:
+            user = self.findUserById(id)
             rid = self.resumeService.addResume(user, title, uploadedFile)
             return rid, user.id
         except Exception as e:

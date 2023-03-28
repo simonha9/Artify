@@ -6,7 +6,8 @@ from azure.core.exceptions import ResourceNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
 from server.errors.ServerError import ServerError
 from meilisearch.errors import MeiliSearchApiError
-from server.services.Worker import addResume
+from celery.result import AsyncResult
+from server.services.Worker import addResume, setTaskId, getApp
 import io, base64
 
 class ResumeService:
@@ -53,9 +54,10 @@ class ResumeService:
         try:
             resume = Resume(user=user, title=title)
             resume.save()
-            metadata = {'title': title, 'user': str(user.id)}
+            metadata = {'title': title, 'user': str(user.id), 'username': user.email}
             self.uploadResume(str(resume.id), file, metadata)
-            addResume.delay(str(resume.id), metadata, file.content_type)
+            taskId = addResume.delay(str(resume.id), metadata, file.content_type)
+            setTaskId.delay(str(resume.id), taskId.task_id)
             return resume.id
         except Exception as e:
             print(e, 'Error adding resume')
@@ -70,3 +72,12 @@ class ResumeService:
         except Exception as e:
             print(e)
             raise ServerError('Could not upload resume to blobstorage: ' + str(e))
+    
+    def getResumeStatus(self, rid):
+        try:
+            document = meilisearchService.index('tasks').get_document(rid)._Document__doc
+            worker = getApp()
+            result = AsyncResult(document['task'], app=worker)
+            return result.state
+        except MeiliSearchApiError:
+            raise ServerError('Task not found, try again later')
