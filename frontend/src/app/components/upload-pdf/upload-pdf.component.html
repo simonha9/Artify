@@ -1,12 +1,21 @@
 <form id="upload-pdf-form" (submit)="uploadPDF($event)">
-  <div>Upload a PDF</div>
+  <div class="bold">Title your Creation</div>
   <input
     type="text"
-    id="pdf-title"
-    name="pdf-title"
-    placeholder="Enter a title"
+    id="pdfTitle"
+    name="pdfTitle"
+    placeholder="Enter a title..."
+    required
   />
-  <input type="file" id="pdf-file" name="pdf-file" accept=".pdf" />
 
-  <button type="submit" class="btn">Send</button>
+  <div class="bold">Upload your Resume</div>
+  <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required />
+
+  <div class="bold">Choose Generation Type</div>
+  <div id="generateButtons">
+    <button type="submit" name="p5spiral" class="btn">
+      Interactive Spiral
+    </button>
+    <button type="submit" name="sd" class="btn">Stable Diffusion</button>
+  </div>
 </form>

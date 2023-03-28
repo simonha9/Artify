@@ -17,17 +17,15 @@ export class ApiService {
   user details for the author
 
   */
-  uploadPDF(file: File) {
+  uploadPDF(file: File, title: string, userId: string) {
     console.log('uploadPDF inside of api.service.ts');
-    console.log(File);
-
-    //todo example generation after upload file
-    return '123123312asdasd';
-
-    //send post request to backend of the file
-    // const formData = new FormData();
-    // formData.append('pdf', file);
-    // return this.http.post(`${environment.backendUrl}/uploadPDF`, formData);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('title', title);
+    return this.http.post(
+      `${environment.backendUrl}/users/${userId}/resumes/upload`,
+      formData
+    );
   }
 
   getGenerationn(generationId: string) {

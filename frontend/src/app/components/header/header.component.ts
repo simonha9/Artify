@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -8,15 +9,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Input() userId: number = 0;
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   logout() {
     window.location.href = `${environment.backendUrl}/logout`;
   }
 
   seeMyProfile() {
-    this.router.navigate(['/profile', this.userId]);
+    const userId = this.auth.getUserId();
+    this.router.navigate(['/profile', userId]);
   }
 }
