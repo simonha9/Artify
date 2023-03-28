@@ -5,7 +5,7 @@ from server.models.Resumes import Resume
 from azure.core.exceptions import ResourceNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
 from server.errors.ServerError import ServerError
-from celery import group
+from meilisearch.errors import MeiliSearchApiError
 from server.services.Worker import addResume
 import io, base64
 
@@ -20,7 +20,7 @@ class ResumeService:
         except ResourceNotFoundError:
             raise ResumeNotFoundError
         except Exception as e:
-            raise ServerError
+            raise ServerError(str(e))
     
     def deleteResume(self, id):
         try:
@@ -29,15 +29,15 @@ class ResumeService:
         except ResourceNotFoundError:
             raise ResumeNotFoundError
         except Exception as e:
-            raise ServerError
+            raise ServerError(str(e))
     
     def getResumeDetails(self, id):
         try:
             resume = meilisearchService.index('resumes').get_document(id)._Document__doc
             return resume
-        except Exception as e:
-            print(e)
-            raise ServerError
+        except MeiliSearchApiError:
+            raise ResumeNotFoundError('Resume not found in meilisearch')
+
     
     def getResumes(self):
         return Resume.objects()
@@ -55,12 +55,11 @@ class ResumeService:
             resume.save()
             metadata = {'title': title, 'user': str(user.id)}
             self.uploadResume(str(resume.id), file, metadata)
-            print('adding resume task')
             addResume.delay(str(resume.id), metadata, file.content_type)
             return resume.id
         except Exception as e:
             print(e, 'Error adding resume')
-            raise ServerError
+            raise ServerError('Could not save resume to mongo: ' + str(e))
 
     def getUserResumes(self, user):
         return Resume.objects(user=user)
@@ -70,4 +69,4 @@ class ResumeService:
             self.bs.upload(rid, file, metadata)
         except Exception as e:
             print(e)
-            raise ServerError
+            raise ServerError('Could not upload resume to blobstorage: ' + str(e))

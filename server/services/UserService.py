@@ -57,8 +57,7 @@ class UserService:
             rid = self.resumeService.addResume(user, title, uploadedFile)
             return rid, user.id
         except Exception as e:
-            print(e)
-            raise ServerError
+            raise ServerError(str(e))
     
     def getResumes(self, id):
         try:

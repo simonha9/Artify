@@ -58,7 +58,7 @@ def getUserProfile():
     user_info = session['user_info']
     user = userService.findUserByEmail(user_info['email'])
     if user is None:
-        return jsonify({'message': 'User not found'}), 404
+        raise UserNotFoundError
     user_info['id'] = str(user.id)
     return jsonify(user_info), 200
 
@@ -75,22 +75,19 @@ def getUser(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
 
-    try:
-        user = userService.findUserById(id)
-        return jsonify({'user': user})
-    except Exception as e:
-        raise ServerError
+    user = userService.findUserById(id)
+    return jsonify({'user': user})
+
     
 @app.delete('/users/<id>')
 @cross_origin(supports_credentials=True)
 def deleteUser(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
-    try:
-        userService.deleteUser(id)
-        return jsonify({'message': 'User deleted successfully'})
-    except Exception:
-        raise ServerError
+
+    userService.deleteUser(id)
+    return jsonify({'message': 'User deleted successfully'})
+
 
 @app.post('/users/<id>/resumes/upload')
 @cross_origin(supports_credentials=True)
@@ -99,35 +96,31 @@ def uploadResume(id):
         raise InvalidObjectIdError
     
     if 'file' not in request.files:
-        raise MalformedRequest
+        raise MalformedRequest('Expecting a \'file\' key in the request body and none was found.')
     
     if not request.form:
-        raise MalformedRequest
+        raise MalformedRequest('Expecting a \'title\' key in the request body and none was found.')
     
     title = request.form['title']
     if not title:
-        raise MalformedRequest
+        raise MalformedRequest('Expecting a \'title\' key in the request body and none was found.')
 
-    try:
-        file = request.files['file']
-        title = request.form['title']
-        rid, uid = userService.uploadResume(id, file, title)
-        return jsonify({'id': str(rid), 'user': str(uid)})
-    except Exception as e:
-        print(e)
-        raise ServerError
+
+    file = request.files['file']
+    title = request.form['title']
+    rid, uid = userService.uploadResume(id, file, title)
+    return jsonify({'id': str(rid), 'user': str(uid)})
+
 
 @app.get('/users/<id>/resumes')
 @cross_origin(supports_credentials=True)
 def getUserResumes(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
-    try:
-        resumes = userService.getResumes(id)
-        return jsonify({'resumes': resumes})
-    except Exception as e:
-        print(e)
-        raise ServerError
+
+    resumes = userService.getResumes(id)
+    return jsonify({'resumes': resumes})
+
 
 
 

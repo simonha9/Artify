@@ -18,11 +18,10 @@ def getResume(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
 
-    try:
-        resumeBytes = resumeService.downloadResume(id)
-        return Response(resumeBytes, mimetype="application/pdf"), 200
-    except Exception as e:
-        raise ServerError
+
+    resumeBytes = resumeService.downloadResume(id)
+    return Response(resumeBytes, mimetype="application/pdf"), 200
+
 
 
 @app.delete('/resumes/<id>')
@@ -30,23 +29,19 @@ def getResume(id):
 def deleteResume(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
-    try:
-        resumeService.deleteResume(id)
-        return jsonify({'message': 'Resume deleted successfully'}), 200
-    except Exception as e:
-        print(e)
-        raise ServerError
+
+    resumeService.deleteResume(id)
+    return jsonify({'message': 'Resume deleted successfully'}), 200
+
 
 @app.get('/resumes/<id>/analyze')
 @cross_origin(supports_credentials=True)
 def analyzeResume(id):
     if (not ObjectId.is_valid(id)):
         raise InvalidObjectIdError
-    try:
-        return jsonify(resumeService.getResumeDetails(id))
-    except Exception as e:
-        print(e)
-        raise ServerError
+
+    return jsonify(resumeService.getResumeDetails(id))
+
     
 @app.get('/resumes')
 @cross_origin(supports_credentials=True)
@@ -58,8 +53,7 @@ def getResumes():
 @app.get('/resumes/search')
 @cross_origin(supports_credentials=True)
 def searchResumes():
-    try:
-        query = request.args.get('keywords')
-        return jsonify(resumeService.searchResumes(query))
-    except Exception as e:
-        raise ServerError
+
+    query = request.args.get('keywords')
+    return jsonify(resumeService.searchResumes(query))
+

@@ -53,13 +53,6 @@ def handleInvalidObjectId(error):
     response.status_code = 400
     return response
 
-@app.errorhandler(ServerError)
-def handleServerError(error):
-    print(error)
-    response = jsonify({'message': 'Something went wrong'})
-    response.status_code = 500
-    return response
-
 @app.errorhandler(UserNotFoundError)
 def handleUserNotFoundError(error):
     response = jsonify({'message': 'User not found'})
@@ -68,12 +61,18 @@ def handleUserNotFoundError(error):
 
 @app.errorhandler(ResumeNotFoundError)
 def handleResumeNotFoundError(error):
-    response = jsonify({'message': 'Resume not found'})
+    response = jsonify({'message': 'Resume not found', 'error': str(error)})
     response.status_code = 404
     return response
 
 @app.errorhandler(MalformedRequest)
 def handleMalformedRequest(error):
-    response = jsonify({'message': 'Request is malformed or missing fields, if you included an id check the id is correct'})
+    response = jsonify({'message': 'Malformed Request: ' + str(error)})
     response.status_code = 400
+    return response
+
+@app.errorhandler(ServerError)
+def handleServerError(error):
+    response = jsonify({'message': 'Something went wrong', 'error': str(error)})
+    response.status_code = 500
     return response
