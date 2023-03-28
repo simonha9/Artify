@@ -63,3 +63,12 @@ def searchResumes():
         return jsonify(resumeService.searchResumes(query))
     except Exception as e:
         raise ServerError
+    
+@app.get('/resumes/<id>/status')
+@cross_origin(supports_credentials=True)
+def getResumeStatus(id):
+    if (not ObjectId.is_valid(id)):
+        raise InvalidObjectIdError
+
+    return jsonify(resumeService.getResumeStatus(id))
+

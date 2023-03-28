@@ -5,8 +5,8 @@ from server.models.Resumes import Resume
 from azure.core.exceptions import ResourceNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
 from server.errors.ServerError import ServerError
-from celery import group
-from server.services.Worker import addResume
+from celery.result import AsyncResult
+from server.services.Worker import addResume, setTaskId, getApp
 import io, base64
 
 class ResumeService:
@@ -53,9 +53,10 @@ class ResumeService:
         try:
             resume = Resume(user=user, title=title)
             resume.save()
-            metadata = {'title': title, 'user': str(user.id)}
+            metadata = {'title': title, 'user': str(user.id), 'username': user.email}
             self.uploadResume(str(resume.id), file, metadata)
-            addResume.delay(str(resume.id), metadata, file.content_type)
+            taskId = addResume.delay(str(resume.id), metadata, file.content_type)
+            setTaskId.delay(str(resume.id), taskId.task_id)
             return resume.id
         except Exception as e:
             print(e, 'Error adding resume')
@@ -70,3 +71,9 @@ class ResumeService:
         except Exception as e:
             print(e)
             raise ServerError
+    
+    def getResumeStatus(self, rid):
+        taskId = meilisearchService.index('tasks').get_document(rid)
+        worker = getApp()
+        result = AsyncResult(taskId, app=worker)
+        return result.status

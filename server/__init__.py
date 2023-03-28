@@ -19,7 +19,7 @@ CORS(app, support_credentials=True, resources={r"/*": {"origins": "*"}})
 app.config.from_mapping(
     SECRET_KEY= env.get('SECRET_KEY') or 'dev',
     MONGODB_SETTINGS = {
-        'host': env.get('MONGODB_URI') or 'mongodb://localhost:27017',
+        'host': env.get('MONGODB_URI') or 'mongodb://localhost:27017'
     }
 )
 oauth = OAuth(app)
@@ -38,6 +38,10 @@ oauth.register(
 
 db = MongoEngine(app)
 meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700')
+meilisearchService.create_index('resumes')
+meilisearchService.create_index('tasks', {
+    'primaryKey': 'rid',
+})
 
 from server.routes import UserRoutes, ResumeRoutes
 
