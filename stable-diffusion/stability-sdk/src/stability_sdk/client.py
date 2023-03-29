@@ -97,7 +97,7 @@ def process_artifacts_from_answers(
             is_allowed_type = filter_types is None or artifact_type_to_str(artifact.type) in filter_types
             if write:
                 if is_allowed_type:
-                    output.append(base64.b64encode(bytes(contents)).decode("utf-8"))
+                    output.append({"image":base64.b64encode(bytes(contents)).decode("utf-8")})
                 else:
                     if verbose:
                         logger.info(
@@ -368,7 +368,7 @@ class StabilityInference:
             start = time.time()
 
 
-def generateImage(formData):
+def generateImage(req_body):
     # Set up logging for output to console.
     fh = logging.StreamHandler()
     fh_formatter = logging.Formatter(
@@ -401,7 +401,7 @@ def generateImage(formData):
         )
         sys.exit(1)
 
-    prompt = formData.get("prompt")
+    prompt = req_body.get("prompt")
     sdEngine = "stable-diffusion-v1-5"
 
     request =  {
@@ -414,16 +414,16 @@ def generateImage(formData):
         "samples": 1,
     }
 
-    if formData.get("height"):
-        request["height"] = int(formData.get("height"))
-    if formData.get("width"):
-        request["width"] = int(formData.get("width"))
-    if formData.get("start_schedule"):
-        request["cfg_scale"] = float(formData.get("cfg_scale"))
-    if formData.get("steps"):
-        request["steps"] = int(formData.get("steps"))
-    if formData.get("samples"):
-        request["samples"] = int(formData.get("samples"))
+    if req_body.get("height"):
+        request["height"] = int(req_body.get("height"))
+    if req_body.get("width"):
+        request["width"] = int(req_body.get("width"))
+    if req_body.get("start_schedule"):
+        request["cfg_scale"] = float(req_body.get("cfg_scale"))
+    if req_body.get("steps"):
+        request["steps"] = int(req_body.get("steps"))
+    if req_body.get("samples"):
+        request["samples"] = int(req_body.get("samples"))
 
     stability_api = StabilityInference(
     STABILITY_HOST, STABILITY_KEY, engine=sdEngine, verbose=True

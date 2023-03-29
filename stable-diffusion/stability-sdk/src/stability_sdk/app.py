@@ -4,9 +4,10 @@ app = Flask(__name__)
 
 @app.route("/generate" , methods=['POST'])
 def generate():
+  req_body = request.get_json()
   try:
     artifacts = generateImage(
-      request.form
+      req_body
     )
     return {'artifacts': artifacts}, 200
   except Exception as e:
