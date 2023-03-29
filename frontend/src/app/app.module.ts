@@ -28,11 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UploadPDFComponent,
     ProfileComponent,
     GenerationViewComponent,
-<<<<<<< HEAD
-    GenerationPreviewComponent,
-=======
     StableDiffusionComponent,
->>>>>>> 9eb3bb0 (completed basic FE for SD)
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [
