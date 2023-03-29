@@ -8,7 +8,7 @@ var EnginesService = (function () {
   function EnginesService() {}
   EnginesService.serviceName = "gooseai.EnginesService";
   return EnginesService;
-}());
+})();
 
 EnginesService.ListEngines = {
   methodName: "ListEngines",
@@ -16,7 +16,7 @@ EnginesService.ListEngines = {
   requestStream: false,
   responseStream: false,
   requestType: engines_pb.ListEnginesRequest,
-  responseType: engines_pb.Engines
+  responseType: engines_pb.Engines,
 };
 
 exports.EnginesService = EnginesService;
@@ -26,7 +26,11 @@ function EnginesServiceClient(serviceHost, options) {
   this.options = options || {};
 }
 
-EnginesServiceClient.prototype.listEngines = function listEngines(requestMessage, metadata, callback) {
+EnginesServiceClient.prototype.listEngines = function listEngines(
+  requestMessage,
+  metadata,
+  callback
+) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -47,15 +51,14 @@ EnginesServiceClient.prototype.listEngines = function listEngines(requestMessage
           callback(null, response.message);
         }
       }
-    }
+    },
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
-    }
+    },
   };
 };
 
 exports.EnginesServiceClient = EnginesServiceClient;
-
