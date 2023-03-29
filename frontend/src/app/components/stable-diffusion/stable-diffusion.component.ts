@@ -15,6 +15,7 @@ export class StableDiffusionComponent {
       prompt: ['', Validators.required],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       cfg_scale: [],
       steps: [],
       samples: [],
@@ -22,6 +23,11 @@ export class StableDiffusionComponent {
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
 =======
 >>>>>>> ac52968 (completed basic FE for SD)
+=======
+      cfg_scale: [],
+      steps: [],
+      samples: [],
+>>>>>>> 456bafa (added stable diffusion component)
     });
   }
 
@@ -31,11 +37,15 @@ export class StableDiffusionComponent {
   generate() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log(this.generateForm.errors);
 =======
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
 =======
 >>>>>>> ac52968 (completed basic FE for SD)
+=======
+    console.log(this.generateForm.errors);
+>>>>>>> 456bafa (added stable diffusion component)
     this.api.generateSD(this.generateForm.value).subscribe({
       next: (res: any) => {
         //TODO: take base64 img res and display it

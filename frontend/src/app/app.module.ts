@@ -16,11 +16,15 @@ import { GenerationViewComponent } from './pages/generation-view/generation-view
 import { StableDiffusionComponent } from './components/stable-diffusion/stable-diffusion.component';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 =======
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
 =======
 >>>>>>> ac52968 (completed basic FE for SD)
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 456bafa (added stable diffusion component)
 
 @NgModule({
   declarations: [

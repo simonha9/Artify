@@ -42,6 +42,7 @@ export class ApiService {
     //TODO: implement this when backend is ready
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return this.http.post(`${environment.sdUrl}/generate`, { prompt });
 =======
     return this.http.post(`${environment.backendUrl}/sd`, { prompt });
@@ -49,6 +50,9 @@ export class ApiService {
 =======
     return this.http.post(`${environment.backendUrl}/sd`, { prompt });
 >>>>>>> ac52968 (completed basic FE for SD)
+=======
+    return this.http.post(`${environment.sdUrl}/generate`, { prompt });
+>>>>>>> 456bafa (added stable diffusion component)
   }
 
   getAuth() {
