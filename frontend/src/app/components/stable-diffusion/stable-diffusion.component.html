@@ -1,17 +1,30 @@
-<h1>Stable-diffusion</h1>
-<div class="params">
-  <div class="param1">Param1</div>
-  <div class="param2">Param2</div>
-  <div class="param3">Param3</div>
-  <div class="param4">For now, the params for SD will be default</div>
-</div>
-<form (submit)="generate()">
-  <div>
+<h1 class="header">Stable-diffusion</h1>
+<form (submit)="generate()" class="stable-diffusion-form" [formGroup]="generateForm">
+  <div class="stable-diffusion-form-input">
     <input
+    formControlName="prompt"
     type="text"
     name="prompt"
     placeholder="Prompt"
     required
+    />
+    <input
+    formControlName="cfg-scale"
+    type="float"
+    name="cfg_scale"
+    placeholder="cfg scale"
+    />
+    <input
+    formControlName="steps"
+    type="number"
+    name="steps"
+    placeholder="steps"
+    />
+    <input
+    formControlName="samples"
+    type="number"
+    name="samples"
+    placeholder="samples"
     />
   </div>
   <div>

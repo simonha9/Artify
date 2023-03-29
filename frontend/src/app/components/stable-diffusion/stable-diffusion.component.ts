@@ -13,6 +13,9 @@ export class StableDiffusionComponent {
   constructor(private api: ApiService, private fb: FormBuilder) {
     this.generateForm = this.fb.group({
       prompt: ['', Validators.required],
+      cfg_scale: [],
+      steps: [],
+      samples: [],
     });
   }
 
@@ -20,6 +23,7 @@ export class StableDiffusionComponent {
   }
 
   generate() {
+    console.log(this.generateForm.errors);
     this.api.generateSD(this.generateForm.value).subscribe({
       next: (res: any) => {
         //TODO: take base64 img res and display it
