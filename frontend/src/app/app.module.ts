@@ -14,6 +14,7 @@ import { ProfileViewComponent } from './pages/profile-view/profile-view.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 import { StableDiffusionComponent } from './components/stable-diffusion/stable-diffusion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { StableDiffusionComponent } from './components/stable-diffusion/stable-d
     StableDiffusionComponent,
 >>>>>>> 9eb3bb0 (completed basic FE for SD)
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
