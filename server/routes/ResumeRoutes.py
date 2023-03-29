@@ -7,6 +7,7 @@ from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError
 from server.errors.MalformedRequest import MalformedRequest
 from bson import ObjectId
+import uuid
 
 
 resumeService = ResumeService()
@@ -15,9 +16,10 @@ resumeService = ResumeService()
 @app.get('/resumes/<id>')
 @cross_origin(supports_credentials=True)
 def getResume(id):
-    if (not ObjectId.is_valid(id)):
-        raise InvalidObjectIdError
-
+    try:
+        uuid.UUID(id, version=4)
+    except ValueError:
+        raise MalformedRequest('Invalid uuid for resume')
 
     resumeBytes = resumeService.downloadResume(id)
     return Response(resumeBytes, mimetype="application/pdf"), 200
@@ -27,8 +29,10 @@ def getResume(id):
 @app.delete('/resumes/<id>')
 @cross_origin(supports_credentials=True)
 def deleteResume(id):
-    if (not ObjectId.is_valid(id)):
-        raise InvalidObjectIdError
+    try:
+        uuid.UUID(id, version=4)
+    except ValueError:
+        raise MalformedRequest('Invalid uuid for resume')
 
     resumeService.deleteResume(id)
     return jsonify({'message': 'Resume deleted successfully'}), 200
@@ -37,8 +41,10 @@ def deleteResume(id):
 @app.get('/resumes/<id>/analyze')
 @cross_origin(supports_credentials=True)
 def analyzeResume(id):
-    if (not ObjectId.is_valid(id)):
-        raise InvalidObjectIdError
+    try:
+        uuid.UUID(id, version=4)
+    except ValueError:
+        raise MalformedRequest('Invalid uuid for resume')
 
     return jsonify(resumeService.getResumeDetails(id))
 
@@ -46,14 +52,17 @@ def analyzeResume(id):
 @app.get('/resumes')
 @cross_origin(supports_credentials=True)
 def getResumes():
-    resumes = resumeService.getResumes()
+    offset = request.args.get('offset', default=0, type=int)
+    limit = request.args.get('limit', default=10, type=int)
+    resumes = resumeService.getResumes(offset, limit)
     return jsonify({'resumes': resumes})
 
 
 @app.get('/resumes/search')
 @cross_origin(supports_credentials=True)
 def searchResumes():
-
+    if 'keywords' not in request.args:
+        raise MalformedRequest('keywords query parameter required')
     query = request.args.get('keywords')
     return jsonify(resumeService.searchResumes(query))
 
@@ -61,8 +70,10 @@ def searchResumes():
 @app.get('/resumes/<id>/status')
 @cross_origin(supports_credentials=True)
 def getResumeStatus(id):
-    if (not ObjectId.is_valid(id)):
-        raise InvalidObjectIdError
+    try:
+        uuid.UUID(id, version=4)
+    except ValueError:
+        raise MalformedRequest('Invalid uuid for resume')
 
     return jsonify(resumeService.getResumeStatus(id))
 

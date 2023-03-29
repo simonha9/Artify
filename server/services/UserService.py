@@ -41,10 +41,6 @@ class UserService:
         user = User.objects()
         return user
 
-    def addResumeToUser(self, userId, resume):
-        user = User.objects.get(id=userId)
-        user.resumes.append(resume)
-        user.save()
     
     def deleteUser(self, id):
         try:
@@ -63,7 +59,6 @@ class UserService:
     
     def getResumes(self, id):
         try:
-            user = User.objects.get(id=id)
-            return self.resumeService.getUserResumes(user)
+            return self.resumeService.getUserResumes(id)
         except User.DoesNotExist:
             raise UserNotFoundError

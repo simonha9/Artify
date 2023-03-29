@@ -1,14 +1,13 @@
 from server.services.FormRecognizerService import FormRecognizerService
 from server.services.BlobStorageService import BlobStorageService
 from server import app, oauth, env, meilisearchService
-from server.models.Resumes import Resume
 from azure.core.exceptions import ResourceNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
 from server.errors.ServerError import ServerError
 from meilisearch.errors import MeiliSearchApiError
 from celery.result import AsyncResult
 from server.services.Worker import addResume, setTaskId, getApp
-import io, base64
+import io, base64, uuid
 
 class ResumeService:
     def __init__(self):
@@ -40,8 +39,8 @@ class ResumeService:
             raise ResumeNotFoundError('Resume not found in meilisearch')
 
     
-    def getResumes(self):
-        return Resume.objects()
+    def getResumes(self, offset, limit):
+        results = [dict(r) for r in meilisearchService.index('resumes').get_all_documents()]
     
     def searchResumes(self, query):
         if query:
@@ -52,19 +51,18 @@ class ResumeService:
 
     def addResume(self, user, title, file):
         try:
-            resume = Resume(user=user, title=title)
-            resume.save()
+            rid = str(uuid.uuid4())
             metadata = {'title': title, 'user': str(user.id), 'username': user.email}
-            self.uploadResume(str(resume.id), file, metadata)
-            taskId = addResume.delay(str(resume.id), metadata, file.content_type)
-            setTaskId.delay(str(resume.id), taskId.task_id)
-            return resume.id
+            self.uploadResume(rid, file, metadata)
+            taskId = addResume.delay(rid metadata, file.content_type)
+            setTaskId.delay(rid, taskId.task_id)
+            return rid
         except Exception as e:
             print(e, 'Error adding resume')
             raise ServerError('Could not save resume to mongo: ' + str(e))
 
-    def getUserResumes(self, user):
-        return Resume.objects(user=user)
+    def getUserResumes(self, userId):
+        return meiliSearchService.index('resumes').search('user:' + userId)['hits']
     
     def uploadResume(self, rid, file, metadata):
         try:
