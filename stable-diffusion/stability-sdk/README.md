@@ -1,6 +1,6 @@
 # Installation
 
-1. pipenv shell
+1. pipenv shell on \stable-diffusion
 2. pipenv install
 3. python stable-diffusion\stability-sdk\src\stability_sdk\app.py
 
