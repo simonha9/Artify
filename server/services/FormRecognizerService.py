@@ -40,6 +40,6 @@ class FormRecognizerService:
             for name, field in document.fields.items():
                 field_value = field.value if field.value else field.content
                 res[name] = field_value
-                wc += 1
+                wc += len(field_value.split() if field_value else '')
         res['wordCount'] = wc
         return res

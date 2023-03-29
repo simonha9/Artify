@@ -54,7 +54,7 @@ class ResumeService:
             rid = str(uuid.uuid4())
             metadata = {'title': title, 'user': str(user.id), 'username': user.email}
             self.uploadResume(rid, file, metadata)
-            taskId = addResume.delay(rid metadata, file.content_type)
+            taskId = addResume.delay(rid, metadata, file.content_type)
             setTaskId.delay(rid, taskId.task_id)
             return rid
         except Exception as e:
@@ -62,7 +62,7 @@ class ResumeService:
             raise ServerError('Could not save resume to mongo: ' + str(e))
 
     def getUserResumes(self, userId):
-        return meiliSearchService.index('resumes').search('user:' + userId)['hits']
+        return meilisearchService.index('resumes').search('user:' + userId)['hits']
     
     def uploadResume(self, rid, file, metadata):
         try:
