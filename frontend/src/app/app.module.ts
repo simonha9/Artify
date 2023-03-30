@@ -14,8 +14,10 @@ import { ProfileViewComponent } from './pages/profile-view/profile-view.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 import { GenerationPreviewComponent } from './components/generation-preview/generation-preview.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { SdGenerationComponent } from './components/sd-generation/sd-generation.component';
+import { SdViewComponent } from './pages/sd-view/sd-view.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -30,14 +32,10 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     ProfileComponent,
     GenerationViewComponent,
     GenerationPreviewComponent,
-    SearchbarComponent,
+    SdGenerationComponent,
+    SdViewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
