@@ -71,7 +71,7 @@ class ResumeService:
             raise ServerError('Could not save resume to mongo: ' + str(e))
 
     def getUserResumes(self, userId):
-        return meilisearchService.index('resumes').search('user:' + userId)['hits']
+        return meilisearchService.index('resumes').search(userId)['hits']
     
     def uploadResume(self, rid, file, metadata):
         try:
