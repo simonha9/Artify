@@ -38,15 +38,24 @@ class ResumeService:
         except MeiliSearchApiError:
             raise ResumeNotFoundError('Resume not found in meilisearch')
 
-    
-    def getResumes(self, offset, limit):
-        results = [dict(r) for r in meilisearchService.index('resumes').get_all_documents()]
+    def parseResumeResults(self, results):
+        res = []
+        d = {}
+        for document in results:
+            for k, v in document:
+                d[k] = v
+        res.append(d)
+        return res
+
+    def getResumes(self, offset=0, limit=10):
+        r = meilisearchService.index('resumes').get_documents().results
+        return self.parseResumeResults(r)
     
     def searchResumes(self, query):
         if query:
             results = meilisearchService.index('resumes').search(query)['hits']
         else:
-            results = [dict(r) for r in meilisearchService.index('resumes').get_all_documents()]
+            results = self.getResumes()
         return results
 
     def addResume(self, user, title, file):
