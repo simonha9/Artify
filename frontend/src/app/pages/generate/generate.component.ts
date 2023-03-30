@@ -32,6 +32,7 @@ export class GenerateComponent {
   }
 
   onSD(event: any) {
-    //kai TODO
+    //TODO: pass in resume when CORS is fixed
+    this.router.navigate(['/sd-generation']);
   }
 }
