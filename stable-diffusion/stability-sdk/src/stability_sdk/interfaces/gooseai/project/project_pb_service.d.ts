@@ -2,11 +2,7 @@
 // file: project.proto
 
 import * as project_pb from "./project_pb";
-<<<<<<< HEAD
 import { grpc } from "@improbable-eng/grpc-web";
-=======
-import {grpc} from "@improbable-eng/grpc-web";
->>>>>>> 917d866 (test)
 
 type ProjectServiceCreate = {
   readonly methodName: string;
@@ -62,50 +58,33 @@ export class ProjectService {
   static readonly Delete: ProjectServiceDelete;
 }
 
-<<<<<<< HEAD
 export type ServiceError = {
   message: string;
   code: number;
   metadata: grpc.Metadata;
 };
 export type Status = { details: string; code: number; metadata: grpc.Metadata };
-=======
-export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
-export type Status = { details: string, code: number; metadata: grpc.Metadata }
->>>>>>> 917d866 (test)
 
 interface UnaryResponse {
   cancel(): void;
 }
 interface ResponseStream<T> {
   cancel(): void;
-<<<<<<< HEAD
   on(type: "data", handler: (message: T) => void): ResponseStream<T>;
   on(type: "end", handler: (status?: Status) => void): ResponseStream<T>;
   on(type: "status", handler: (status: Status) => void): ResponseStream<T>;
-=======
-  on(type: 'data', handler: (message: T) => void): ResponseStream<T>;
-  on(type: 'end', handler: (status?: Status) => void): ResponseStream<T>;
-  on(type: 'status', handler: (status: Status) => void): ResponseStream<T>;
->>>>>>> 917d866 (test)
 }
 interface RequestStream<T> {
   write(message: T): RequestStream<T>;
   end(): void;
   cancel(): void;
-<<<<<<< HEAD
   on(type: "end", handler: (status?: Status) => void): RequestStream<T>;
   on(type: "status", handler: (status: Status) => void): RequestStream<T>;
-=======
-  on(type: 'end', handler: (status?: Status) => void): RequestStream<T>;
-  on(type: 'status', handler: (status: Status) => void): RequestStream<T>;
->>>>>>> 917d866 (test)
 }
 interface BidirectionalStream<ReqT, ResT> {
   write(message: ReqT): BidirectionalStream<ReqT, ResT>;
   end(): void;
   cancel(): void;
-<<<<<<< HEAD
   on(
     type: "data",
     handler: (message: ResT) => void
@@ -118,11 +97,6 @@ interface BidirectionalStream<ReqT, ResT> {
     type: "status",
     handler: (status: Status) => void
   ): BidirectionalStream<ReqT, ResT>;
-=======
-  on(type: 'data', handler: (message: ResT) => void): BidirectionalStream<ReqT, ResT>;
-  on(type: 'end', handler: (status?: Status) => void): BidirectionalStream<ReqT, ResT>;
-  on(type: 'status', handler: (status: Status) => void): BidirectionalStream<ReqT, ResT>;
->>>>>>> 917d866 (test)
 }
 
 export class ProjectServiceClient {
@@ -132,7 +106,6 @@ export class ProjectServiceClient {
   create(
     requestMessage: project_pb.CreateProjectRequest,
     metadata: grpc.Metadata,
-<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: project_pb.Project | null
@@ -144,18 +117,10 @@ export class ProjectServiceClient {
       error: ServiceError | null,
       responseMessage: project_pb.Project | null
     ) => void
-=======
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-  create(
-    requestMessage: project_pb.CreateProjectRequest,
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
->>>>>>> 917d866 (test)
   ): UnaryResponse;
   update(
     requestMessage: project_pb.UpdateProjectRequest,
     metadata: grpc.Metadata,
-<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: project_pb.Project | null
@@ -186,28 +151,10 @@ export class ProjectServiceClient {
       error: ServiceError | null,
       responseMessage: project_pb.Project | null
     ) => void
-=======
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-  update(
-    requestMessage: project_pb.UpdateProjectRequest,
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-  list(requestMessage: project_pb.ListProjectRequest, metadata?: grpc.Metadata): ResponseStream<project_pb.Project>;
-  get(
-    requestMessage: project_pb.GetProjectRequest,
-    metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-  get(
-    requestMessage: project_pb.GetProjectRequest,
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
->>>>>>> 917d866 (test)
   ): UnaryResponse;
   delete(
     requestMessage: project_pb.DeleteProjectRequest,
     metadata: grpc.Metadata,
-<<<<<<< HEAD
     callback: (
       error: ServiceError | null,
       responseMessage: project_pb.Project | null
@@ -221,13 +168,3 @@ export class ProjectServiceClient {
     ) => void
   ): UnaryResponse;
 }
-=======
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-  delete(
-    requestMessage: project_pb.DeleteProjectRequest,
-    callback: (error: ServiceError|null, responseMessage: project_pb.Project|null) => void
-  ): UnaryResponse;
-}
-
->>>>>>> 917d866 (test)

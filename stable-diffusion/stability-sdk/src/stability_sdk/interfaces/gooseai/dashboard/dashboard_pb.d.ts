@@ -22,7 +22,6 @@ export class OrganizationMember extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OrganizationMember.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: OrganizationMember
@@ -40,31 +39,15 @@ export class OrganizationMember extends jspb.Message {
     message: OrganizationMember,
     reader: jspb.BinaryReader
   ): OrganizationMember;
-=======
-  static toObject(includeInstance: boolean, msg: OrganizationMember): OrganizationMember.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: OrganizationMember, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OrganizationMember;
-  static deserializeBinaryFromReader(message: OrganizationMember, reader: jspb.BinaryReader): OrganizationMember;
->>>>>>> 917d866 (test)
 }
 
 export namespace OrganizationMember {
   export type AsObject = {
-<<<<<<< HEAD
     organization?: Organization.AsObject;
     user?: User.AsObject;
     role: OrganizationRoleMap[keyof OrganizationRoleMap];
     isDefault: boolean;
   };
-=======
-    organization?: Organization.AsObject,
-    user?: User.AsObject,
-    role: OrganizationRoleMap[keyof OrganizationRoleMap],
-    isDefault: boolean,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class OrganizationGrant extends jspb.Message {
@@ -82,7 +65,6 @@ export class OrganizationGrant extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OrganizationGrant.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: OrganizationGrant
@@ -100,31 +82,15 @@ export class OrganizationGrant extends jspb.Message {
     message: OrganizationGrant,
     reader: jspb.BinaryReader
   ): OrganizationGrant;
-=======
-  static toObject(includeInstance: boolean, msg: OrganizationGrant): OrganizationGrant.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: OrganizationGrant, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OrganizationGrant;
-  static deserializeBinaryFromReader(message: OrganizationGrant, reader: jspb.BinaryReader): OrganizationGrant;
->>>>>>> 917d866 (test)
 }
 
 export namespace OrganizationGrant {
   export type AsObject = {
-<<<<<<< HEAD
     amountGranted: number;
     amountUsed: number;
     expiresAt: number;
     grantedAt: number;
   };
-=======
-    amountGranted: number,
-    amountUsed: number,
-    expiresAt: number,
-    grantedAt: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class OrganizationPaymentInfo extends jspb.Message {
@@ -138,7 +104,6 @@ export class OrganizationPaymentInfo extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OrganizationPaymentInfo.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: OrganizationPaymentInfo
@@ -156,27 +121,13 @@ export class OrganizationPaymentInfo extends jspb.Message {
     message: OrganizationPaymentInfo,
     reader: jspb.BinaryReader
   ): OrganizationPaymentInfo;
-=======
-  static toObject(includeInstance: boolean, msg: OrganizationPaymentInfo): OrganizationPaymentInfo.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: OrganizationPaymentInfo, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OrganizationPaymentInfo;
-  static deserializeBinaryFromReader(message: OrganizationPaymentInfo, reader: jspb.BinaryReader): OrganizationPaymentInfo;
->>>>>>> 917d866 (test)
 }
 
 export namespace OrganizationPaymentInfo {
   export type AsObject = {
-<<<<<<< HEAD
     balance: number;
     grantsList: Array<OrganizationGrant.AsObject>;
   };
-=======
-    balance: number,
-    grantsList: Array<OrganizationGrant.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class OrganizationAutoCharge extends jspb.Message {
@@ -191,7 +142,6 @@ export class OrganizationAutoCharge extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OrganizationAutoCharge.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: OrganizationAutoCharge
@@ -209,29 +159,14 @@ export class OrganizationAutoCharge extends jspb.Message {
     message: OrganizationAutoCharge,
     reader: jspb.BinaryReader
   ): OrganizationAutoCharge;
-=======
-  static toObject(includeInstance: boolean, msg: OrganizationAutoCharge): OrganizationAutoCharge.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: OrganizationAutoCharge, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OrganizationAutoCharge;
-  static deserializeBinaryFromReader(message: OrganizationAutoCharge, reader: jspb.BinaryReader): OrganizationAutoCharge;
->>>>>>> 917d866 (test)
 }
 
 export namespace OrganizationAutoCharge {
   export type AsObject = {
-<<<<<<< HEAD
     enabled: boolean;
     id: string;
     createdAt: number;
   };
-=======
-    enabled: boolean,
-    id: string,
-    createdAt: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Organization extends jspb.Message {
@@ -266,7 +201,6 @@ export class Organization extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Organization.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: Organization
@@ -284,19 +218,10 @@ export class Organization extends jspb.Message {
     message: Organization,
     reader: jspb.BinaryReader
   ): Organization;
-=======
-  static toObject(includeInstance: boolean, msg: Organization): Organization.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Organization, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Organization;
-  static deserializeBinaryFromReader(message: Organization, reader: jspb.BinaryReader): Organization;
->>>>>>> 917d866 (test)
 }
 
 export namespace Organization {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
     name: string;
     description: string;
@@ -305,16 +230,6 @@ export namespace Organization {
     stripeCustomerId: string;
     autoCharge?: OrganizationAutoCharge.AsObject;
   };
-=======
-    id: string,
-    name: string,
-    description: string,
-    membersList: Array<OrganizationMember.AsObject>,
-    paymentInfo?: OrganizationPaymentInfo.AsObject,
-    stripeCustomerId: string,
-    autoCharge?: OrganizationAutoCharge.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class APIKey extends jspb.Message {
@@ -330,7 +245,6 @@ export class APIKey extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): APIKey.AsObject;
   static toObject(includeInstance: boolean, msg: APIKey): APIKey.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -344,28 +258,14 @@ export class APIKey extends jspb.Message {
     message: APIKey,
     reader: jspb.BinaryReader
   ): APIKey;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: APIKey, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): APIKey;
-  static deserializeBinaryFromReader(message: APIKey, reader: jspb.BinaryReader): APIKey;
->>>>>>> 917d866 (test)
 }
 
 export namespace APIKey {
   export type AsObject = {
-<<<<<<< HEAD
     key: string;
     isSecret: boolean;
     createdAt: number;
   };
-=======
-    key: string,
-    isSecret: boolean,
-    createdAt: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class User extends jspb.Message {
@@ -386,14 +286,10 @@ export class User extends jspb.Message {
   clearOrganizationsList(): void;
   getOrganizationsList(): Array<OrganizationMember>;
   setOrganizationsList(value: Array<OrganizationMember>): void;
-<<<<<<< HEAD
   addOrganizations(
     value?: OrganizationMember,
     index?: number
   ): OrganizationMember;
-=======
-  addOrganizations(value?: OrganizationMember, index?: number): OrganizationMember;
->>>>>>> 917d866 (test)
 
   clearApiKeysList(): void;
   getApiKeysList(): Array<APIKey>;
@@ -411,7 +307,6 @@ export class User extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): User.AsObject;
   static toObject(includeInstance: boolean, msg: User): User.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -425,18 +320,10 @@ export class User extends jspb.Message {
     message: User,
     reader: jspb.BinaryReader
   ): User;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: User, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): User;
-  static deserializeBinaryFromReader(message: User, reader: jspb.BinaryReader): User;
->>>>>>> 917d866 (test)
 }
 
 export namespace User {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
     authId: string;
     profilePicture: string;
@@ -446,17 +333,6 @@ export namespace User {
     createdAt: number;
     emailVerified: boolean;
   };
-=======
-    id: string,
-    authId: string,
-    profilePicture: string,
-    email: string,
-    organizationsList: Array<OrganizationMember.AsObject>,
-    apiKeysList: Array<APIKey.AsObject>,
-    createdAt: number,
-    emailVerified: boolean,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class CostData extends jspb.Message {
@@ -469,7 +345,6 @@ export class CostData extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CostData.AsObject;
   static toObject(includeInstance: boolean, msg: CostData): CostData.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -483,26 +358,13 @@ export class CostData extends jspb.Message {
     message: CostData,
     reader: jspb.BinaryReader
   ): CostData;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CostData, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CostData;
-  static deserializeBinaryFromReader(message: CostData, reader: jspb.BinaryReader): CostData;
->>>>>>> 917d866 (test)
 }
 
 export namespace CostData {
   export type AsObject = {
-<<<<<<< HEAD
     amountTokens: number;
     amountCredits: number;
   };
-=======
-    amountTokens: number,
-    amountCredits: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class UsageMetric extends jspb.Message {
@@ -532,7 +394,6 @@ export class UsageMetric extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UsageMetric.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: UsageMetric
@@ -550,19 +411,10 @@ export class UsageMetric extends jspb.Message {
     message: UsageMetric,
     reader: jspb.BinaryReader
   ): UsageMetric;
-=======
-  static toObject(includeInstance: boolean, msg: UsageMetric): UsageMetric.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UsageMetric, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UsageMetric;
-  static deserializeBinaryFromReader(message: UsageMetric, reader: jspb.BinaryReader): UsageMetric;
->>>>>>> 917d866 (test)
 }
 
 export namespace UsageMetric {
   export type AsObject = {
-<<<<<<< HEAD
     operation: string;
     engine: string;
     inputCost?: CostData.AsObject;
@@ -570,15 +422,6 @@ export namespace UsageMetric {
     user: string;
     aggregationTimestamp: number;
   };
-=======
-    operation: string,
-    engine: string,
-    inputCost?: CostData.AsObject,
-    outputCost?: CostData.AsObject,
-    user: string,
-    aggregationTimestamp: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class CostTotal extends jspb.Message {
@@ -591,7 +434,6 @@ export class CostTotal extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CostTotal.AsObject;
   static toObject(includeInstance: boolean, msg: CostTotal): CostTotal.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -605,26 +447,13 @@ export class CostTotal extends jspb.Message {
     message: CostTotal,
     reader: jspb.BinaryReader
   ): CostTotal;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CostTotal, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CostTotal;
-  static deserializeBinaryFromReader(message: CostTotal, reader: jspb.BinaryReader): CostTotal;
->>>>>>> 917d866 (test)
 }
 
 export namespace CostTotal {
   export type AsObject = {
-<<<<<<< HEAD
     amountTokens: number;
     amountCredits: number;
   };
-=======
-    amountTokens: number,
-    amountCredits: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class TotalMetricsData extends jspb.Message {
@@ -640,7 +469,6 @@ export class TotalMetricsData extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TotalMetricsData.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: TotalMetricsData
@@ -658,27 +486,13 @@ export class TotalMetricsData extends jspb.Message {
     message: TotalMetricsData,
     reader: jspb.BinaryReader
   ): TotalMetricsData;
-=======
-  static toObject(includeInstance: boolean, msg: TotalMetricsData): TotalMetricsData.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: TotalMetricsData, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): TotalMetricsData;
-  static deserializeBinaryFromReader(message: TotalMetricsData, reader: jspb.BinaryReader): TotalMetricsData;
->>>>>>> 917d866 (test)
 }
 
 export namespace TotalMetricsData {
   export type AsObject = {
-<<<<<<< HEAD
     inputTotal?: CostTotal.AsObject;
     outputTotal?: CostTotal.AsObject;
   };
-=======
-    inputTotal?: CostTotal.AsObject,
-    outputTotal?: CostTotal.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Metrics extends jspb.Message {
@@ -695,7 +509,6 @@ export class Metrics extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Metrics.AsObject;
   static toObject(includeInstance: boolean, msg: Metrics): Metrics.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -709,32 +522,18 @@ export class Metrics extends jspb.Message {
     message: Metrics,
     reader: jspb.BinaryReader
   ): Metrics;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Metrics, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Metrics;
-  static deserializeBinaryFromReader(message: Metrics, reader: jspb.BinaryReader): Metrics;
->>>>>>> 917d866 (test)
 }
 
 export namespace Metrics {
   export type AsObject = {
-<<<<<<< HEAD
     metricsList: Array<UsageMetric.AsObject>;
     total?: TotalMetricsData.AsObject;
   };
-=======
-    metricsList: Array<UsageMetric.AsObject>,
-    total?: TotalMetricsData.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class EmptyRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): EmptyRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: EmptyRequest
@@ -756,19 +555,6 @@ export class EmptyRequest extends jspb.Message {
 
 export namespace EmptyRequest {
   export type AsObject = {};
-=======
-  static toObject(includeInstance: boolean, msg: EmptyRequest): EmptyRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: EmptyRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): EmptyRequest;
-  static deserializeBinaryFromReader(message: EmptyRequest, reader: jspb.BinaryReader): EmptyRequest;
-}
-
-export namespace EmptyRequest {
-  export type AsObject = {
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GetOrganizationRequest extends jspb.Message {
@@ -777,7 +563,6 @@ export class GetOrganizationRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetOrganizationRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GetOrganizationRequest
@@ -795,25 +580,12 @@ export class GetOrganizationRequest extends jspb.Message {
     message: GetOrganizationRequest,
     reader: jspb.BinaryReader
   ): GetOrganizationRequest;
-=======
-  static toObject(includeInstance: boolean, msg: GetOrganizationRequest): GetOrganizationRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetOrganizationRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetOrganizationRequest;
-  static deserializeBinaryFromReader(message: GetOrganizationRequest, reader: jspb.BinaryReader): GetOrganizationRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace GetOrganizationRequest {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
   };
-=======
-    id: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GetMetricsRequest extends jspb.Message {
@@ -836,7 +608,6 @@ export class GetMetricsRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetMetricsRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GetMetricsRequest
@@ -854,33 +625,16 @@ export class GetMetricsRequest extends jspb.Message {
     message: GetMetricsRequest,
     reader: jspb.BinaryReader
   ): GetMetricsRequest;
-=======
-  static toObject(includeInstance: boolean, msg: GetMetricsRequest): GetMetricsRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetMetricsRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetMetricsRequest;
-  static deserializeBinaryFromReader(message: GetMetricsRequest, reader: jspb.BinaryReader): GetMetricsRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace GetMetricsRequest {
   export type AsObject = {
-<<<<<<< HEAD
     organizationId: string;
     userId: string;
     rangeFrom: number;
     rangeTo: number;
     includePerRequestMetrics: boolean;
   };
-=======
-    organizationId: string,
-    userId: string,
-    rangeFrom: number,
-    rangeTo: number,
-    includePerRequestMetrics: boolean,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class APIKeyRequest extends jspb.Message {
@@ -889,7 +643,6 @@ export class APIKeyRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): APIKeyRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: APIKeyRequest
@@ -907,25 +660,12 @@ export class APIKeyRequest extends jspb.Message {
     message: APIKeyRequest,
     reader: jspb.BinaryReader
   ): APIKeyRequest;
-=======
-  static toObject(includeInstance: boolean, msg: APIKeyRequest): APIKeyRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: APIKeyRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): APIKeyRequest;
-  static deserializeBinaryFromReader(message: APIKeyRequest, reader: jspb.BinaryReader): APIKeyRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace APIKeyRequest {
   export type AsObject = {
-<<<<<<< HEAD
     isSecret: boolean;
   };
-=======
-    isSecret: boolean,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class APIKeyFindRequest extends jspb.Message {
@@ -934,7 +674,6 @@ export class APIKeyFindRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): APIKeyFindRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: APIKeyFindRequest
@@ -952,25 +691,12 @@ export class APIKeyFindRequest extends jspb.Message {
     message: APIKeyFindRequest,
     reader: jspb.BinaryReader
   ): APIKeyFindRequest;
-=======
-  static toObject(includeInstance: boolean, msg: APIKeyFindRequest): APIKeyFindRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: APIKeyFindRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): APIKeyFindRequest;
-  static deserializeBinaryFromReader(message: APIKeyFindRequest, reader: jspb.BinaryReader): APIKeyFindRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace APIKeyFindRequest {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
   };
-=======
-    id: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class UpdateDefaultOrganizationRequest extends jspb.Message {
@@ -978,7 +704,6 @@ export class UpdateDefaultOrganizationRequest extends jspb.Message {
   setOrganizationId(value: string): void;
 
   serializeBinary(): Uint8Array;
-<<<<<<< HEAD
   toObject(
     includeInstance?: boolean
   ): UpdateDefaultOrganizationRequest.AsObject;
@@ -999,26 +724,12 @@ export class UpdateDefaultOrganizationRequest extends jspb.Message {
     message: UpdateDefaultOrganizationRequest,
     reader: jspb.BinaryReader
   ): UpdateDefaultOrganizationRequest;
-=======
-  toObject(includeInstance?: boolean): UpdateDefaultOrganizationRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UpdateDefaultOrganizationRequest): UpdateDefaultOrganizationRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UpdateDefaultOrganizationRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UpdateDefaultOrganizationRequest;
-  static deserializeBinaryFromReader(message: UpdateDefaultOrganizationRequest, reader: jspb.BinaryReader): UpdateDefaultOrganizationRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace UpdateDefaultOrganizationRequest {
   export type AsObject = {
-<<<<<<< HEAD
     organizationId: string;
   };
-=======
-    organizationId: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ClientSettings extends jspb.Message {
@@ -1029,7 +740,6 @@ export class ClientSettings extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientSettings.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ClientSettings
@@ -1047,25 +757,12 @@ export class ClientSettings extends jspb.Message {
     message: ClientSettings,
     reader: jspb.BinaryReader
   ): ClientSettings;
-=======
-  static toObject(includeInstance: boolean, msg: ClientSettings): ClientSettings.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClientSettings, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClientSettings;
-  static deserializeBinaryFromReader(message: ClientSettings, reader: jspb.BinaryReader): ClientSettings;
->>>>>>> 917d866 (test)
 }
 
 export namespace ClientSettings {
   export type AsObject = {
-<<<<<<< HEAD
     settings: Uint8Array | string;
   };
-=======
-    settings: Uint8Array | string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class CreateAutoChargeIntentRequest extends jspb.Message {
@@ -1083,7 +780,6 @@ export class CreateAutoChargeIntentRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CreateAutoChargeIntentRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: CreateAutoChargeIntentRequest
@@ -1101,31 +797,15 @@ export class CreateAutoChargeIntentRequest extends jspb.Message {
     message: CreateAutoChargeIntentRequest,
     reader: jspb.BinaryReader
   ): CreateAutoChargeIntentRequest;
-=======
-  static toObject(includeInstance: boolean, msg: CreateAutoChargeIntentRequest): CreateAutoChargeIntentRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CreateAutoChargeIntentRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CreateAutoChargeIntentRequest;
-  static deserializeBinaryFromReader(message: CreateAutoChargeIntentRequest, reader: jspb.BinaryReader): CreateAutoChargeIntentRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace CreateAutoChargeIntentRequest {
   export type AsObject = {
-<<<<<<< HEAD
     organizationId: string;
     monthlyMaximum: number;
     minimumValue: number;
     amountCredits: number;
   };
-=======
-    organizationId: string,
-    monthlyMaximum: number,
-    minimumValue: number,
-    amountCredits: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class CreateChargeRequest extends jspb.Message {
@@ -1137,7 +817,6 @@ export class CreateChargeRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CreateChargeRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: CreateChargeRequest
@@ -1155,27 +834,13 @@ export class CreateChargeRequest extends jspb.Message {
     message: CreateChargeRequest,
     reader: jspb.BinaryReader
   ): CreateChargeRequest;
-=======
-  static toObject(includeInstance: boolean, msg: CreateChargeRequest): CreateChargeRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CreateChargeRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CreateChargeRequest;
-  static deserializeBinaryFromReader(message: CreateChargeRequest, reader: jspb.BinaryReader): CreateChargeRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace CreateChargeRequest {
   export type AsObject = {
-<<<<<<< HEAD
     amount: number;
     organizationId: string;
   };
-=======
-    amount: number,
-    organizationId: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GetChargesRequest extends jspb.Message {
@@ -1190,7 +855,6 @@ export class GetChargesRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetChargesRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GetChargesRequest
@@ -1208,29 +872,14 @@ export class GetChargesRequest extends jspb.Message {
     message: GetChargesRequest,
     reader: jspb.BinaryReader
   ): GetChargesRequest;
-=======
-  static toObject(includeInstance: boolean, msg: GetChargesRequest): GetChargesRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetChargesRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetChargesRequest;
-  static deserializeBinaryFromReader(message: GetChargesRequest, reader: jspb.BinaryReader): GetChargesRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace GetChargesRequest {
   export type AsObject = {
-<<<<<<< HEAD
     organizationId: string;
     rangeFrom: number;
     rangeTo: number;
   };
-=======
-    organizationId: string,
-    rangeFrom: number,
-    rangeTo: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Charge extends jspb.Message {
@@ -1255,7 +904,6 @@ export class Charge extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Charge.AsObject;
   static toObject(includeInstance: boolean, msg: Charge): Charge.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1269,18 +917,10 @@ export class Charge extends jspb.Message {
     message: Charge,
     reader: jspb.BinaryReader
   ): Charge;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Charge, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Charge;
-  static deserializeBinaryFromReader(message: Charge, reader: jspb.BinaryReader): Charge;
->>>>>>> 917d866 (test)
 }
 
 export namespace Charge {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
     paid: boolean;
     receiptLink: string;
@@ -1288,15 +928,6 @@ export namespace Charge {
     createdAt: number;
     amountCredits: number;
   };
-=======
-    id: string,
-    paid: boolean,
-    receiptLink: string,
-    paymentLink: string,
-    createdAt: number,
-    amountCredits: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Charges extends jspb.Message {
@@ -1308,7 +939,6 @@ export class Charges extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Charges.AsObject;
   static toObject(includeInstance: boolean, msg: Charges): Charges.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1322,24 +952,12 @@ export class Charges extends jspb.Message {
     message: Charges,
     reader: jspb.BinaryReader
   ): Charges;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Charges, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Charges;
-  static deserializeBinaryFromReader(message: Charges, reader: jspb.BinaryReader): Charges;
->>>>>>> 917d866 (test)
 }
 
 export namespace Charges {
   export type AsObject = {
-<<<<<<< HEAD
     chargesList: Array<Charge.AsObject>;
   };
-=======
-    chargesList: Array<Charge.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GetAutoChargeRequest extends jspb.Message {
@@ -1348,7 +966,6 @@ export class GetAutoChargeRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetAutoChargeRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GetAutoChargeRequest
@@ -1366,25 +983,12 @@ export class GetAutoChargeRequest extends jspb.Message {
     message: GetAutoChargeRequest,
     reader: jspb.BinaryReader
   ): GetAutoChargeRequest;
-=======
-  static toObject(includeInstance: boolean, msg: GetAutoChargeRequest): GetAutoChargeRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetAutoChargeRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetAutoChargeRequest;
-  static deserializeBinaryFromReader(message: GetAutoChargeRequest, reader: jspb.BinaryReader): GetAutoChargeRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace GetAutoChargeRequest {
   export type AsObject = {
-<<<<<<< HEAD
     organizationId: string;
   };
-=======
-    organizationId: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class AutoChargeIntent extends jspb.Message {
@@ -1408,7 +1012,6 @@ export class AutoChargeIntent extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AutoChargeIntent.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: AutoChargeIntent
@@ -1426,19 +1029,10 @@ export class AutoChargeIntent extends jspb.Message {
     message: AutoChargeIntent,
     reader: jspb.BinaryReader
   ): AutoChargeIntent;
-=======
-  static toObject(includeInstance: boolean, msg: AutoChargeIntent): AutoChargeIntent.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AutoChargeIntent, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AutoChargeIntent;
-  static deserializeBinaryFromReader(message: AutoChargeIntent, reader: jspb.BinaryReader): AutoChargeIntent;
->>>>>>> 917d866 (test)
 }
 
 export namespace AutoChargeIntent {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
     paymentLink: string;
     createdAt: number;
@@ -1446,15 +1040,6 @@ export namespace AutoChargeIntent {
     minimumValue: number;
     amountCredits: number;
   };
-=======
-    id: string,
-    paymentLink: string,
-    createdAt: number,
-    monthlyMaximum: number,
-    minimumValue: number,
-    amountCredits: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class UpdateUserInfoRequest extends jspb.Message {
@@ -1465,7 +1050,6 @@ export class UpdateUserInfoRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateUserInfoRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: UpdateUserInfoRequest
@@ -1483,25 +1067,12 @@ export class UpdateUserInfoRequest extends jspb.Message {
     message: UpdateUserInfoRequest,
     reader: jspb.BinaryReader
   ): UpdateUserInfoRequest;
-=======
-  static toObject(includeInstance: boolean, msg: UpdateUserInfoRequest): UpdateUserInfoRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UpdateUserInfoRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UpdateUserInfoRequest;
-  static deserializeBinaryFromReader(message: UpdateUserInfoRequest, reader: jspb.BinaryReader): UpdateUserInfoRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace UpdateUserInfoRequest {
   export type AsObject = {
-<<<<<<< HEAD
     email: string;
   };
-=======
-    email: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class UserPasswordChangeTicket extends jspb.Message {
@@ -1510,7 +1081,6 @@ export class UserPasswordChangeTicket extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserPasswordChangeTicket.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: UserPasswordChangeTicket
@@ -1528,25 +1098,12 @@ export class UserPasswordChangeTicket extends jspb.Message {
     message: UserPasswordChangeTicket,
     reader: jspb.BinaryReader
   ): UserPasswordChangeTicket;
-=======
-  static toObject(includeInstance: boolean, msg: UserPasswordChangeTicket): UserPasswordChangeTicket.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserPasswordChangeTicket, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserPasswordChangeTicket;
-  static deserializeBinaryFromReader(message: UserPasswordChangeTicket, reader: jspb.BinaryReader): UserPasswordChangeTicket;
->>>>>>> 917d866 (test)
 }
 
 export namespace UserPasswordChangeTicket {
   export type AsObject = {
-<<<<<<< HEAD
     ticket: string;
   };
-=======
-    ticket: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export interface OrganizationRoleMap {
@@ -1556,7 +1113,3 @@ export interface OrganizationRoleMap {
 }
 
 export const OrganizationRole: OrganizationRoleMap;
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)

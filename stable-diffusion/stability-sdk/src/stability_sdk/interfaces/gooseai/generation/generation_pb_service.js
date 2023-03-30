@@ -8,11 +8,7 @@ var GenerationService = (function () {
   function GenerationService() {}
   GenerationService.serviceName = "gooseai.GenerationService";
   return GenerationService;
-<<<<<<< HEAD
 })();
-=======
-}());
->>>>>>> 917d866 (test)
 
 GenerationService.Generate = {
   methodName: "Generate",
@@ -20,11 +16,7 @@ GenerationService.Generate = {
   requestStream: false,
   responseStream: true,
   requestType: generation_pb.Request,
-<<<<<<< HEAD
   responseType: generation_pb.Answer,
-=======
-  responseType: generation_pb.Answer
->>>>>>> 917d866 (test)
 };
 
 GenerationService.ChainGenerate = {
@@ -33,11 +25,7 @@ GenerationService.ChainGenerate = {
   requestStream: false,
   responseStream: true,
   requestType: generation_pb.ChainRequest,
-<<<<<<< HEAD
   responseType: generation_pb.Answer,
-=======
-  responseType: generation_pb.Answer
->>>>>>> 917d866 (test)
 };
 
 exports.GenerationService = GenerationService;
@@ -47,7 +35,6 @@ function GenerationServiceClient(serviceHost, options) {
   this.options = options || {};
 }
 
-<<<<<<< HEAD
 GenerationServiceClient.prototype.generate = function generate(
   requestMessage,
   metadata
@@ -56,13 +43,6 @@ GenerationServiceClient.prototype.generate = function generate(
     data: [],
     end: [],
     status: [],
-=======
-GenerationServiceClient.prototype.generate = function generate(requestMessage, metadata) {
-  var listeners = {
-    data: [],
-    end: [],
-    status: []
->>>>>>> 917d866 (test)
   };
   var client = grpc.invoke(GenerationService.Generate, {
     request: requestMessage,
@@ -83,11 +63,7 @@ GenerationServiceClient.prototype.generate = function generate(requestMessage, m
         handler({ code: status, details: statusMessage, metadata: trailers });
       });
       listeners = null;
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     on: function (type, handler) {
@@ -97,7 +73,6 @@ GenerationServiceClient.prototype.generate = function generate(requestMessage, m
     cancel: function () {
       listeners = null;
       client.close();
-<<<<<<< HEAD
     },
   };
 };
@@ -110,17 +85,6 @@ GenerationServiceClient.prototype.chainGenerate = function chainGenerate(
     data: [],
     end: [],
     status: [],
-=======
-    }
-  };
-};
-
-GenerationServiceClient.prototype.chainGenerate = function chainGenerate(requestMessage, metadata) {
-  var listeners = {
-    data: [],
-    end: [],
-    status: []
->>>>>>> 917d866 (test)
   };
   var client = grpc.invoke(GenerationService.ChainGenerate, {
     request: requestMessage,
@@ -141,11 +105,7 @@ GenerationServiceClient.prototype.chainGenerate = function chainGenerate(request
         handler({ code: status, details: statusMessage, metadata: trailers });
       });
       listeners = null;
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     on: function (type, handler) {
@@ -155,16 +115,8 @@ GenerationServiceClient.prototype.chainGenerate = function chainGenerate(request
     cancel: function () {
       listeners = null;
       client.close();
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   };
 };
 
 exports.GenerationServiceClient = GenerationServiceClient;
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)

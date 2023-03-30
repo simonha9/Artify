@@ -25,7 +25,6 @@ export class Tensor extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Tensor.AsObject;
   static toObject(includeInstance: boolean, msg: Tensor): Tensor.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -39,30 +38,15 @@ export class Tensor extends jspb.Message {
     message: Tensor,
     reader: jspb.BinaryReader
   ): Tensor;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Tensor, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Tensor;
-  static deserializeBinaryFromReader(message: Tensor, reader: jspb.BinaryReader): Tensor;
->>>>>>> 917d866 (test)
 }
 
 export namespace Tensor {
   export type AsObject = {
-<<<<<<< HEAD
     dtype: DtypeMap[keyof DtypeMap];
     shapeList: Array<number>;
     data: Uint8Array | string;
     attrType: AttributeTypeMap[keyof AttributeTypeMap];
   };
-=======
-    dtype: DtypeMap[keyof DtypeMap],
-    shapeList: Array<number>,
-    data: Uint8Array | string,
-    attrType: AttributeTypeMap[keyof AttributeTypeMap],
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Attribute extends jspb.Message {
@@ -103,7 +87,6 @@ export class Attribute extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Attribute.AsObject;
   static toObject(includeInstance: boolean, msg: Attribute): Attribute.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -117,18 +100,10 @@ export class Attribute extends jspb.Message {
     message: Attribute,
     reader: jspb.BinaryReader
   ): Attribute;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Attribute, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Attribute;
-  static deserializeBinaryFromReader(message: Attribute, reader: jspb.BinaryReader): Attribute;
->>>>>>> 917d866 (test)
 }
 
 export namespace Attribute {
   export type AsObject = {
-<<<<<<< HEAD
     name: string;
     module?: Module.AsObject;
     tensor?: Tensor.AsObject;
@@ -137,16 +112,6 @@ export namespace Attribute {
     pb_float: number;
     bool: boolean;
   };
-=======
-    name: string,
-    module?: Module.AsObject,
-    tensor?: Tensor.AsObject,
-    string: string,
-    int64: number,
-    pb_float: number,
-    bool: boolean,
-  }
->>>>>>> 917d866 (test)
 
   export enum ValueCase {
     VALUE_NOT_SET = 0,
@@ -176,7 +141,6 @@ export class Module extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Module.AsObject;
   static toObject(includeInstance: boolean, msg: Module): Module.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -190,28 +154,14 @@ export class Module extends jspb.Message {
     message: Module,
     reader: jspb.BinaryReader
   ): Module;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Module, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Module;
-  static deserializeBinaryFromReader(message: Module, reader: jspb.BinaryReader): Module;
->>>>>>> 917d866 (test)
 }
 
 export namespace Module {
   export type AsObject = {
-<<<<<<< HEAD
     name: string;
     namesList: Array<string>;
     attributesList: Array<Attribute.AsObject>;
   };
-=======
-    name: string,
-    namesList: Array<string>,
-    attributesList: Array<Attribute.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export interface DtypeMap {
@@ -243,7 +193,3 @@ export interface AttributeTypeMap {
 }
 
 export const AttributeType: AttributeTypeMap;
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)

@@ -14,16 +14,10 @@ SDK Usage:
 
 See usage demo notebooks in ./nbs
 
-<<<<<<< HEAD
 # Upscale
 
 ## Engine selection
 
-=======
-# Upscale 
-
-## Engine selection
->>>>>>> 917d866 (test)
 The upscale engine can be optionally chosen when initializing the client:
 
 ```
@@ -40,16 +34,10 @@ Command line example:
 Default upscale_engine_name is "esrgan-v1-x2plus"
 
 ## Inputs
-<<<<<<< HEAD
 
 **Required inputs:**
 
 init_image
-=======
-**Required inputs:**
-
-init_image  
->>>>>>> 917d866 (test)
 
 **Optional inputs:**
 
@@ -57,7 +45,6 @@ height
 width
 
 ## Additional requirements:
-<<<<<<< HEAD
 
 Max input size = 1048576 pixels (ie. the total pixels in a 1024 x 1024 image)  
 Max output size = 4194304 pixels (ie. the total pixels in a 2048 x 2048 image)
@@ -65,25 +52,12 @@ Max output size = 4194304 pixels (ie. the total pixels in a 2048 x 2048 image)
 The default output size is set by the specific endpoint.  
 For example, upscale_engine == "esrgan-v1-x2plus" will upscale to 2x the input size
 
-=======
-Max input size = 1048576 pixels (ie. the total pixels in a 1024 x 1024 image)  
-Max output size = 4194304 pixels (ie. the total pixels in a 2048 x 2048 image)
-
-
-The default output size is set by the specific endpoint.  
-For example, upscale_engine == "esrgan-v1-x2plus" will upscale to 2x the input size
-
-
->>>>>>> 917d866 (test)
 If height or width is provided, the original aspect ratio will be maintained.
 
 Specifying both height and width will throw an error. This is so original aspect ratio is maintained.
 
 For example:
-<<<<<<< HEAD
 
-=======
->>>>>>> 917d866 (test)
 ```
 # This is fine
 answers = stability_api.upscale(
@@ -119,7 +93,3 @@ Command line:
 SDK Usage:
 
 See usage demo notebooks in ./nbs
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)

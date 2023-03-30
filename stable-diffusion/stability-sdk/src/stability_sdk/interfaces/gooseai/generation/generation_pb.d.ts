@@ -16,7 +16,6 @@ export class Token extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Token.AsObject;
   static toObject(includeInstance: boolean, msg: Token): Token.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -30,26 +29,13 @@ export class Token extends jspb.Message {
     message: Token,
     reader: jspb.BinaryReader
   ): Token;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Token, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Token;
-  static deserializeBinaryFromReader(message: Token, reader: jspb.BinaryReader): Token;
->>>>>>> 917d866 (test)
 }
 
 export namespace Token {
   export type AsObject = {
-<<<<<<< HEAD
     text: string;
     id: number;
   };
-=======
-    text: string,
-    id: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Tokens extends jspb.Message {
@@ -66,7 +52,6 @@ export class Tokens extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Tokens.AsObject;
   static toObject(includeInstance: boolean, msg: Tokens): Tokens.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -80,26 +65,13 @@ export class Tokens extends jspb.Message {
     message: Tokens,
     reader: jspb.BinaryReader
   ): Tokens;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Tokens, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Tokens;
-  static deserializeBinaryFromReader(message: Tokens, reader: jspb.BinaryReader): Tokens;
->>>>>>> 917d866 (test)
 }
 
 export namespace Tokens {
   export type AsObject = {
-<<<<<<< HEAD
     tokensList: Array<Token.AsObject>;
     tokenizerId: string;
   };
-=======
-    tokensList: Array<Token.AsObject>,
-    tokenizerId: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Artifact extends jspb.Message {
@@ -163,7 +135,6 @@ export class Artifact extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Artifact.AsObject;
   static toObject(includeInstance: boolean, msg: Artifact): Artifact.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -177,18 +148,10 @@ export class Artifact extends jspb.Message {
     message: Artifact,
     reader: jspb.BinaryReader
   ): Artifact;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Artifact, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Artifact;
-  static deserializeBinaryFromReader(message: Artifact, reader: jspb.BinaryReader): Artifact;
->>>>>>> 917d866 (test)
 }
 
 export namespace Artifact {
   export type AsObject = {
-<<<<<<< HEAD
     id: number;
     type: ArtifactTypeMap[keyof ArtifactTypeMap];
     mime: string;
@@ -204,23 +167,6 @@ export namespace Artifact {
     uuid: string;
     size: number;
   };
-=======
-    id: number,
-    type: ArtifactTypeMap[keyof ArtifactTypeMap],
-    mime: string,
-    magic: string,
-    binary: Uint8Array | string,
-    text: string,
-    tokens?: Tokens.AsObject,
-    classifier?: ClassifierParameters.AsObject,
-    tensor?: tensors_pb.Tensor.AsObject,
-    index: number,
-    finishReason: FinishReasonMap[keyof FinishReasonMap],
-    seed: number,
-    uuid: string,
-    size: number,
-  }
->>>>>>> 917d866 (test)
 
   export enum DataCase {
     DATA_NOT_SET = 0,
@@ -245,7 +191,6 @@ export class PromptParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PromptParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: PromptParameters
@@ -263,27 +208,13 @@ export class PromptParameters extends jspb.Message {
     message: PromptParameters,
     reader: jspb.BinaryReader
   ): PromptParameters;
-=======
-  static toObject(includeInstance: boolean, msg: PromptParameters): PromptParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: PromptParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): PromptParameters;
-  static deserializeBinaryFromReader(message: PromptParameters, reader: jspb.BinaryReader): PromptParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace PromptParameters {
   export type AsObject = {
-<<<<<<< HEAD
     init: boolean;
     weight: number;
   };
-=======
-    init: boolean,
-    weight: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Prompt extends jspb.Message {
@@ -311,7 +242,6 @@ export class Prompt extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Prompt.AsObject;
   static toObject(includeInstance: boolean, msg: Prompt): Prompt.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -325,30 +255,15 @@ export class Prompt extends jspb.Message {
     message: Prompt,
     reader: jspb.BinaryReader
   ): Prompt;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Prompt, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Prompt;
-  static deserializeBinaryFromReader(message: Prompt, reader: jspb.BinaryReader): Prompt;
->>>>>>> 917d866 (test)
 }
 
 export namespace Prompt {
   export type AsObject = {
-<<<<<<< HEAD
     parameters?: PromptParameters.AsObject;
     text: string;
     tokens?: Tokens.AsObject;
     artifact?: Artifact.AsObject;
   };
-=======
-    parameters?: PromptParameters.AsObject,
-    text: string,
-    tokens?: Tokens.AsObject,
-    artifact?: Artifact.AsObject,
-  }
->>>>>>> 917d866 (test)
 
   export enum PromptCase {
     PROMPT_NOT_SET = 0,
@@ -391,7 +306,6 @@ export class SamplerParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SamplerParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: SamplerParameters
@@ -409,19 +323,10 @@ export class SamplerParameters extends jspb.Message {
     message: SamplerParameters,
     reader: jspb.BinaryReader
   ): SamplerParameters;
-=======
-  static toObject(includeInstance: boolean, msg: SamplerParameters): SamplerParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SamplerParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SamplerParameters;
-  static deserializeBinaryFromReader(message: SamplerParameters, reader: jspb.BinaryReader): SamplerParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace SamplerParameters {
   export type AsObject = {
-<<<<<<< HEAD
     eta: number;
     samplingSteps: number;
     latentChannels: number;
@@ -429,15 +334,6 @@ export namespace SamplerParameters {
     cfgScale: number;
     initNoiseScale: number;
   };
-=======
-    eta: number,
-    samplingSteps: number,
-    latentChannels: number,
-    downsamplingFactor: number,
-    cfgScale: number,
-    initNoiseScale: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ConditionerParameters extends jspb.Message {
@@ -453,7 +349,6 @@ export class ConditionerParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ConditionerParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ConditionerParameters
@@ -471,27 +366,13 @@ export class ConditionerParameters extends jspb.Message {
     message: ConditionerParameters,
     reader: jspb.BinaryReader
   ): ConditionerParameters;
-=======
-  static toObject(includeInstance: boolean, msg: ConditionerParameters): ConditionerParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ConditionerParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ConditionerParameters;
-  static deserializeBinaryFromReader(message: ConditionerParameters, reader: jspb.BinaryReader): ConditionerParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace ConditionerParameters {
   export type AsObject = {
-<<<<<<< HEAD
     vectorAdjustPrior: string;
     conditioner?: Model.AsObject;
   };
-=======
-    vectorAdjustPrior: string,
-    conditioner?: Model.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ScheduleParameters extends jspb.Message {
@@ -512,7 +393,6 @@ export class ScheduleParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ScheduleParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ScheduleParameters
@@ -530,29 +410,14 @@ export class ScheduleParameters extends jspb.Message {
     message: ScheduleParameters,
     reader: jspb.BinaryReader
   ): ScheduleParameters;
-=======
-  static toObject(includeInstance: boolean, msg: ScheduleParameters): ScheduleParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ScheduleParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ScheduleParameters;
-  static deserializeBinaryFromReader(message: ScheduleParameters, reader: jspb.BinaryReader): ScheduleParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace ScheduleParameters {
   export type AsObject = {
-<<<<<<< HEAD
     start: number;
     end: number;
     value: number;
   };
-=======
-    start: number,
-    end: number,
-    value: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class StepParameter extends jspb.Message {
@@ -576,7 +441,6 @@ export class StepParameter extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): StepParameter.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: StepParameter
@@ -594,42 +458,22 @@ export class StepParameter extends jspb.Message {
     message: StepParameter,
     reader: jspb.BinaryReader
   ): StepParameter;
-=======
-  static toObject(includeInstance: boolean, msg: StepParameter): StepParameter.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: StepParameter, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): StepParameter;
-  static deserializeBinaryFromReader(message: StepParameter, reader: jspb.BinaryReader): StepParameter;
->>>>>>> 917d866 (test)
 }
 
 export namespace StepParameter {
   export type AsObject = {
-<<<<<<< HEAD
     scaledStep: number;
     sampler?: SamplerParameters.AsObject;
     schedule?: ScheduleParameters.AsObject;
     guidance?: GuidanceParameters.AsObject;
   };
-=======
-    scaledStep: number,
-    sampler?: SamplerParameters.AsObject,
-    schedule?: ScheduleParameters.AsObject,
-    guidance?: GuidanceParameters.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Model extends jspb.Message {
   getArchitecture(): ModelArchitectureMap[keyof ModelArchitectureMap];
-<<<<<<< HEAD
   setArchitecture(
     value: ModelArchitectureMap[keyof ModelArchitectureMap]
   ): void;
-=======
-  setArchitecture(value: ModelArchitectureMap[keyof ModelArchitectureMap]): void;
->>>>>>> 917d866 (test)
 
   getPublisher(): string;
   setPublisher(value: string): void;
@@ -649,7 +493,6 @@ export class Model extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Model.AsObject;
   static toObject(includeInstance: boolean, msg: Model): Model.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -663,18 +506,10 @@ export class Model extends jspb.Message {
     message: Model,
     reader: jspb.BinaryReader
   ): Model;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Model, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Model;
-  static deserializeBinaryFromReader(message: Model, reader: jspb.BinaryReader): Model;
->>>>>>> 917d866 (test)
 }
 
 export namespace Model {
   export type AsObject = {
-<<<<<<< HEAD
     architecture: ModelArchitectureMap[keyof ModelArchitectureMap];
     publisher: string;
     dataset: string;
@@ -682,15 +517,6 @@ export namespace Model {
     semanticVersion: string;
     alias: string;
   };
-=======
-    architecture: ModelArchitectureMap[keyof ModelArchitectureMap],
-    publisher: string,
-    dataset: string,
-    version: number,
-    semanticVersion: string,
-    alias: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class CutoutParameters extends jspb.Message {
@@ -721,7 +547,6 @@ export class CutoutParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CutoutParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: CutoutParameters
@@ -739,33 +564,16 @@ export class CutoutParameters extends jspb.Message {
     message: CutoutParameters,
     reader: jspb.BinaryReader
   ): CutoutParameters;
-=======
-  static toObject(includeInstance: boolean, msg: CutoutParameters): CutoutParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CutoutParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CutoutParameters;
-  static deserializeBinaryFromReader(message: CutoutParameters, reader: jspb.BinaryReader): CutoutParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace CutoutParameters {
   export type AsObject = {
-<<<<<<< HEAD
     cutoutsList: Array<CutoutParameters.AsObject>;
     count: number;
     gray: number;
     blur: number;
     sizePower: number;
   };
-=======
-    cutoutsList: Array<CutoutParameters.AsObject>,
-    count: number,
-    gray: number,
-    blur: number,
-    sizePower: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GuidanceScheduleParameters extends jspb.Message {
@@ -777,7 +585,6 @@ export class GuidanceScheduleParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GuidanceScheduleParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GuidanceScheduleParameters
@@ -795,27 +602,13 @@ export class GuidanceScheduleParameters extends jspb.Message {
     message: GuidanceScheduleParameters,
     reader: jspb.BinaryReader
   ): GuidanceScheduleParameters;
-=======
-  static toObject(includeInstance: boolean, msg: GuidanceScheduleParameters): GuidanceScheduleParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GuidanceScheduleParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GuidanceScheduleParameters;
-  static deserializeBinaryFromReader(message: GuidanceScheduleParameters, reader: jspb.BinaryReader): GuidanceScheduleParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace GuidanceScheduleParameters {
   export type AsObject = {
-<<<<<<< HEAD
     duration: number;
     value: number;
   };
-=======
-    duration: number,
-    value: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GuidanceInstanceParameters extends jspb.Message {
@@ -832,14 +625,10 @@ export class GuidanceInstanceParameters extends jspb.Message {
   clearScheduleList(): void;
   getScheduleList(): Array<GuidanceScheduleParameters>;
   setScheduleList(value: Array<GuidanceScheduleParameters>): void;
-<<<<<<< HEAD
   addSchedule(
     value?: GuidanceScheduleParameters,
     index?: number
   ): GuidanceScheduleParameters;
-=======
-  addSchedule(value?: GuidanceScheduleParameters, index?: number): GuidanceScheduleParameters;
->>>>>>> 917d866 (test)
 
   hasCutouts(): boolean;
   clearCutouts(): void;
@@ -853,7 +642,6 @@ export class GuidanceInstanceParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GuidanceInstanceParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: GuidanceInstanceParameters
@@ -871,33 +659,16 @@ export class GuidanceInstanceParameters extends jspb.Message {
     message: GuidanceInstanceParameters,
     reader: jspb.BinaryReader
   ): GuidanceInstanceParameters;
-=======
-  static toObject(includeInstance: boolean, msg: GuidanceInstanceParameters): GuidanceInstanceParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GuidanceInstanceParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GuidanceInstanceParameters;
-  static deserializeBinaryFromReader(message: GuidanceInstanceParameters, reader: jspb.BinaryReader): GuidanceInstanceParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace GuidanceInstanceParameters {
   export type AsObject = {
-<<<<<<< HEAD
     modelsList: Array<Model.AsObject>;
     guidanceStrength: number;
     scheduleList: Array<GuidanceScheduleParameters.AsObject>;
     cutouts?: CutoutParameters.AsObject;
     prompt?: Prompt.AsObject;
   };
-=======
-    modelsList: Array<Model.AsObject>,
-    guidanceStrength: number,
-    scheduleList: Array<GuidanceScheduleParameters.AsObject>,
-    cutouts?: CutoutParameters.AsObject,
-    prompt?: Prompt.AsObject,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class GuidanceParameters extends jspb.Message {
@@ -907,7 +678,6 @@ export class GuidanceParameters extends jspb.Message {
   clearInstancesList(): void;
   getInstancesList(): Array<GuidanceInstanceParameters>;
   setInstancesList(value: Array<GuidanceInstanceParameters>): void;
-<<<<<<< HEAD
   addInstances(
     value?: GuidanceInstanceParameters,
     index?: number
@@ -932,31 +702,13 @@ export class GuidanceParameters extends jspb.Message {
     message: GuidanceParameters,
     reader: jspb.BinaryReader
   ): GuidanceParameters;
-=======
-  addInstances(value?: GuidanceInstanceParameters, index?: number): GuidanceInstanceParameters;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GuidanceParameters.AsObject;
-  static toObject(includeInstance: boolean, msg: GuidanceParameters): GuidanceParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GuidanceParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GuidanceParameters;
-  static deserializeBinaryFromReader(message: GuidanceParameters, reader: jspb.BinaryReader): GuidanceParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace GuidanceParameters {
   export type AsObject = {
-<<<<<<< HEAD
     guidancePreset: GuidancePresetMap[keyof GuidancePresetMap];
     instancesList: Array<GuidanceInstanceParameters.AsObject>;
   };
-=======
-    guidancePreset: GuidancePresetMap[keyof GuidancePresetMap],
-    instancesList: Array<GuidanceInstanceParameters.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class TransformType extends jspb.Message {
@@ -973,7 +725,6 @@ export class TransformType extends jspb.Message {
   getTypeCase(): TransformType.TypeCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TransformType.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: TransformType
@@ -991,27 +742,13 @@ export class TransformType extends jspb.Message {
     message: TransformType,
     reader: jspb.BinaryReader
   ): TransformType;
-=======
-  static toObject(includeInstance: boolean, msg: TransformType): TransformType.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: TransformType, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): TransformType;
-  static deserializeBinaryFromReader(message: TransformType, reader: jspb.BinaryReader): TransformType;
->>>>>>> 917d866 (test)
 }
 
 export namespace TransformType {
   export type AsObject = {
-<<<<<<< HEAD
     diffusion: DiffusionSamplerMap[keyof DiffusionSamplerMap];
     upscaler: UpscalerMap[keyof UpscalerMap];
   };
-=======
-    diffusion: DiffusionSamplerMap[keyof DiffusionSamplerMap],
-    upscaler: UpscalerMap[keyof UpscalerMap],
-  }
->>>>>>> 917d866 (test)
 
   export enum TypeCase {
     TYPE_NOT_SET = 0,
@@ -1063,7 +800,6 @@ export class ImageParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ImageParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ImageParameters
@@ -1081,19 +817,10 @@ export class ImageParameters extends jspb.Message {
     message: ImageParameters,
     reader: jspb.BinaryReader
   ): ImageParameters;
-=======
-  static toObject(includeInstance: boolean, msg: ImageParameters): ImageParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ImageParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ImageParameters;
-  static deserializeBinaryFromReader(message: ImageParameters, reader: jspb.BinaryReader): ImageParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace ImageParameters {
   export type AsObject = {
-<<<<<<< HEAD
     height: number;
     width: number;
     seedList: Array<number>;
@@ -1103,17 +830,6 @@ export namespace ImageParameters {
     parametersList: Array<StepParameter.AsObject>;
     maskedAreaInit: MaskedAreaInitMap[keyof MaskedAreaInitMap];
   };
-=======
-    height: number,
-    width: number,
-    seedList: Array<number>,
-    samples: number,
-    steps: number,
-    transform?: TransformType.AsObject,
-    parametersList: Array<StepParameter.AsObject>,
-    maskedAreaInit: MaskedAreaInitMap[keyof MaskedAreaInitMap],
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ClassifierConcept extends jspb.Message {
@@ -1127,7 +843,6 @@ export class ClassifierConcept extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClassifierConcept.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ClassifierConcept
@@ -1145,27 +860,13 @@ export class ClassifierConcept extends jspb.Message {
     message: ClassifierConcept,
     reader: jspb.BinaryReader
   ): ClassifierConcept;
-=======
-  static toObject(includeInstance: boolean, msg: ClassifierConcept): ClassifierConcept.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClassifierConcept, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClassifierConcept;
-  static deserializeBinaryFromReader(message: ClassifierConcept, reader: jspb.BinaryReader): ClassifierConcept;
->>>>>>> 917d866 (test)
 }
 
 export namespace ClassifierConcept {
   export type AsObject = {
-<<<<<<< HEAD
     concept: string;
     threshold: number;
   };
-=======
-    concept: string,
-    threshold: number,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ClassifierCategory extends jspb.Message {
@@ -1194,7 +895,6 @@ export class ClassifierCategory extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClassifierCategory.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ClassifierCategory
@@ -1212,33 +912,16 @@ export class ClassifierCategory extends jspb.Message {
     message: ClassifierCategory,
     reader: jspb.BinaryReader
   ): ClassifierCategory;
-=======
-  static toObject(includeInstance: boolean, msg: ClassifierCategory): ClassifierCategory.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClassifierCategory, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClassifierCategory;
-  static deserializeBinaryFromReader(message: ClassifierCategory, reader: jspb.BinaryReader): ClassifierCategory;
->>>>>>> 917d866 (test)
 }
 
 export namespace ClassifierCategory {
   export type AsObject = {
-<<<<<<< HEAD
     name: string;
     conceptsList: Array<ClassifierConcept.AsObject>;
     adjustment: number;
     action: ActionMap[keyof ActionMap];
     classifierMode: ClassifierModeMap[keyof ClassifierModeMap];
   };
-=======
-    name: string,
-    conceptsList: Array<ClassifierConcept.AsObject>,
-    adjustment: number,
-    action: ActionMap[keyof ActionMap],
-    classifierMode: ClassifierModeMap[keyof ClassifierModeMap],
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ClassifierParameters extends jspb.Message {
@@ -1259,7 +942,6 @@ export class ClassifierParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClassifierParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ClassifierParameters
@@ -1277,29 +959,14 @@ export class ClassifierParameters extends jspb.Message {
     message: ClassifierParameters,
     reader: jspb.BinaryReader
   ): ClassifierParameters;
-=======
-  static toObject(includeInstance: boolean, msg: ClassifierParameters): ClassifierParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClassifierParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClassifierParameters;
-  static deserializeBinaryFromReader(message: ClassifierParameters, reader: jspb.BinaryReader): ClassifierParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace ClassifierParameters {
   export type AsObject = {
-<<<<<<< HEAD
     categoriesList: Array<ClassifierCategory.AsObject>;
     exceedsList: Array<ClassifierCategory.AsObject>;
     realizedAction: ActionMap[keyof ActionMap];
   };
-=======
-    categoriesList: Array<ClassifierCategory.AsObject>,
-    exceedsList: Array<ClassifierCategory.AsObject>,
-    realizedAction: ActionMap[keyof ActionMap],
-  }
->>>>>>> 917d866 (test)
 }
 
 export class AssetParameters extends jspb.Message {
@@ -1314,7 +981,6 @@ export class AssetParameters extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AssetParameters.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: AssetParameters
@@ -1332,29 +998,14 @@ export class AssetParameters extends jspb.Message {
     message: AssetParameters,
     reader: jspb.BinaryReader
   ): AssetParameters;
-=======
-  static toObject(includeInstance: boolean, msg: AssetParameters): AssetParameters.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AssetParameters, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AssetParameters;
-  static deserializeBinaryFromReader(message: AssetParameters, reader: jspb.BinaryReader): AssetParameters;
->>>>>>> 917d866 (test)
 }
 
 export namespace AssetParameters {
   export type AsObject = {
-<<<<<<< HEAD
     action: AssetActionMap[keyof AssetActionMap];
     projectId: string;
     use: AssetUseMap[keyof AssetUseMap];
   };
-=======
-    action: AssetActionMap[keyof AssetActionMap],
-    projectId: string,
-    use: AssetUseMap[keyof AssetUseMap],
-  }
->>>>>>> 917d866 (test)
 }
 
 export class AnswerMeta extends jspb.Message {
@@ -1380,7 +1031,6 @@ export class AnswerMeta extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AnswerMeta.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: AnswerMeta
@@ -1398,31 +1048,15 @@ export class AnswerMeta extends jspb.Message {
     message: AnswerMeta,
     reader: jspb.BinaryReader
   ): AnswerMeta;
-=======
-  static toObject(includeInstance: boolean, msg: AnswerMeta): AnswerMeta.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AnswerMeta, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AnswerMeta;
-  static deserializeBinaryFromReader(message: AnswerMeta, reader: jspb.BinaryReader): AnswerMeta;
->>>>>>> 917d866 (test)
 }
 
 export namespace AnswerMeta {
   export type AsObject = {
-<<<<<<< HEAD
     gpuId: string;
     cpuId: string;
     nodeId: string;
     engineId: string;
   };
-=======
-    gpuId: string,
-    cpuId: string,
-    nodeId: string,
-    engineId: string,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Answer extends jspb.Message {
@@ -1451,7 +1085,6 @@ export class Answer extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Answer.AsObject;
   static toObject(includeInstance: boolean, msg: Answer): Answer.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1465,18 +1098,10 @@ export class Answer extends jspb.Message {
     message: Answer,
     reader: jspb.BinaryReader
   ): Answer;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Answer, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Answer;
-  static deserializeBinaryFromReader(message: Answer, reader: jspb.BinaryReader): Answer;
->>>>>>> 917d866 (test)
 }
 
 export namespace Answer {
   export type AsObject = {
-<<<<<<< HEAD
     answerId: string;
     requestId: string;
     received: number;
@@ -1484,15 +1109,6 @@ export namespace Answer {
     meta?: AnswerMeta.AsObject;
     artifactsList: Array<Artifact.AsObject>;
   };
-=======
-    answerId: string,
-    requestId: string,
-    received: number,
-    created: number,
-    meta?: AnswerMeta.AsObject,
-    artifactsList: Array<Artifact.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Request extends jspb.Message {
@@ -1544,7 +1160,6 @@ export class Request extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request.AsObject;
   static toObject(includeInstance: boolean, msg: Request): Request.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1558,18 +1173,10 @@ export class Request extends jspb.Message {
     message: Request,
     reader: jspb.BinaryReader
   ): Request;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Request, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Request;
-  static deserializeBinaryFromReader(message: Request, reader: jspb.BinaryReader): Request;
->>>>>>> 917d866 (test)
 }
 
 export namespace Request {
   export type AsObject = {
-<<<<<<< HEAD
     engineId: string;
     requestId: string;
     requestedType: ArtifactTypeMap[keyof ArtifactTypeMap];
@@ -1581,19 +1188,6 @@ export namespace Request {
     weightMethod: WeightMethodMap[keyof WeightMethodMap];
     ucPromptList: Array<Prompt.AsObject>;
   };
-=======
-    engineId: string,
-    requestId: string,
-    requestedType: ArtifactTypeMap[keyof ArtifactTypeMap],
-    promptList: Array<Prompt.AsObject>,
-    image?: ImageParameters.AsObject,
-    classifier?: ClassifierParameters.AsObject,
-    asset?: AssetParameters.AsObject,
-    conditioner?: ConditionerParameters.AsObject,
-    weightMethod: WeightMethodMap[keyof WeightMethodMap],
-    ucPromptList: Array<Prompt.AsObject>,
-  }
->>>>>>> 917d866 (test)
 
   export enum ParamsCase {
     PARAMS_NOT_SET = 0,
@@ -1607,14 +1201,10 @@ export class OnStatus extends jspb.Message {
   clearReasonList(): void;
   getReasonList(): Array<FinishReasonMap[keyof FinishReasonMap]>;
   setReasonList(value: Array<FinishReasonMap[keyof FinishReasonMap]>): void;
-<<<<<<< HEAD
   addReason(
     value: FinishReasonMap[keyof FinishReasonMap],
     index?: number
   ): FinishReasonMap[keyof FinishReasonMap];
-=======
-  addReason(value: FinishReasonMap[keyof FinishReasonMap], index?: number): FinishReasonMap[keyof FinishReasonMap];
->>>>>>> 917d866 (test)
 
   hasTarget(): boolean;
   clearTarget(): void;
@@ -1624,19 +1214,14 @@ export class OnStatus extends jspb.Message {
   clearActionList(): void;
   getActionList(): Array<StageActionMap[keyof StageActionMap]>;
   setActionList(value: Array<StageActionMap[keyof StageActionMap]>): void;
-<<<<<<< HEAD
   addAction(
     value: StageActionMap[keyof StageActionMap],
     index?: number
   ): StageActionMap[keyof StageActionMap];
-=======
-  addAction(value: StageActionMap[keyof StageActionMap], index?: number): StageActionMap[keyof StageActionMap];
->>>>>>> 917d866 (test)
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OnStatus.AsObject;
   static toObject(includeInstance: boolean, msg: OnStatus): OnStatus.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1650,28 +1235,14 @@ export class OnStatus extends jspb.Message {
     message: OnStatus,
     reader: jspb.BinaryReader
   ): OnStatus;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: OnStatus, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OnStatus;
-  static deserializeBinaryFromReader(message: OnStatus, reader: jspb.BinaryReader): OnStatus;
->>>>>>> 917d866 (test)
 }
 
 export namespace OnStatus {
   export type AsObject = {
-<<<<<<< HEAD
     reasonList: Array<FinishReasonMap[keyof FinishReasonMap]>;
     target: string;
     actionList: Array<StageActionMap[keyof StageActionMap]>;
   };
-=======
-    reasonList: Array<FinishReasonMap[keyof FinishReasonMap]>,
-    target: string,
-    actionList: Array<StageActionMap[keyof StageActionMap]>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class Stage extends jspb.Message {
@@ -1691,7 +1262,6 @@ export class Stage extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Stage.AsObject;
   static toObject(includeInstance: boolean, msg: Stage): Stage.AsObject;
-<<<<<<< HEAD
   static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
   static extensionsBinary: {
     [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>;
@@ -1705,28 +1275,14 @@ export class Stage extends jspb.Message {
     message: Stage,
     reader: jspb.BinaryReader
   ): Stage;
-=======
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Stage, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Stage;
-  static deserializeBinaryFromReader(message: Stage, reader: jspb.BinaryReader): Stage;
->>>>>>> 917d866 (test)
 }
 
 export namespace Stage {
   export type AsObject = {
-<<<<<<< HEAD
     id: string;
     request?: Request.AsObject;
     onStatusList: Array<OnStatus.AsObject>;
   };
-=======
-    id: string,
-    request?: Request.AsObject,
-    onStatusList: Array<OnStatus.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export class ChainRequest extends jspb.Message {
@@ -1740,7 +1296,6 @@ export class ChainRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ChainRequest.AsObject;
-<<<<<<< HEAD
   static toObject(
     includeInstance: boolean,
     msg: ChainRequest
@@ -1758,27 +1313,13 @@ export class ChainRequest extends jspb.Message {
     message: ChainRequest,
     reader: jspb.BinaryReader
   ): ChainRequest;
-=======
-  static toObject(includeInstance: boolean, msg: ChainRequest): ChainRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ChainRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ChainRequest;
-  static deserializeBinaryFromReader(message: ChainRequest, reader: jspb.BinaryReader): ChainRequest;
->>>>>>> 917d866 (test)
 }
 
 export namespace ChainRequest {
   export type AsObject = {
-<<<<<<< HEAD
     requestId: string;
     stageList: Array<Stage.AsObject>;
   };
-=======
-    requestId: string,
-    stageList: Array<Stage.AsObject>,
-  }
->>>>>>> 917d866 (test)
 }
 
 export interface FinishReasonMap {
@@ -1908,7 +1449,3 @@ export interface StageActionMap {
 }
 
 export const StageAction: StageActionMap;
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)

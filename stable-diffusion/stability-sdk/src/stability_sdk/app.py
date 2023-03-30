@@ -1,23 +1,13 @@
 from flask import Flask, jsonify, request
-<<<<<<< HEAD
 from client import generateImage
-=======
-from stability_sdk.client import generateImage
->>>>>>> 917d866 (test)
 app = Flask(__name__)
 
 @app.route("/generate" , methods=['POST'])
 def generate():
-<<<<<<< HEAD
   req_body = request.get_json()
   try:
     artifacts = generateImage(
       req_body
-=======
-  try:
-    artifacts = generateImage(
-      request.form
->>>>>>> 917d866 (test)
     )
     return {'artifacts': artifacts}, 200
   except Exception as e:

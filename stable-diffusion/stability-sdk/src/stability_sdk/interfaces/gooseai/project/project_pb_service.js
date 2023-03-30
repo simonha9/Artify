@@ -8,11 +8,7 @@ var ProjectService = (function () {
   function ProjectService() {}
   ProjectService.serviceName = "gooseai.ProjectService";
   return ProjectService;
-<<<<<<< HEAD
 })();
-=======
-}());
->>>>>>> 917d866 (test)
 
 ProjectService.Create = {
   methodName: "Create",
@@ -20,11 +16,7 @@ ProjectService.Create = {
   requestStream: false,
   responseStream: false,
   requestType: project_pb.CreateProjectRequest,
-<<<<<<< HEAD
   responseType: project_pb.Project,
-=======
-  responseType: project_pb.Project
->>>>>>> 917d866 (test)
 };
 
 ProjectService.Update = {
@@ -33,11 +25,7 @@ ProjectService.Update = {
   requestStream: false,
   responseStream: false,
   requestType: project_pb.UpdateProjectRequest,
-<<<<<<< HEAD
   responseType: project_pb.Project,
-=======
-  responseType: project_pb.Project
->>>>>>> 917d866 (test)
 };
 
 ProjectService.List = {
@@ -46,11 +34,7 @@ ProjectService.List = {
   requestStream: false,
   responseStream: true,
   requestType: project_pb.ListProjectRequest,
-<<<<<<< HEAD
   responseType: project_pb.Project,
-=======
-  responseType: project_pb.Project
->>>>>>> 917d866 (test)
 };
 
 ProjectService.Get = {
@@ -59,11 +43,7 @@ ProjectService.Get = {
   requestStream: false,
   responseStream: false,
   requestType: project_pb.GetProjectRequest,
-<<<<<<< HEAD
   responseType: project_pb.Project,
-=======
-  responseType: project_pb.Project
->>>>>>> 917d866 (test)
 };
 
 ProjectService.Delete = {
@@ -72,11 +52,7 @@ ProjectService.Delete = {
   requestStream: false,
   responseStream: false,
   requestType: project_pb.DeleteProjectRequest,
-<<<<<<< HEAD
   responseType: project_pb.Project,
-=======
-  responseType: project_pb.Project
->>>>>>> 917d866 (test)
 };
 
 exports.ProjectService = ProjectService;
@@ -86,15 +62,11 @@ function ProjectServiceClient(serviceHost, options) {
   this.options = options || {};
 }
 
-<<<<<<< HEAD
 ProjectServiceClient.prototype.create = function create(
   requestMessage,
   metadata,
   callback
 ) {
-=======
-ProjectServiceClient.prototype.create = function create(requestMessage, metadata, callback) {
->>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -115,17 +87,12 @@ ProjectServiceClient.prototype.create = function create(requestMessage, metadata
           callback(null, response.message);
         }
       }
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
-<<<<<<< HEAD
     },
   };
 };
@@ -135,13 +102,6 @@ ProjectServiceClient.prototype.update = function update(
   metadata,
   callback
 ) {
-=======
-    }
-  };
-};
-
-ProjectServiceClient.prototype.update = function update(requestMessage, metadata, callback) {
->>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -162,21 +122,13 @@ ProjectServiceClient.prototype.update = function update(requestMessage, metadata
           callback(null, response.message);
         }
       }
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   };
 };
 
@@ -184,11 +136,7 @@ ProjectServiceClient.prototype.list = function list(requestMessage, metadata) {
   var listeners = {
     data: [],
     end: [],
-<<<<<<< HEAD
     status: [],
-=======
-    status: []
->>>>>>> 917d866 (test)
   };
   var client = grpc.invoke(ProjectService.List, {
     request: requestMessage,
@@ -209,11 +157,7 @@ ProjectServiceClient.prototype.list = function list(requestMessage, metadata) {
         handler({ code: status, details: statusMessage, metadata: trailers });
       });
       listeners = null;
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     on: function (type, handler) {
@@ -223,7 +167,6 @@ ProjectServiceClient.prototype.list = function list(requestMessage, metadata) {
     cancel: function () {
       listeners = null;
       client.close();
-<<<<<<< HEAD
     },
   };
 };
@@ -233,13 +176,6 @@ ProjectServiceClient.prototype.get = function get(
   metadata,
   callback
 ) {
-=======
-    }
-  };
-};
-
-ProjectServiceClient.prototype.get = function get(requestMessage, metadata, callback) {
->>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -260,17 +196,12 @@ ProjectServiceClient.prototype.get = function get(requestMessage, metadata, call
           callback(null, response.message);
         }
       }
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
-<<<<<<< HEAD
     },
   };
 };
@@ -280,13 +211,6 @@ ProjectServiceClient.prototype.delete = function pb_delete(
   metadata,
   callback
 ) {
-=======
-    }
-  };
-};
-
-ProjectServiceClient.prototype.delete = function pb_delete(requestMessage, metadata, callback) {
->>>>>>> 917d866 (test)
   if (arguments.length === 2) {
     callback = arguments[1];
   }
@@ -307,26 +231,14 @@ ProjectServiceClient.prototype.delete = function pb_delete(requestMessage, metad
           callback(null, response.message);
         }
       }
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   });
   return {
     cancel: function () {
       callback = null;
       client.close();
-<<<<<<< HEAD
     },
-=======
-    }
->>>>>>> 917d866 (test)
   };
 };
 
 exports.ProjectServiceClient = ProjectServiceClient;
-<<<<<<< HEAD
-=======
-
->>>>>>> 917d866 (test)
