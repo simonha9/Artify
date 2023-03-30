@@ -5,7 +5,6 @@ import { GenerateComponent } from './pages/generate/generate.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
-import { SdViewComponent } from './pages/sd-view/sd-view.component';
 
 const routes: Routes = [
   {
@@ -23,10 +22,6 @@ const routes: Routes = [
   {
     path: 'generation/:id',
     component: GenerationViewComponent,
-  },
-  {
-    path: 'sd-generation',
-    component: SdViewComponent,
   },
 ];
 
