@@ -1,0 +1,34 @@
+<h1 class="header">Stable-diffusion</h1>
+<form (submit)="generate()" class="stable-diffusion-form" [formGroup]="generateForm">
+  <div class="stable-diffusion-form-input">
+    <input
+    formControlName="prompt"
+    type="text"
+    name="prompt"
+    placeholder="Prompt"
+    required
+    />
+    <input
+    formControlName="cfg_scale"
+    type="float"
+    name="cfg_scale"
+    placeholder="cfg scale"
+    />
+    <input
+    formControlName="steps"
+    type="number"
+    name="steps"
+    placeholder="steps"
+    />
+    <input
+    formControlName="samples"
+    type="number"
+    name="samples"
+    placeholder="samples"
+    />
+  </div>
+  <div>
+    <button name="action">Generate Image</button>
+  </div>
+</form>
+<div id="generatedImage"></div>

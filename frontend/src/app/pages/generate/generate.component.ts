@@ -33,5 +33,6 @@ export class GenerateComponent {
 
   onSD(event: any) {
     //kai TODO
+    this.router.navigate(['/sd-generation']);
   }
 }
