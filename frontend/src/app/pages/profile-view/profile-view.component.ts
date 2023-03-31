@@ -39,7 +39,7 @@ export class ProfileViewComponent implements OnInit {
     this.api.getResumes(this.userId).subscribe({
       next: (res: any) => {
         this.resumes = res.resumes;
-        console.log(this.resumes);
+        console.log('These are the resumes ', this.resumes);
       },
       error: (err: any) => {
         console.log(err);

@@ -8,10 +8,27 @@ import { Router } from '@angular/router';
 })
 export class GenerationPreviewComponent {
   @Input() resume: any = {};
+  params: any = {};
 
   constructor(private router: Router) {}
 
-  seeResume(resumeId: string) {
-    this.router.navigate(['/generation', resumeId]);
+  ngOnInit(): void {
+    //Format generation params
+    this.params = {
+      username: this.resume.username,
+      title: this.resume.title,
+      wordCount: this.resume.wordCount,
+      date: this.resume.date,
+      irrationalDenominator: this.resume.irrationalDenominator,
+      frames: this.resume.frames,
+      shapeCount: this.resume.shapeCount,
+      dotSize: this.resume.dotSize,
+      light: this.resume.light,
+      bgColor: this.resume.bgColor,
+    };
+  }
+
+  seeResume() {
+    this.router.navigate(['/generation', this.params]);
   }
 }

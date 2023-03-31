@@ -61,6 +61,6 @@ export class ApiService {
   getUserPDFParams() {}
 
   getResumes(userId: string) {
-    return this.http.get(`${environment.backendUrl}/resumes`);
+    return this.http.get(`${environment.backendUrl}/users/${userId}/resumes`);
   }
 }

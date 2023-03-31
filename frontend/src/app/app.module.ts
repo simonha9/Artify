@@ -14,6 +14,7 @@ import { ProfileViewComponent } from './pages/profile-view/profile-view.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 import { GenerationPreviewComponent } from './components/generation-preview/generation-preview.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import { GenerationPreviewComponent } from './components/generation-preview/gene
     GenerationViewComponent,
     GenerationPreviewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
