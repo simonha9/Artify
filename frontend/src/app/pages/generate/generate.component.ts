@@ -33,6 +33,18 @@ export class GenerateComponent {
 
   onSD(event: any) {
     //kai TODO
-    this.router.navigate(['/sd-generation']);
+    const pdfFile = event.file;
+    const title = event.title;
+    const userId = this.auth.getUserId();
+
+    this.api.uploadPDF(pdfFile, title, userId).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.router.navigate(['/sd-generation', res.id]);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 }

@@ -25,7 +25,7 @@ const routes: Routes = [
     component: GenerationViewComponent,
   },
   {
-    path: 'sd-generation',
+    path: 'sd-generation/:id',
     component: SdViewComponent,
   },
 ];

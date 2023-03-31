@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,10 +7,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './sd-generation.component.html',
   styleUrls: ['./sd-generation.component.scss']
 })
-export class SdGenerationComponent {
-  generateForm: FormGroup;
+export class SdGenerationComponent implements AfterViewInit {
+  @Input() resumeId: string = '';
+  @ViewChild('prompt') prompt!: ElementRef;
 
-  constructor(private api: ApiService, private fb: FormBuilder) {
+  generateForm: FormGroup;
+  images: any[] = [];
+
+  constructor(private api: ApiService, private fb: FormBuilder,) {
     this.generateForm = this.fb.group({
       prompt: ['', Validators.required],
       cfg_scale: [],
@@ -18,16 +22,57 @@ export class SdGenerationComponent {
       samples: [],
     });
   }
+  ngAfterViewInit(): void {
+    this.api.getGeneration(this.resumeId).subscribe({
+      next: (res: any) => {
+
+        for (const key in res) {
+          if (res.hasOwnProperty(key)) {
+            const value = res[key];
+            if(
+              value != null && 
+              value != undefined &&
+              value != "" &&
+              key != "dotSize" &&
+              key != "frames" &&
+              key != "id" &&
+              key != "irrationalDenominator" &&
+              key != "shapeCount" &&
+              key != "user" &&
+              key != "username" &&
+              key != "wordCount" &&
+              key != "LinkedIn" &&
+              key != "Phone" &&
+              key != "Email" &&
+              key != "Github" &&
+              key != "Website"
+
+              )
+              this.prompt.nativeElement.innerHTML += key + ": " + value + "\n";
+          }
+        }
+
+
+        console.log(res);
+      }
+    })
+  }
 
   ngOnInit(): void {
   }
 
   generate() {
-    console.log(this.generateForm.errors);
+    this.images = [];
+    this.generateForm.value.prompt = this.prompt.nativeElement.innerHTML;
+    console.log(this.generateForm.value);
     this.api.generateSD(this.generateForm.value).subscribe({
       next: (res: any) => {
         //TODO: take base64 img res and display it
-        console.log(res);
+
+        res.artifacts.forEach((artifact: any) => {
+          this.images.push("data:image/png;base64," + artifact.image);
+        });
+
       }
     })
   }
