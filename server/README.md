@@ -32,8 +32,9 @@ To get Celery running
    - 'pipenv install eventlet'
 4. Run Celery worker
    - open ANOTHER console
-   - go to root directory of project, this is /project-stomach-pain
+   - go to server directoy, this is /project-stomach-pain/server and then run `pipenv shell`
    - check that rabbitmq is running by above
+   - go back to project directory `cd ..`
    - run 'celery -A server.services.Worker worker -l info -P eventlet'
    - in startup console, look for this line: \[tasks\] . server.services.Worker.addResume and this line: Connected to amqp://guest:\*\*@127.0.0.1:5672//
    - if you get an error make sure you are in the ROOT directory, not in /server (go one level up)
