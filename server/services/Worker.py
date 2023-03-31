@@ -3,6 +3,8 @@ from azure.core.exceptions import ResourceNotFoundError
 from dotenv import find_dotenv, load_dotenv
 from flask_mongoengine import MongoEngine
 from os import environ as env
+import re
+import hashlib
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -56,12 +58,28 @@ def setTaskId(rid, taskId):
 
 def generateP5Config(config, results):
     c = config.copy()
-    ds = '0.' + results['Phone'][-4:] if results['Phone'] else '0.3'
+    digits = re.findall('\d+', results['Phone'])
+    digits = ''.join(digits)
+    ds = '0.' + digits[-4:] if digits else '0.3'
+    light = '0.' + digits[-5:] if digits else '0.7'
     c['dotSize'] = float(ds)
+    c['light'] = float(light)
     c['irrationalDenominator'] = p5Denom[results['Email'].split('@')[1].split('.')[0]] if results['Email'] in p5Denom else p5Denom['default']
     c['shapeCount'] = int(results['wordCount']) * 2
     c['frames'] = len(results['Name']) * 66 if results['Name'] else 66
+    c['bgColor'] = hash_string_to_rgb(results['buzzwords']) if results['buzzwords'] else 'rgb(255, 255, 255)'
     return c
+
+def hash_string_to_rgb(s):
+    # Hash the string using the MD5 algorithm
+    hash_val = hashlib.md5(s.encode('utf-8')).hexdigest()
+
+    # Convert the hash value to RGB color components
+    r = int(hash_val[:2], 16)
+    g = int(hash_val[2:4], 16)
+    b = int(hash_val[4:6], 16)
+
+    return 'rgb(' + str(r) + ', ' + str(g) + ', ' + str(b) + ')'
 
 def getApp():
     return worker

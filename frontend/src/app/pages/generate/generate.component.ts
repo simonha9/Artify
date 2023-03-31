@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./generate.component.scss'],
 })
 export class GenerateComponent {
-  constructor(
-    private router: Router,
-    private api: ApiService,
-    private auth: AuthService
-  ) {}
+  constructor(private api: ApiService, private auth: AuthService) {}
+
+  uploadStatus: string = '';
 
   onP5Spiral(event: any) {
     const pdfFile = event.file;
@@ -23,10 +21,13 @@ export class GenerateComponent {
     this.api.uploadPDF(pdfFile, title, userId).subscribe({
       next: (res: any) => {
         console.log(res);
-        //this.router.navigate(['/generation', genId]);
+        this.uploadStatus =
+          'Upload successful \n Please wait for the generation to complete \n See your profile for the generated art';
       },
       error: (err: any) => {
         console.log(err);
+        this.uploadStatus =
+          'Upload failed \n Please try again with a different resume pdf';
       },
     });
   }

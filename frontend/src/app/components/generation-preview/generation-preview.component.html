@@ -1,7 +1,3 @@
-<div
-  class="generation"
-  id="{{ resume._id.$oid }}"
-  (click)="seeResume(resume._id.$oid)"
->
+<div class="generation" id="{{ resume.id }}" (click)="seeResume()">
   {{ resume.title }}
 </div>

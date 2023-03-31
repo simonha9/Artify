@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+
 import { P5spiral } from 'src/app/classes/p5spiral';
 
 @Component({
@@ -10,34 +11,25 @@ import { P5spiral } from 'src/app/classes/p5spiral';
 })
 export class GenerationViewComponent {
   generationId: string = '';
-  generationTitle: string = '';
-  generationAuthor: string = '';
-  spiral: P5spiral = {
-    dotSize: 0,
-    irrationalDenominator: 0,
-    shapeCount: 0,
-    frames: 0,
-  };
+  generationTitle?: string = '';
+  generationAuthor?: string = '';
+  spiral?: P5spiral;
 
   constructor(private route: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    //Get generation id from params
-    this.generationId = this.route.snapshot.paramMap.get('id') || '';
+    const params = this.route.snapshot.paramMap;
+    console.log(params);
+    this.generationAuthor = params.get('username') || '';
+    this.generationTitle = params.get('title') || '';
 
-    //Get specific generation from backend
-    this.api.getGeneration(this.generationId).subscribe({
-      next: (res: any) => {
-        //Todo - parse the response and set the spiral object which is passed into the p5spiral component
-        console.log('THIS IS THE GENERATION: ', res);
-        this.generationTitle = res.title;
-        this.generationAuthor = res.user;
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
-
-    this.spiral = this.api.getGenerationn(this.generationId);
+    this.spiral = {
+      dotSize: Number(params.get('dotSize')),
+      irrationalDenominator: Number(params.get('irrationalDenominator')),
+      shapeCount: Number(params.get('shapeCount')),
+      frames: Number(params.get('frames')),
+      light: Number(params.get('light')),
+      bgColor: params.get('bgColor') || '',
+    };
   }
 }
