@@ -44,9 +44,8 @@ export class ApiService {
     );
   }
 
-  generateSD(prompt: FormData) {
-    //TODO: implement this when backend is ready
-    return this.http.post(`${environment.sdUrl}/generate`, { prompt });
+  generateSD(body: JSON) {
+    return this.http.post(`${environment.sdUrl}/generate`, body);
   }
 
 
