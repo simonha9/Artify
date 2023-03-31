@@ -23,14 +23,17 @@ export class SdGenerationComponent implements AfterViewInit {
     });
   }
   ngAfterViewInit(): void {
+    this.inputPrompt();
+  }
+
+  inputPrompt() {
     this.api.getGeneration(this.resumeId).subscribe({
       next: (res: any) => {
 
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
             const value = res[key];
-            if(
-              value != null && 
+            /*if (value != null &&
               value != undefined &&
               value != "" &&
               key != "dotSize" &&
@@ -45,15 +48,16 @@ export class SdGenerationComponent implements AfterViewInit {
               key != "Phone" &&
               key != "Email" &&
               key != "Github" &&
-              key != "Website"
-
-              )
+              key != "Website")*/
+              if(value != null &&
+                value != undefined &&
+                value != "" &&
+                key == "Work Experience 1")
               this.prompt.nativeElement.innerHTML += key + ": " + value + "\n";
           }
         }
-
-
-        console.log(res);
+      }, error: (err: any) => {
+        this.inputPrompt();
       }
     })
   }
