@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class GenerationPreviewComponent {
   @Input() resume: any = {};
+  @Input() showUser: boolean = false;
   params: any = {};
 
   constructor(private router: Router) {}
@@ -30,5 +31,9 @@ export class GenerationPreviewComponent {
 
   seeResume() {
     this.router.navigate(['/generation', this.params]);
+  }
+
+  seeProfile() {
+    this.router.navigate(['/profile', this.resume.user]);
   }
 }

@@ -9,14 +9,11 @@ import { catchError } from 'rxjs/operators';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  /*
-  todo - will probabaly replace this with a different request for each type of generation
-  each of them will have a file upload and they should return:
-
-  params for the p5 generation
-  user details for the author
-
-  */
+  searchResumes(keywords: string) {
+    return this.http.get(
+      `${environment.backendUrl}/resumes/search?keywords="${keywords}"`
+    );
+  }
   uploadPDF(file: File, title: string, userId: string) {
     console.log('uploadPDF inside of api.service.ts');
     const formData = new FormData();
@@ -26,16 +23,6 @@ export class ApiService {
       `${environment.backendUrl}/users/${userId}/resumes/upload`,
       formData
     );
-  }
-
-  getGenerationn(generationId: string) {
-    //todo implement this when backend is ready
-    return {
-      dotSize: 0.8,
-      irrationalDenominator: 6.28318530718,
-      shapeCount: 1800,
-      frames: 1000,
-    };
   }
 
   getGeneration(generationId: string) {

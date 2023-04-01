@@ -1,3 +1,7 @@
 <div class="generation" id="{{ resume.id }}" (click)="seeResume()">
   {{ resume.title }}
+
+  <div *ngIf="showUser" class="username" (click)="seeProfile()">
+    {{ resume.username.split("@")[0] }}
+  </div>
 </div>

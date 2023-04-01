@@ -1,11 +1,13 @@
 .generation {
+  position: relative;
   margin: 20px 5px 0px 5px;
   background-color: red;
   width: 180px;
-  height: 130px;
+  height: 100px;
   padding: 10px 10px 10px 10px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -23,5 +25,20 @@
 
 .generation:hover {
   background-color: #2c3639;
+  margin-top: 22.5px;
+  width: 175px;
+  height: 95px;
   cursor: pointer;
+}
+
+.username {
+  top: 81%;
+  position: absolute;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.username:hover {
+  top: 78%;
+  font-size: 15px;
 }

@@ -61,9 +61,7 @@ def getResumes():
 @app.get('/resumes/search')
 @cross_origin(supports_credentials=True)
 def searchResumes():
-    if 'keywords' not in request.args:
-        raise MalformedRequest('keywords query parameter required')
-    query = request.args.get('keywords')
+    query = request.args.get('keywords') if 'keywords' in request.args else None
     return jsonify(resumeService.searchResumes(query))
 
     
