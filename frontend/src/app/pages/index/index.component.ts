@@ -10,5 +10,15 @@ import { OnInit } from '@angular/core';
 export class IndexComponent implements OnInit {
   constructor(private api: ApiService) {}
 
-  ngOnInit(): void {}
+  generations: any = [];
+
+  ngOnInit(): void {
+    //Get all resume generations from backend
+    this.api.searchResumes('').subscribe({
+      next: (res: any) => {
+        this.generations = res;
+        console.log('generations', this.generations);
+      },
+    });
+  }
 }
