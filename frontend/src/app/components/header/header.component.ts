@@ -19,4 +19,8 @@ export class HeaderComponent {
     const userId = this.auth.getUserId();
     this.router.navigate(['/profile', userId]);
   }
+
+  seeHome() {
+    this.router.navigate(['/']);
+  }
 }

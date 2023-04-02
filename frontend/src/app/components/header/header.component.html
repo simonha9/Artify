@@ -4,6 +4,12 @@
   </span>
 
   <div class="buttons">
+    <div
+      id="homeButton"
+      class="button"
+      title="Home page"
+      (click)="seeHome()"
+    ></div>
     <a routerLink="/generate"
       ><div
         id="generateButton"
@@ -11,7 +17,6 @@
         title="Generate art with PDF"
       ></div
     ></a>
-
     <div
       id="profileButton"
       class="button"

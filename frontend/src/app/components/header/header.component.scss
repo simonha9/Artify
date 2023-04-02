@@ -3,6 +3,7 @@
   padding: 10px 40px 10px 40px;
   display: flex;
   justify-content: space-between;
+  transition: all 0.5s ease;
 
   a {
     text-decoration: none;
@@ -51,5 +52,15 @@
     #profileButton {
       -webkit-mask-image: url("../../../assets/icons/profile-svgrepo-com.svg");
     }
+
+    #homeButton {
+      -webkit-mask-image: url("../../../assets/icons/home-1393-svgrepo-com.svg");
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #header {
+    padding: 10px 20px 10px 20px;
   }
 }
