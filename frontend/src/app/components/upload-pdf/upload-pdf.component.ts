@@ -1,8 +1,8 @@
 import {
   FormBuilder,
   FormGroup,
+  FormControl,
   Validators,
-  FormsModule,
 } from '@angular/forms';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
@@ -15,24 +15,31 @@ export class UploadPDFComponent implements OnInit {
   @Output() onP5Spiral = new EventEmitter();
   @Output() onSD = new EventEmitter();
 
-  uploadPDFForm: FormGroup;
+  uploadPDFForm = new FormGroup({
+    pdfTitle: new FormControl('', [Validators.required]),
+    pdfFile: new FormControl(null, [Validators.required]),
+    fileSource: new FormControl('', [Validators.required]),
+  });
 
-  constructor(private fb: FormBuilder) {
-    this.uploadPDFForm = this.fb.group({
-      pdf: ['', Validators.required],
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadPDFForm.patchValue({
+        fileSource: file,
+      });
+    }
+  }
+
   uploadPDF(event: any) {
-    event.preventDefault();
     // Get upload params
-    const title = (document.getElementById('pdfTitle') as HTMLInputElement)
-      .value;
-    const file = (
-      document.getElementById('pdfFile') as HTMLInputElement
-    ).files?.item(0);
+    const title = this.uploadPDFForm.value.pdfTitle;
+    const file = this.uploadPDFForm.get('fileSource')?.value;
+
+    // Reset form
     this.uploadPDFForm.reset();
 
     // Generate based on type chosen

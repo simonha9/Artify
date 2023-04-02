@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange } from '@angular/core';
 import { P5spiral } from 'src/app/classes/p5spiral';
 import * as p5 from 'p5';
 
@@ -8,27 +8,32 @@ import * as p5 from 'p5';
   styleUrls: ['./p5generation.component.scss'],
 })
 export class P5generationComponent {
-  @Input() params: P5spiral = {
-    dotSize: 0,
-    irrationalDenominator: 0,
-    shapeCount: 0,
-    frames: 0,
-  };
-
+  @Input() params: any = null;
   constructor() {}
+  generation?: p5;
+  // Need to manually remove the p5 instance to stop draw loop
+  ngOnDestroy(): void {
+    this.generation?.remove();
+  }
 
-  ngOnInit(): void {
-    console.log(this.params);
+  ngOnChanges(): void {
+    // Generate canvas and render only when recieved params
+    if (!this.params) {
+      return;
+    }
+
+    // P5 spiral variables
+    var dotSize = this.params.dotSize;
+    var radius = Math.sqrt(0.5) + this.params.dotSize;
+    var irrationalDenominator = this.params.irrationalDenominator;
+    var shapeCount = this.params.shapeCount;
+    var frames = this.params.frames;
+    var light = this.params.light;
+    var bgColor = this.params.bgColor;
 
     const sketch = (s: p5) => {
-      const dotSize = this.params.dotSize;
-      const radius = Math.sqrt(0.5) + this.params.dotSize; //add dotsize to prevent popin
-      const irrationalDenominator = this.params.irrationalDenominator;
-      const shapeCount = this.params.shapeCount;
-      const frames = 600;
-
       s.setup = () => {
-        let canvas = s.createCanvas(700, 700);
+        var canvas = s.createCanvas(700, 700);
         canvas.parent('p5display');
         s.noStroke();
         s.colorMode(s.HSL, 1); //this is to make the color values between 0 and 1
@@ -46,7 +51,8 @@ export class P5generationComponent {
         s.scale(s.width, s.height); //normalizes the coordinates for x and y coordinates
         //frameCounts is a p5.js variable that counts the number of frames that have passed
         let time = s.fract(s.frameCount / frames); //keep this a fraction between 0 and 1
-        s.background(0);
+        //s.background(s.color(0.5, 0.2, 0.5));
+        s.background(bgColor);
 
         const count = shapeCount * signalCosine(time);
         for (let i = 0; i < count; i++) {
@@ -64,7 +70,7 @@ export class P5generationComponent {
 
           //Generate color
           var hue = fraction;
-          const light = 0.8;
+
           //reverse color around mouse
           if (s.dist(s.mouseX / 700, s.mouseY / 700, x, y) < 0.3) {
             hue = 1 - fraction;
@@ -79,6 +85,6 @@ export class P5generationComponent {
       };
     };
 
-    new p5(sketch);
+    this.generation = new p5(sketch);
   }
 }

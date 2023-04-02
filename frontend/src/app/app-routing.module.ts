@@ -21,7 +21,7 @@ const routes: Routes = [
     component: ProfileViewComponent,
   },
   {
-    path: 'generation/:id',
+    path: 'generation',
     component: GenerationViewComponent,
   },
   {

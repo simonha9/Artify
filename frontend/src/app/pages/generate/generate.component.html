@@ -1,3 +1,11 @@
 <div class="page-title">Generate</div>
 <app-upload-pdf (onP5Spiral)="onP5Spiral($event)" (onSD)="onSD($event)">
 </app-upload-pdf>
+
+<div class="upload-status">
+  <div>
+    {{ uploadStatus }}
+    <!-- Upload successful <br>
+        Please wait for the generation to complete -->
+  </div>
+</div>

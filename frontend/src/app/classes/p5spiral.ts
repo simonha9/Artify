@@ -3,4 +3,6 @@ export interface P5spiral {
   irrationalDenominator: number;
   shapeCount: number;
   frames: number;
+  light: number;
+  bgColor: string;
 }
