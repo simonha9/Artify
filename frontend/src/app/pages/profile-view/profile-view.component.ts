@@ -11,6 +11,7 @@ import { Profile } from 'src/app/classes/profile';
 export class ProfileViewComponent implements OnInit {
   currentUserDetails: Profile = { id: '', username: '', email: '' };
   resumes = [];
+  loadStatusMessage: string = 'Loading user generations...';
   //Router param
   userId: string = '';
 
@@ -38,11 +39,17 @@ export class ProfileViewComponent implements OnInit {
     //Get user resume generations from backend
     this.api.getResumes(this.userId).subscribe({
       next: (res: any) => {
-        this.resumes = res.resumes;
-        console.log('These are the resumes ', this.resumes);
+        if (res.resumes.length > 0) {
+          this.loadStatusMessage = '';
+          this.resumes = res.resumes;
+          console.log('These are the resumes ', res);
+        } else {
+          this.loadStatusMessage = 'No generations found';
+        }
       },
       error: (err: any) => {
         console.log(err);
+        this.loadStatusMessage = 'Error loading generations';
       },
     });
   }

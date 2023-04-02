@@ -21,7 +21,7 @@ export class UploadPDFComponent implements OnInit {
     fileSource: new FormControl('', [Validators.required]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -35,6 +35,10 @@ export class UploadPDFComponent implements OnInit {
   }
 
   uploadPDF(event: any) {
+    if (this.uploadPDFForm.invalid) {
+      return;
+    }
+
     // Get upload params
     const title = this.uploadPDFForm.value.pdfTitle;
     const file = this.uploadPDFForm.get('fileSource')?.value;
