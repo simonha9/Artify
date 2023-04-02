@@ -1,0 +1,48 @@
+#search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+
+  #keywords {
+    height: 30px;
+    width: 40%;
+    padding: 3px 3px 3px 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Montserrat";
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+
+  #keywords:focus {
+    outline: none;
+    width: 60%;
+  }
+
+  #search-submit {
+    background: none;
+    border: none;
+    padding: none;
+
+    #search-icon {
+      margin-top: -4px;
+      margin-left: -7.5px;
+      background-color: #2c3639;
+      height: 60px;
+      width: 60px;
+      transition: all 0.2s ease;
+
+      -webkit-mask-size: 70%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-image: url("../../../assets/icons/search-svgrepo-com.svg");
+    }
+
+    #search-icon:hover {
+      -webkit-mask-size: 85%;
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+}

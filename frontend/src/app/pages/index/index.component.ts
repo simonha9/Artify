@@ -11,12 +11,36 @@ export class IndexComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   generations: any = [];
+  searchStatusMessage: string = 'Loading resume generations...';
 
   ngOnInit(): void {
     //Get all resume generations from backend
     this.api.searchResumes('').subscribe({
       next: (res: any) => {
         this.generations = res;
+        this.searchStatusMessage = '';
+        //todo remove
+        console.log('generations', this.generations);
+      },
+    });
+  }
+
+  onSearch(event: any) {
+    //Searching... frontend message
+    this.searchStatusMessage = 'Searching...';
+    this.generations = [];
+
+    //Perform search call
+    const keywords = event.keywords;
+    this.api.searchResumes(keywords).subscribe({
+      next: (res: any) => {
+        if (res.length === 0) {
+          this.searchStatusMessage = 'No results found';
+        } else {
+          this.searchStatusMessage = '';
+          this.generations = res;
+        }
+        //todo remove
         console.log('generations', this.generations);
       },
     });

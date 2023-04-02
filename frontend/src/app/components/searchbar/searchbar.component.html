@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm" id="search-form" (ngSubmit)="onSearchSubmit()">
+  <input
+    type="text"
+    placeholder="Search generations"
+    formControlName="keywords"
+    id="keywords"
+    required
+  />
+  <button type="submit" id="search-submit" class="btn">
+    <div id="search-icon"></div>
+  </button>
+</form>

@@ -1,8 +1,14 @@
-<div class="bold">All Generations</div>
-<div id="search-bar">todo search-bar (-----------)</div>
+<div class="page-title">Home</div>
+<app-searchbar (onSearch)="onSearch($event)"> </app-searchbar>
 <div id="all-generations">
   <div *ngFor="let generation of generations">
     <app-generation-preview [showUser]="true" [resume]="generation">
     </app-generation-preview>
+  </div>
+</div>
+
+<div id="search-status">
+  <div>
+    {{ searchStatusMessage }}
   </div>
 </div>
