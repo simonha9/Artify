@@ -17,3 +17,9 @@ router-outlet {
   background-color: #dcd7c9;
   transition: all 0.5s ease;
 }
+
+@media screen and (max-width: 500px) {
+  #page-container {
+    margin: 20px;
+  }
+}
