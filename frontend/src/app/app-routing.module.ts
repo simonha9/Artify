@@ -6,6 +6,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { GenerationViewComponent } from './pages/generation-view/generation-view.component';
 import { SdViewComponent } from './pages/sd-view/sd-view.component';
+import { CreditsComponent } from './pages/credits/credits.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'sd-generation/:id',
     component: SdViewComponent,
+  },
+  {
+    path: 'credits',
+    component: CreditsComponent,
   },
 ];
 

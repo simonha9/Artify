@@ -23,4 +23,8 @@ export class HeaderComponent {
   seeHome() {
     this.router.navigate(['/']);
   }
+
+  seeCredits() {
+    this.router.navigate(['/credits']);
+  }
 }
