@@ -34,16 +34,19 @@ export class ApiService {
 
   //generate resume analysis with timeout
   getGenerationTimeout(generationId: string, timeout: number): Observable<any> {
-    return new Observable(observer => {
+    return new Observable((observer) => {
       setTimeout(() => {
-        this.http.get(
-          `${environment.backendUrl}/resumes/${generationId}/analyze`
-        ).subscribe(data => {
-          observer.next(data);
-          observer.complete();
-        }, error => {
-          observer.error(error);
-        });
+        this.http
+          .get(`${environment.backendUrl}/resumes/${generationId}/analyze`)
+          .subscribe(
+            (data) => {
+              observer.next(data);
+              observer.complete();
+            },
+            (error) => {
+              observer.error(error);
+            }
+          );
       }, timeout);
     });
   }
@@ -51,7 +54,6 @@ export class ApiService {
   generateSD(body: JSON) {
     return this.http.post(`${environment.sdUrl}/generate`, body);
   }
-
 
   getAuth() {
     return this.http.get(`${environment.backendUrl}/users/profile`);

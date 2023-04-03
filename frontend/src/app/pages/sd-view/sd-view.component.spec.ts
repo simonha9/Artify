@@ -8,9 +8,8 @@ describe('SdViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SdViewComponent ]
-    })
-    .compileComponents();
+      declarations: [SdViewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SdViewComponent);
     component = fixture.componentInstance;

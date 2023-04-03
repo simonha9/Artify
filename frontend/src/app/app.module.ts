@@ -16,7 +16,7 @@ import { GenerationViewComponent } from './pages/generation-view/generation-view
 import { GenerationPreviewComponent } from './components/generation-preview/generation-preview.component';
 import { SdGenerationComponent } from './components/sd-generation/sd-generation.component';
 import { SdViewComponent } from './pages/sd-view/sd-view.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
@@ -36,7 +36,13 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     SdViewComponent,
     SearchbarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

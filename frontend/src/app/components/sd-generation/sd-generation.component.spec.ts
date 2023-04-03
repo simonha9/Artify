@@ -8,9 +8,8 @@ describe('SdGenerationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SdGenerationComponent ]
-    })
-    .compileComponents();
+      declarations: [SdGenerationComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SdGenerationComponent);
     component = fixture.componentInstance;
