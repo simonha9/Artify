@@ -24,6 +24,7 @@ export class ApiInterceptor implements HttpInterceptor {
       withCredentials: true,
       headers: request.headers.set('Access-Control-Allow-Origin', '*'),
     });
+    newReq.headers.set('Access-Control-Allow-Credentials', 'true');
     return next.handle(newReq);
   }
 }

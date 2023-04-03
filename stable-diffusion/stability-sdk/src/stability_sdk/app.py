@@ -1,6 +1,9 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from client import generateImage
+from flask_cors import CORS
 app = Flask(__name__)
+
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 @app.route("/generate" , methods=['POST'])
 def generate():

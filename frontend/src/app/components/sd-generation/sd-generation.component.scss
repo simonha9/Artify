@@ -1,0 +1,26 @@
+.stable-diffusion-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  &-input {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.stable-diffusion-prompt {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}

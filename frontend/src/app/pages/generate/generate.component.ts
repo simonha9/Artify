@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./generate.component.scss'],
 })
 export class GenerateComponent {
-  constructor(private api: ApiService, private auth: AuthService) {}
+  constructor(
+    private api: ApiService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   uploadStatus: string = '';
 
@@ -34,5 +38,18 @@ export class GenerateComponent {
 
   onSD(event: any) {
     //kai TODO
+    const pdfFile = event.file;
+    const title = event.title;
+    const userId = this.auth.getUserId();
+
+    this.api.uploadPDF(pdfFile, title, userId).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.router.navigate(['/sd-generation', res.id]);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 }

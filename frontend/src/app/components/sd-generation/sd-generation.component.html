@@ -1,0 +1,44 @@
+<h1 class="header">Stable-diffusion</h1>
+<div #loading>Parsing Resume for Keywords...</div>
+<textarea
+  #prompt
+  class="stable-diffusion-prompt hidden"
+  type="text"
+  name="prompt"
+  rows="20"
+  placeholder="Keywords from resume"
+  required
+></textarea>
+<form
+  (submit)="generate()"
+  class="stable-diffusion-form hidden"
+  [formGroup]="generateForm"
+  #form
+>
+  <div class="stable-diffusion-form-input">
+    <input
+      formControlName="cfg_scale"
+      type="float"
+      name="cfg_scale"
+      placeholder="guidance scale"
+    />
+    <input
+      formControlName="steps"
+      type="number"
+      name="steps"
+      placeholder="steps"
+    />
+    <input
+      formControlName="samples"
+      type="number"
+      name="samples"
+      placeholder="samples"
+    />
+  </div>
+  <div>
+    <button name="action">Generate Image</button>
+  </div>
+</form>
+<div id="myImages" *ngFor="let image of images" #myImages>
+  <img [src]="image" alt="Image" />
+</div>
