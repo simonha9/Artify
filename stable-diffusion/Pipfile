@@ -23,6 +23,7 @@ stability-sdk = {editable = true, ref = "f01a6475fe26a23ce0b00620834cbf7bc5d0894
 virtualenv = "==20.21.0"
 virtualenvwrapper-win = "==1.2.7"
 werkzeug = "==2.2.3"
+flask-cors = "*"
 
 [dev-packages]
 
