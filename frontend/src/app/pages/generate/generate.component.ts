@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./generate.component.scss'],
 })
 export class GenerateComponent {
-  constructor(private api: ApiService, private auth: AuthService) {}
+  constructor(private api: ApiService, private auth: AuthService, private router: Router) {}
 
   uploadStatus: string = '';
 

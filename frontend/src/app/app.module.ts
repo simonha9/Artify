@@ -17,7 +17,7 @@ import { GenerationPreviewComponent } from './components/generation-preview/gene
 import { SdGenerationComponent } from './components/sd-generation/sd-generation.component';
 import { SdViewComponent } from './pages/sd-view/sd-view.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     GenerationPreviewComponent,
     SdGenerationComponent,
     SdViewComponent,
+    SearchbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [

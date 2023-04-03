@@ -1,7 +1,8 @@
 <h1 class="header">Stable-diffusion</h1>
+<div #loading>Parsing Resume for Keywords...</div>
 <textarea
   #prompt
-  class="stable-diffusion-prompt"
+  class="stable-diffusion-prompt hidden"
   type="text"
   name="prompt"
   rows="20"
@@ -9,7 +10,7 @@
   required
 >
 </textarea>
-<form (submit)="generate()" class="stable-diffusion-form" [formGroup]="generateForm">
+<form (submit)="generate()" class="stable-diffusion-form hidden" [formGroup]="generateForm" #form>
   <div class="stable-diffusion-form-input">
     <input
     formControlName="cfg_scale"

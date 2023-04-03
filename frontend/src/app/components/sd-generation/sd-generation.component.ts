@@ -10,6 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SdGenerationComponent implements AfterViewInit {
   @Input() resumeId: string = '';
   @ViewChild('prompt') prompt!: ElementRef;
+  @ViewChild('form') form!: ElementRef;
+  @ViewChild('loading') loading!: ElementRef;
+  parseAttempts = 0;
 
   generateForm: FormGroup;
   images: any[] = [];
@@ -27,28 +30,12 @@ export class SdGenerationComponent implements AfterViewInit {
   }
 
   inputPrompt() {
-    this.api.getGeneration(this.resumeId).subscribe({
+    this.api.getGenerationTimeout(this.resumeId, 4000).subscribe({
       next: (res: any) => {
 
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
             const value = res[key];
-            /*if (value != null &&
-              value != undefined &&
-              value != "" &&
-              key != "dotSize" &&
-              key != "frames" &&
-              key != "id" &&
-              key != "irrationalDenominator" &&
-              key != "shapeCount" &&
-              key != "user" &&
-              key != "username" &&
-              key != "wordCount" &&
-              key != "LinkedIn" &&
-              key != "Phone" &&
-              key != "Email" &&
-              key != "Github" &&
-              key != "Website")*/
               if(value != null &&
                 value != undefined &&
                 value != "" &&
@@ -56,8 +43,17 @@ export class SdGenerationComponent implements AfterViewInit {
               this.prompt.nativeElement.innerHTML += key + ": " + value + "\n";
           }
         }
+        this.prompt.nativeElement.classList.remove("hidden");
+        this.form.nativeElement.classList.remove("hidden");
+        this.loading.nativeElement.classList.add("hidden");
       }, error: (err: any) => {
-        this.inputPrompt();
+        if(this.parseAttempts < 10) {
+          this.inputPrompt();
+        }
+        else {
+          this.loading.nativeElement.innerHTML = "Failed to parse resume. Please try again later.";
+        }
+        this.parseAttempts++;
       }
     })
   }
