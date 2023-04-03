@@ -24,8 +24,6 @@ On the backend, there will be use of pdf parsing and form recognizing technology
   - Used to generate abstract art from the user inputted pdfs/raw text.
 - form recognizer (1)
   - For parsing of the pdf. Can be used to obtain quantitative values for image generation purposes.
-- pdf.js (2)
-  - to show the pdf on browser alongside generated art (before and after)
 - auth0 (1)
   - For user authentication and RBAC
 - blob storage (1)
