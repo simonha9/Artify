@@ -18,6 +18,7 @@ import { SdGenerationComponent } from './components/sd-generation/sd-generation.
 import { SdViewComponent } from './pages/sd-view/sd-view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { CreditsComponent } from './pages/credits/credits.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     SdGenerationComponent,
     SdViewComponent,
     SearchbarComponent,
+    CreditsComponent,
   ],
   imports: [
     BrowserModule,
