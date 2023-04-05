@@ -56,7 +56,9 @@ export class ApiService {
   }
 
   getAuth() {
-    return this.http.get(`${environment.backendUrl}/users/profile`, {withCredentials: true});
+    return this.http.get(`${environment.backendUrl}/users/profile`, {
+      withCredentials: true,
+    });
   }
 
   getUsers() {
