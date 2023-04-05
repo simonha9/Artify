@@ -1,10 +1,11 @@
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
+from functools import wraps
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, request, jsonify, redirect, session, url_for
+from flask import Flask, request, jsonify, redirect, session, url_for, abort
 from flask_mongoengine import MongoEngine
 from flask_cors import CORS, cross_origin
 import meilisearch
@@ -49,6 +50,30 @@ meilisearchService.create_index('tasks', {
     'primaryKey': 'rid',
 })
 
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = None
+        if 'Authorization' in request.headers:
+            parts = request.headers['Authorization'].split()
+            if len(parts) == 2 and parts[0].lower() == 'bearer':
+                token = parts[1]
+
+        if not token:
+            abort(401)
+
+        try:
+            payload = auth0.api_client.verify_jwt(
+                token,
+                algorithms=['RS256'],
+                audience='https://dev-krwoywe0p7brgud1.us.auth0.com/api/v2/',
+            )
+        except:
+            abort(401)
+
+        return f(payload, *args, **kwargs)
+
+    return decorated
 
 from .routes import UserRoutes, ResumeRoutes
 
