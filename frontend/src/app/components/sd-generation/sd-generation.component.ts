@@ -71,11 +71,8 @@ export class SdGenerationComponent implements AfterViewInit {
   generate() {
     this.images = [];
     this.generateForm.value.prompt = this.prompt.nativeElement.innerHTML;
-    console.log(this.generateForm.value);
     this.api.generateSD(this.generateForm.value).subscribe({
       next: (res: any) => {
-        //TODO: take base64 img res and display it
-
         res.artifacts.forEach((artifact: any) => {
           this.images.push('data:image/png;base64,' + artifact.image);
         });

@@ -24,12 +24,10 @@ export class GenerateComponent {
 
     this.api.uploadPDF(pdfFile, title, userId).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.uploadStatus =
           'Upload successful \n Please wait for the generation to complete \n See your profile for the generated art';
       },
       error: (err: any) => {
-        console.log(err);
         this.uploadStatus =
           'Upload failed \n Please try again with a different resume pdf';
       },
@@ -44,11 +42,7 @@ export class GenerateComponent {
 
     this.api.uploadPDF(pdfFile, title, userId).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.router.navigate(['/sd-generation', res.id]);
-      },
-      error: (err: any) => {
-        console.log(err);
       },
     });
   }

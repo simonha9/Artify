@@ -52,8 +52,6 @@ export class UploadPDFComponent implements OnInit {
     } else if (event.submitter.name === 'sd') {
       //kai TODO
       this.onSD.emit({ file: file, title: title });
-    } else {
-      console.log('Error: unrecognized submitter name');
     }
   }
 }

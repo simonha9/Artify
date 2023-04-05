@@ -1,9 +1,7 @@
 <app-header> </app-header>
 
 <div id="page-center">
-  <div id="page-container">
+  <div *ngIf="isLoggedIn" id="page-container">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-<app-footer> </app-footer>

@@ -58,7 +58,10 @@ def setTaskId(rid, taskId):
 
 def generateP5Config(config, results):
     c = config.copy()
-    digits = re.findall('\d+', results['Phone'])
+    phoneNumber = "2891234567"
+    if results['Phone']:
+        phoneNumber = results['Phone']
+    digits = re.findall('\d+', phoneNumber)
     digits = ''.join(digits)
     ds = '0.' + digits[-4:] if digits else '0.3'
     light = '0.' + digits[-5:] if digits else '0.7'

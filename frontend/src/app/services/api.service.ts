@@ -16,7 +16,6 @@ export class ApiService {
     );
   }
   uploadPDF(file: File, title: string, userId: string) {
-    console.log('uploadPDF inside of api.service.ts');
     const formData = new FormData();
     formData.append('file', file);
     formData.append('title', title);
@@ -61,17 +60,9 @@ export class ApiService {
     });
   }
 
-  getUsers() {
-    return this.http.get(`${environment.backendUrl}/users`);
-  }
-
   getUserDetails(userId: string) {
     return this.http.get(`${environment.backendUrl}/users/${userId}`);
   }
-
-  getUserPDFsSummary() {}
-
-  getUserPDFParams() {}
 
   getResumes(userId: string) {
     return this.http.get(`${environment.backendUrl}/users/${userId}/resumes`);

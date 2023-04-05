@@ -19,8 +19,6 @@ export class IndexComponent implements OnInit {
       next: (res: any) => {
         this.generations = res;
         this.searchStatusMessage = '';
-        //todo remove
-        console.log('generations', this.generations);
       },
     });
   }
@@ -40,8 +38,6 @@ export class IndexComponent implements OnInit {
           this.searchStatusMessage = '';
           this.generations = res;
         }
-        //todo remove
-        console.log('generations', this.generations);
       },
     });
   }
