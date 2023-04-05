@@ -6,7 +6,6 @@ Note: We spent so much time on Stable Diffusion for Challenge Points we forgot a
 
 Demo: https://www.youtube.com/watch?v=gm1Y7JOpT40
 
-
 ### Team Name: stomach pain
 
 ## Focus
