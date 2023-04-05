@@ -1,5 +1,8 @@
 # Project Title: Zusa
 
+Site here: http://www.zusa.works/
+Note: We spent so much time on Stable Diffusion for Challenge Points we forgot about SSL
+
 ### Team Name: stomach pain
 
 ## Focus
