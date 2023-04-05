@@ -7,7 +7,7 @@ from os import environ as env
 class FormRecognizerService:
     __instance = None
     endpoint = env.get('MS_FORM_RECOGNIZER_ENDPOINT')
-    key = env.get('MS_FORM_RECOGNIZER_key')
+    key = env.get('MS_FORM_RECOGNIZER_KEY')
     custom_model_id = env.get('MS_FORM_RECOGNIZER_CUSTOM_MODEL_ID')
     document_analysis_client = None
     document_model_administration_client = None

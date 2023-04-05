@@ -4,7 +4,6 @@ from server import app, oauth, env, meilisearchService
 from azure.core.exceptions import ResourceNotFoundError
 from server.errors.ResumeNotFoundError import ResumeNotFoundError
 from server.errors.ServerError import ServerError
-from meilisearch.errors import MeiliSearchApiError
 from celery.result import AsyncResult
 from server.services.Worker import addResume, setTaskId, getApp
 import io, base64, uuid
@@ -35,7 +34,7 @@ class ResumeService:
         try:
             resume = meilisearchService.index('resumes').get_document(id)._Document__doc
             return resume
-        except MeiliSearchApiError:
+        except Exception:
             raise ResumeNotFoundError('Resume not found in meilisearch')
 
     def parseResumeResults(self, results):
@@ -71,7 +70,10 @@ class ResumeService:
             raise ServerError('Could not save resume to mongo: ' + str(e))
 
     def getUserResumes(self, userId):
-        return meilisearchService.index('resumes').search(userId)['hits']
+        return meilisearchService.index('resumes').search(userId, {
+            'filter': ['user = ' + str(userId)],
+            'matchingStrategy': 'all'
+        })['hits']
     
     def uploadResume(self, rid, file, metadata):
         try:
@@ -86,5 +88,5 @@ class ResumeService:
             worker = getApp()
             result = AsyncResult(document['task'], app=worker)
             return result.state
-        except MeiliSearchApiError:
+        except Exception:
             raise ServerError('Task not found, try again later')

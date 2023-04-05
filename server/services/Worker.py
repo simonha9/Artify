@@ -20,7 +20,7 @@ worker.conf.task_ignore_result = False
 
 fr = FormRecognizerService.getInstance()
 bs = BlobStorageService.getInstance()
-meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700')
+meilisearchService = meilisearch.Client('http://67.207.76.177:7700')
 
 p5Denom = {
     'yahoo': '6.28318530718',

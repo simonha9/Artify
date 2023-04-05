@@ -17,9 +17,9 @@ if ENV_FILE:
 app = Flask(__name__, instance_relative_config=True)
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 app.config.from_mapping(
-    SECRET_KEY= env.get('SECRET_KEY') or 'dev',
+    SECRET_KEY = env.get('SECRET_KEY') or 'dev',
     MONGODB_SETTINGS = {
-        'host': env.get('MONGODB_URI') or 'mongodb://localhost:27017'
+        'host': env.get('MONGODB_URI') or 'mongodb://0.0.0.0:27017'
     }
 )
 oauth = OAuth(app)
@@ -37,13 +37,20 @@ oauth.register(
 )
 
 db = MongoEngine(app)
-meilisearchService = meilisearch.Client(env.get('MEILISEARCH_URL') or 'http://localhost:7700')
+msendpoint = env.get('MEILISEARCH_URI') or 'http://0.0.0.0:7700'
+meilisearchService = meilisearch.Client(msendpoint)
 meilisearchService.create_index('resumes')
+meilisearchService.index('resumes').update_settings({
+    'filterableAttributes': [
+        'user'
+    ]
+})
 meilisearchService.create_index('tasks', {
     'primaryKey': 'rid',
 })
 
-from server.routes import UserRoutes, ResumeRoutes
+
+from .routes import UserRoutes, ResumeRoutes
 
 from server.errors.InvalidObjectIdError import InvalidObjectIdError
 from server.errors.ServerError import ServerError

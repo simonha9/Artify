@@ -27,7 +27,6 @@ def login_callback():
     oauth.auth0.authorize_access_token()
     userinfo = oauth.auth0.get('userinfo').json()
     session['jwt_token'] = oauth.auth0.token['access_token']
-
     user = userService.findUserByEmail(userinfo['email'])
     if user is None:
         user = userService.addUser(userinfo['email'])

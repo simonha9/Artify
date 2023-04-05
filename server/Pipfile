@@ -17,6 +17,7 @@ meilisearch = "*"
 celery = "*"
 eventlet = "*"
 flask-pymongo = "*"
+azure-storage-blob = "*"
 
 [dev-packages]
 
