@@ -29,10 +29,6 @@ export class ProfileViewComponent implements OnInit {
           username: res.user.email.split('@')[0],
           email: res.user.email,
         };
-        console.log(this.currentUserDetails);
-      },
-      error: (err: any) => {
-        console.log(err);
       },
     });
 
@@ -42,13 +38,11 @@ export class ProfileViewComponent implements OnInit {
         if (res.resumes.length > 0) {
           this.loadStatusMessage = '';
           this.resumes = res.resumes;
-          console.log('These are the resumes ', res);
         } else {
           this.loadStatusMessage = 'No generations found';
         }
       },
       error: (err: any) => {
-        console.log(err);
         this.loadStatusMessage = 'Error loading generations';
       },
     });

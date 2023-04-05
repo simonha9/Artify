@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  isLoggedIn: boolean = false;
+
   constructor(private api: ApiService, private auth: AuthService) {}
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class AppComponent implements OnInit {
     this.api.getAuth().subscribe({
       next: (res: any) => {
         this.auth.setUserId(res.id);
-        console.log('Logged in as ', res); //todo remove
+        this.isLoggedIn = true;
       },
       error: (err: any) => {
         window.location.href = `${environment.backendUrl}/login`;

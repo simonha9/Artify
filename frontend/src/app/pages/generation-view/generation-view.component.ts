@@ -19,7 +19,6 @@ export class GenerationViewComponent {
 
   ngOnInit() {
     const params = this.route.snapshot.paramMap;
-    console.log(params);
     this.generationAuthor = params.get('username') || '';
     this.generationTitle = params.get('title') || '';
 
