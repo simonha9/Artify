@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backendUrl: 'http://www.zusa.works:8080',
+  backendUrl: 'https://www.zusa.works/api',
   sdUrl: 'http://161.35.252.141:8000',
 };

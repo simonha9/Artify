@@ -18,7 +18,7 @@ userService = UserService()
 @cross_origin(supports_credentials=True)
 def login():
     return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for('login_callback', _external=True), 
+        redirect_uri='https://www.zusa.works/api/login-callback', 
         audience='https://dev-krwoywe0p7brgud1.us.auth0.com/api/v2/')
 
 @app.route('/login-callback')

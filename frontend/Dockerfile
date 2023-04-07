@@ -14,7 +14,7 @@ FROM nginx:1.21.6-alpine
 COPY --from=build /app/dist/frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+EXPOSE 70
 EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]

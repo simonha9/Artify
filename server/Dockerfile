@@ -23,3 +23,4 @@ ENV FLASK_APP=__init__.py
 
 # Set the entry point command for the container
 CMD rabbitmq-server -detached && chmod +x /server/start_celery.sh && /server/start_celery.sh && flask run --host=0.0.0.0 --port 8080
+# CMD flask run --host=0.0.0.0 --port 8080
