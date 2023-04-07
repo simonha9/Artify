@@ -2,9 +2,12 @@
 
 Site here: http://www.zusa.works/
 
-Note: We spent so much time on Stable Diffusion for Challenge Points we forgot about SSL
-
 Demo: https://www.youtube.com/watch?v=gm1Y7JOpT40
+
+Feel free to watch the demo on how to use the application, notice that upon upload, user may have to wait up to 10-15 seconds for the image to be generated. Also note that Microsoft FormRecognizer and Stable Diffusion services may go down at any point and should be checked whether their services are up below:
+
+Microsoft: https://portal.azure.com/#home
+Stable Diffusion: https://beta.dreamstudio.ai/account
 
 ### Team Name: stomach pain
 
